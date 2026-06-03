@@ -15,8 +15,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Tripora | Bespoke Luxury Travel",
-  description: "Experience travel defined by heritage, exclusivity, and profound quietude. Curated for the few who understand that the ultimate luxury is silence.",
+  title: "Tripora | Luxury Travel Kerala & India",
+  description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
 };
 
 export default function RootLayout({

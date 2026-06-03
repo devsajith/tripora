@@ -11,7 +11,7 @@ export default function DetailsPage() {
   const [checkOut, setCheckOut] = useState("2026-10-29");
   const [guests, setGuests] = useState("2 Adults, 0 Children");
   const [isBooked, setIsBooked] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(22970);
+  const [totalPrice, setTotalPrice] = useState(20970);
   
   // Mobile sheet toggle
   const [mobilePanelOpen, setMobilePanelOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function DetailsPage() {
     const d2 = new Date(checkOut);
     const timeDiff = d2.getTime() - d1.getTime();
     const nights = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
-    const base = nights * 4200;
+    const base = nights * 3800; // Munnar rate is $3,800
     const concierge = 850;
     const tax = Math.round(base * 0.05);
     setTotalPrice(base + concierge + tax);
@@ -32,8 +32,8 @@ export default function DetailsPage() {
     // Save reservation to localStorage so dashboard can read it
     const newReservation = {
       id: "booking-" + Date.now(),
-      title: "Alpine Summit Excellence",
-      loc: "Zermatt, Switzerland",
+      title: "Munnar Tea Estate Sanctuary",
+      loc: "Munnar, Kerala, India",
       dates: `${new Date(checkIn).toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -43,7 +43,7 @@ export default function DetailsPage() {
         year: "numeric",
       })}`,
       status: "UPCOMING",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDiosXibi6dC1TfBEhFcW2RI4XTVMLwnp0aIuxLN0ZzgZ5V32rF5wygA4VeP_Y3dgIDdkUInmlQzVGm-AEzdSa4VEPhr12b6S6DYNanPWbh8wKua7MOW0uq60d-u63N9WZzcFFvWkndMFpELI3OmIuwlyGkOUmkGzRAj0YJF2ZTndWBzbjgz71SpVKeCyATz3qn3v0K4LZGwIkUwG3WeaNOY-3mRRzOUKe-UQ_uRsa8gNHYTkUZs3cGokGkfnEKthx3hKIDZl8V61Y",
+      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9-tRLh1ZCHPXJ3DjzNGto_IHAcCxh6V-TN9WYbPeBZaLKd0s-lt58FqgFav5kmLG85EshJ3UdOZIRG_EPjd9P6CHavN3KtQILnuZ7iVQO-u02HAjjf_sj7eW0VjEYD0ljUBb8F3Lffr-3_QWptsAhD5wi15W7LCnn6D45Bc_1lsuYF7JJfaQPhD5gCDKKyQzUCfyS2VpEup-fA37pZp56uu7PgBdkKSXUSwGLCN4SnIuPBbyQdykcnn70XnvjC4OuU2Xw8ZbMQMI",
     };
 
     const existing = localStorage.getItem("tripora_bookings");
@@ -72,8 +72,8 @@ export default function DetailsPage() {
         <section className="relative h-[530px] md:h-[870px] w-full overflow-hidden">
           <img
             className="w-full h-full object-cover"
-            alt="A breathtaking luxury resort nestled in a secluded alpine valley at dusk."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiosXibi6dC1TfBEhFcW2RI4XTVMLwnp0aIuxLN0ZzgZ5V32rF5wygA4VeP_Y3dgIDdkUInmlQzVGm-AEzdSa4VEPhr12b6S6DYNanPWbh8wKua7MOW0uq60d-u63N9WZzcFFvWkndMFpELI3OmIuwlyGkOUmkGzRAj0YJF2ZTndWBzbjgz71SpVKeCyATz3qn3v0K4LZGwIkUwG3WeaNOY-3mRRzOUKe-UQ_uRsa8gNHYTkUZs3cGokGkfnEKthx3hKIDZl8V61Y"
+            alt="A luxury hilltop resort in Munnar, Kerala, overlooking sprawling emerald green tea plantations shrouded in heavy morning fog."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9-tRLh1ZCHPXJ3DjzNGto_IHAcCxh6V-TN9WYbPeBZaLKd0s-lt58FqgFav5kmLG85EshJ3UdOZIRG_EPjd9P6CHavN3KtQILnuZ7iVQO-u02HAjjf_sj7eW0VjEYD0ljUBb8F3Lffr-3_QWptsAhD5wi15W7LCnn6D45Bc_1lsuYF7JJfaQPhD5gCDKKyQzUCfyS2VpEup-fA37pZp56uu7PgBdkKSXUSwGLCN4SnIuPBbyQdykcnn70XnvjC4OuU2Xw8ZbMQMI"
           />
           <div className="absolute inset-0 details-hero-gradient"></div>
 
@@ -92,10 +92,10 @@ export default function DetailsPage() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-display-lg mb-4 text-white max-w-3xl leading-tight">
-              The Ethereal Alpine Sanctuary
+              Munnar Tea Estate Sanctuary
             </h1>
             <p className="font-sans text-body-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
-              An exclusive retreat high in the Swiss Alps, where heritage architecture meets avant-garde luxury and absolute seclusion.
+              An exclusive heritage retreat nestled amidst sprawling emerald green tea plantations, ancient mountain peaks, and mist-covered valleys.
             </p>
 
             {/* Desktop Metrics (Hidden on Mobile) */}
@@ -105,7 +105,7 @@ export default function DetailsPage() {
                   Location
                 </p>
                 <p className="text-body-md font-sans font-semibold text-on-surface">
-                  Zermatt, Switzerland
+                  Munnar, Kerala, India
                 </p>
               </div>
               <div>
@@ -113,7 +113,7 @@ export default function DetailsPage() {
                   Elevation
                 </p>
                 <p className="text-body-md font-sans font-semibold text-on-surface">
-                  2,220 Meters
+                  1,600 Meters
                 </p>
               </div>
               <div>
@@ -121,7 +121,7 @@ export default function DetailsPage() {
                   Season
                 </p>
                 <p className="text-body-md font-sans font-semibold text-on-surface">
-                  Year-Round Excellence
+                  September to May
                 </p>
               </div>
             </div>
@@ -133,12 +133,12 @@ export default function DetailsPage() {
           <div className="flex-shrink-0 bg-surface-container border border-outline-variant/10 p-4 rounded-xl min-w-[130px] shadow-sm">
             <span className="text-secondary material-symbols-outlined mb-1">location_on</span>
             <p className="text-on-surface-variant text-label-sm font-semibold uppercase text-[10px]">Location</p>
-            <p className="text-white font-bold text-body-md">Zermatt, CH</p>
+            <p className="text-white font-bold text-body-md">Munnar, Kerala</p>
           </div>
           <div className="flex-shrink-0 bg-surface-container border border-outline-variant/10 p-4 rounded-xl min-w-[130px] shadow-sm">
             <span className="text-secondary material-symbols-outlined mb-1">height</span>
             <p className="text-on-surface-variant text-label-sm font-semibold uppercase text-[10px]">Elevation</p>
-            <p className="text-white font-bold text-body-md">2,220 M</p>
+            <p className="text-white font-bold text-body-md">1,600 M</p>
           </div>
           <div className="flex-shrink-0 bg-surface-container border border-outline-variant/10 p-4 rounded-xl min-w-[130px] shadow-sm">
             <span className="text-secondary material-symbols-outlined mb-1">star</span>
@@ -148,7 +148,7 @@ export default function DetailsPage() {
           <div className="flex-shrink-0 bg-surface-container border border-outline-variant/10 p-4 rounded-xl min-w-[130px] shadow-sm">
             <span className="text-secondary material-symbols-outlined mb-1">calendar_today</span>
             <p className="text-on-surface-variant text-label-sm font-semibold uppercase text-[10px]">Season</p>
-            <p className="text-white font-bold text-body-md">Year-Round</p>
+            <p className="text-white font-bold text-body-md">Sep - May</p>
           </div>
         </section>
 
@@ -165,21 +165,21 @@ export default function DetailsPage() {
                 <div className="col-span-1 md:row-span-2 overflow-hidden bg-surface-container rounded-xl h-[300px] md:h-auto">
                   <img
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-zoom-in"
-                    alt="Alpine master suite"
+                    alt="Premium master suite overlooking plantations"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXqAsFoIXt8Gl0StrsAesBT7KDlyTlfGkJfCYN8RmEku865U8XM2zK_7ZeTkTr2HkqcTWQlCKDGhI-LScpj3j0Tc5eRcdiS-NvXOO6-VVonCGzW_Tlo6aKswJqvbUn1HyzWes9TcYmTNT6KO9m8scpfeTWYI99W50x_qROTOhjsUKn8ts6GrBd2wyC4GZ_BXBZk-VWxHTjO-PDH76vD_tjH3WA51AtT8h3TYZgQLj32EcMsihDOprCP2QIpUL0LO0nD6BxHXbCDY4"
                   />
                 </div>
                 <div className="col-span-1 overflow-hidden bg-surface-container rounded-xl h-[200px] md:h-auto">
                   <img
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-zoom-in"
-                    alt="Outdoor thermal pool"
+                    alt="Outdoor infinity pool steaming in the morning mist"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_qvd0Rm5fdCiarqyrG_Mj5L_ciwbQr-G0tgbRvC97tRtu6oR-InzUQ1IuaYuBrwQaBooNpJ3EC2KAktgX9Bxcuy0uVzb-y92M7my8OBdhbUvz5x3BVbLEllOPVpk4zXooWyL2sssD3BxPW2oXFQTV9ObbV1taA6QaV7XDmXDkfp0neQeXDgDCMWe0tz-l6nCtTCVkEkhIMgr0NCU7bQuKu6xlljao3rdm3JtVEFfO9e0xxK1yvI9t6MOokgcII_ub6jny7Ey2H38"
                   />
                 </div>
                 <div className="col-span-1 overflow-hidden bg-surface-container rounded-xl h-[200px] md:h-auto">
                   <img
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-zoom-in"
-                    alt="Private wine cellar dining"
+                    alt="Private chef dining set in a wooden gazebo surrounded by tea bushes"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCvCoYwomuLyLHDNgkcUjjWjRd9_CH3K9BjQ6W0nxKDKONCNbzMUnGDvvocGsFteMpjoxYDsz2CJiidr-K8lcA7V3ADF5zp6fGpIczJgC0Nfxd2KjtAz-LBqN6nwDm3aQ44yUi0mlYcbhdWQFgWZHxl7ukbhKXqQlIVtHdGz3ISubnN5Y_Q7MZlhLM0YL_cXTZmLPVtMYzykdFekEvuYAWXBUKGdXHWSskx5Nj00zTuM231yu1rIzEA8-MwVDjT5qEqIxVcb2rQtI"
                   />
                 </div>
@@ -200,10 +200,10 @@ export default function DetailsPage() {
                       Day 01 — Arrival
                     </span>
                     <h3 className="font-display text-headline-sm text-white">
-                      Private Arrival &amp; Horizon Welcome
+                      Private Arrival &amp; Estate Welcome
                     </h3>
                     <p className="text-body-md text-on-surface-variant max-w-xl leading-relaxed">
-                      Chauffeur-driven transfer from Geneva followed by a helicopter ascent to the sanctuary. Champagne greeting on the North Terrace as the sun sets behind the Matterhorn.
+                      Chauffeur-driven transfer from Cochin International Airport followed by a scenic mountain drive to Munnar. Tea-tasting greeting on the East Terrace as the sun sets over the hills.
                     </p>
                   </div>
                 </div>
@@ -216,10 +216,10 @@ export default function DetailsPage() {
                       Day 02 — Immersion
                     </span>
                     <h3 className="font-display text-headline-sm text-white">
-                      Glacial Exploration &amp; Thermal Bathing
+                      Plantation Walk &amp; Ayurvedic Spa
                     </h3>
                     <p className="text-body-md text-on-surface-variant max-w-xl leading-relaxed">
-                      Guided private ski-touring or snowshoeing to the high glacier, followed by a bespoke 4-hour spa treatment utilizing local alpine botanicals and hot stone therapy.
+                      Guided private walk through the organic tea gardens, followed by a bespoke 4-hour wellness treatment utilizing local spices, cardamom oils, and traditional Ayurvedic therapy.
                     </p>
                   </div>
                 </div>
@@ -232,10 +232,10 @@ export default function DetailsPage() {
                       Day 03 — Gastronomy
                     </span>
                     <h3 className="font-display text-headline-sm text-white">
-                      The Chef's Heritage Cellar Dinner
+                      The Chef's Estate Gazebo Dinner
                     </h3>
                     <p className="text-body-md text-on-surface-variant max-w-xl leading-relaxed">
-                      An 8-course tasting menu curated by our Michelin-starred executive chef, featuring rare vintages and locally sourced high-altitude produce.
+                      An 8-course tasting menu curated by our executive chef, featuring local Kerala spices, organic farm produce, and premium single-estate tea pairings.
                     </p>
                   </div>
                 </div>
@@ -249,10 +249,10 @@ export default function DetailsPage() {
                   helicopter
                 </span>
                 <h4 className="font-display text-headline-sm mb-2 text-white">
-                  Heli-Concierge
+                  Estate-Concierge
                 </h4>
                 <p className="text-on-surface-variant text-body-md leading-relaxed">
-                  Private air access directly to the resort landing pad for ultimate discretion and efficiency.
+                  Private helicopter transfers directly from Kochi or private SUV logistics for seamless mountain access.
                 </p>
               </div>
               <div className="bg-surface-container p-8 rounded-xl border border-white/5">
@@ -260,10 +260,10 @@ export default function DetailsPage() {
                   wine_bar
                 </span>
                 <h4 className="font-display text-headline-sm mb-2 text-white">
-                  Private Cellar
+                  Spice Cellar
                 </h4>
                 <p className="text-on-surface-variant text-body-md leading-relaxed">
-                  Access to over 4,000 bottles of world-class vintages including exclusive Swiss mountain wines.
+                  Curated selection of organic spices, rare teas, and premium single-malt pairings from the Western Ghats.
                 </p>
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function DetailsPage() {
                 </p>
                 <div className="flex items-baseline space-x-2">
                   <span className="font-display text-3xl font-semibold text-white">
-                    $4,200
+                    $3,800
                   </span>
                   <span className="text-on-surface-variant text-label-md">/ night</span>
                 </div>
@@ -347,7 +347,7 @@ export default function DetailsPage() {
                   {isBooked ? "Reserving Passage..." : "Book Passage"}
                 </button>
                 <a
-                  href="tel:+41440000000"
+                  href="tel:+91484000000"
                   className="w-full border border-outline-variant py-4 rounded-xl font-sans text-label-md uppercase tracking-widest text-center block text-on-surface hover:bg-white/5 transition-all duration-300"
                 >
                   Contact Concierge
@@ -391,7 +391,7 @@ export default function DetailsPage() {
             Starting from
           </p>
           <p className="text-white font-bold text-headline-sm font-display leading-tight">
-            $4,200 <span className="text-xs font-normal text-on-surface-variant">/ night</span>
+            $3,800 <span className="text-xs font-normal text-on-surface-variant">/ night</span>
           </p>
         </div>
         <button

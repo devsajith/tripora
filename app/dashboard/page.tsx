@@ -16,24 +16,24 @@ interface Booking {
 const defaultReservations: Booking[] = [
   {
     id: "res-1",
-    title: "Hotel de Crillon",
-    loc: "Paris, France",
+    title: "Taj Falaknuma Palace",
+    loc: "Hyderabad, India",
     dates: "Nov 12 — Nov 18, 2026",
     status: "COMPLETED",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD7TdzG50JkhTX11VkW5wSwEk4LYj1-IpMMkfYdXeVpXPQ7RtPr9lQb542R-yaZa99S5khMVp6H_x9oxH5aKrXbwFgTF2YHTRwGPfcRv2olVXsOJWJMGUjcmjRH74LdHr6wz2V992HC1sS6vsk7AcD54QiuvfIsd696Lc3CEKHRivTUZhNN5hMapZazIYf1iJMHTiGuDwvVg-N2kVil1og1w_KVYuimIszKJORynhEGWAVtKJeiSCmvnyav4eH-q77hTwhTiJ92nIQ",
+    img: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "res-2",
-    title: "The Alpina Gstaad",
-    loc: "Gstaad, Switzerland",
+    title: "The Taj Lake Palace",
+    loc: "Udaipur, Rajasthan, India",
     dates: "Dec 20 — Dec 28, 2026",
     status: "UPCOMING",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBr-ndpMU-zlxD5sReK7t-H29KhICVJIzffYF_elL8C_hUCTGvAy6ER5eJHoh-LXBY627cypSBJZ7G1blylbEbqvlqdDBNR2IznAtwuJMY5HoIGrWhpu-51iTXSsTwVDnqDwtjzJq_pjt_d5VsG6EgyIrFpAuE_iYUGaOk2y4DvxvrkhlXjk5jQgiDNEJXXe9XQxDqBMRgWpC7dk3H8BRMUbkNoRL_CAs9RJOB6SmCO9gC-lSRRlPzQy5CPrt62jXY9b5_-QrVKtKU",
+    img: "https://images.unsplash.com/photo-1600100397918-a664e32d1e04?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: "res-3",
     title: "Charter: Private Jet",
-    loc: "Aspen Express",
+    loc: "Cochin Express",
     dates: "Jan 05, 2027",
     status: "PROCESSING",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCgeNPlbdM_0n3AVEjBjaSfYeE92QrbwnHdDn0mqf1TBuQKV5Jj6GPi8Cv8j1LHEX-gjxhedJFJLw5UTwqamFHkMwqsjB0ICzet9BRj8rnz7UMu5gAaQ1QQRKiYDDQITgnMvm7Qcmd2wK3S86CeYUfrSVT4DO_I5tC9k1vEGWsvXEXmoREdKP6eHyssWrFY6Grb70WV6enjLmmCgPf50pXtLrfiZNJ09Arf-5mLWSXyA1vCk14xquzoKRttIXJH6Agc3v64_uqAmV0",
@@ -92,12 +92,12 @@ export default function Dashboard() {
 
         {/* Bento Grid Dashboard */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-          {/* Maldives Countdown Card */}
+          {/* Kerala Countdown Card */}
           <div className="col-span-12 lg:col-span-8 relative h-[350px] md:h-[500px] rounded-xl overflow-hidden group glow-accent">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              alt="Maldives Private overwater villa"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB89iii5PHKEbdFFdWJkeLeQF6eDftM1u6OuP7_vXzzAqPMSCLA8OYKKtUBsKz0P2WLZpMDrNMIHYR0g6izbhCdMk1Cqg0pXOsWCVo_7fcrBymejEsSDRRXvAyuEJ9cO3XihM0YtkwfMOKxdworDDaukxnKqCaxiNlKc0hpoDACdG1Hr9qOC5-RNFoV0KsyTiCq_MZkcEWxoAD033_MVe6DHqqXY93IFim7tgaGJqkGmopVwPkUVhz5xZjDCVwPgtlIDX_QryaEj1E"
+              alt="Kumarakom Lake Resort, Kerala"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3rpAp0UctqMIYA8Dapv66TZl8l8e4LNTgeXqaCi0KG7EGWTeGwZhSk7WEMIl59V2K8FKHjqjoHTVoKvC6IyeAqv3BHVuQsMR2knQgLgOSZDIBwIrQAo1A1dKXGyuS7sLBre-j1T4RWunVhAA4pl5KrGjxBBpXOuU-0IOcCll6Tpa3zC0JSBI1ONEcYKm8RJbRRFLgyEMkuGtCQI5cfkSL5ZrrgQ7khkERLwOolFkFQ-mdNg-rOmlvajRFhIOHPKM50sg0qTSKIE"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-0">
@@ -106,10 +106,10 @@ export default function Dashboard() {
                   NEXT JOURNEY
                 </span>
                 <h2 className="font-display text-headline-md md:text-headline-lg text-white mb-2 leading-tight">
-                  Amilla Fushi, Maldives
+                  Kumarakom Lake Resort
                 </h2>
                 <p className="font-sans text-body-lg text-primary-fixed-dim">
-                  Private Villa &amp; Spa Sanctuary
+                  Private Pool Villa &amp; Ayurvedic Sanctuary
                 </p>
               </div>
               <div className="text-left md:text-right w-full md:w-auto flex md:block justify-between items-center border-t border-white/10 md:border-t-0 pt-4 md:pt-0">
@@ -142,8 +142,8 @@ export default function Dashboard() {
               {/* Mobile Horizontal Connector View (Hidden on Desktop) */}
               <div className="flex justify-between items-center py-4 border-y border-outline-variant/10 my-4 md:hidden">
                 <div className="text-center">
-                  <p className="text-3xl text-primary leading-tight font-display">LHR</p>
-                  <p className="text-[11px] text-on-surface-variant">London</p>
+                  <p className="text-3xl text-primary leading-tight font-display">DEL</p>
+                  <p className="text-[11px] text-on-surface-variant">New Delhi</p>
                 </div>
                 <div className="flex-1 flex flex-col items-center px-4">
                   <div className="w-full h-[1px] bg-outline-variant/30 relative">
@@ -151,11 +151,11 @@ export default function Dashboard() {
                       flight_takeoff
                     </span>
                   </div>
-                  <span className="text-[9px] font-sans text-on-surface-variant mt-1.5 uppercase tracking-wider font-semibold">BA2049</span>
+                  <span className="text-[9px] font-sans text-on-surface-variant mt-1.5 uppercase tracking-wider font-semibold">TR402</span>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl text-primary leading-tight font-display">MLE</p>
-                  <p className="text-[11px] text-on-surface-variant">Male</p>
+                  <p className="text-3xl text-primary leading-tight font-display">COK</p>
+                  <p className="text-[11px] text-on-surface-variant">Cochin</p>
                 </div>
               </div>
 
@@ -164,7 +164,7 @@ export default function Dashboard() {
                 <div className="relative pl-6 border-l border-primary/30">
                   <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-primary"></div>
                   <p className="font-sans text-[10px] text-label-sm text-on-surface-variant font-semibold tracking-wider">
-                    LHR • LONDON
+                    DEL • NEW DELHI
                   </p>
                   <p className="font-display text-headline-sm text-white">14:20</p>
                   <p className="font-sans text-label-md text-secondary font-bold">
@@ -174,9 +174,9 @@ export default function Dashboard() {
                 <div className="relative pl-6 border-l border-outline-variant/30">
                   <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-outline-variant"></div>
                   <p className="font-sans text-[10px] text-label-sm text-on-surface-variant font-semibold tracking-wider">
-                    MLE • MALÉ
+                    COK • COCHIN
                   </p>
-                  <p className="font-display text-headline-sm text-white">06:45</p>
+                  <p className="font-display text-headline-sm text-white">17:15</p>
                   <p className="font-sans text-label-md text-on-surface-variant">
                     +1 DAY
                   </p>

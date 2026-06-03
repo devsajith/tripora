@@ -53,7 +53,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/destinations/ethereal-alpine-sanctuary" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Alpine Retreats
+                Munnar Sanctuary
               </Link>
             </li>
             <li>

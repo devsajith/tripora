@@ -59,22 +59,6 @@ export default function Navbar() {
           >
             Experiences
           </a>
-          <Link
-            href="/dashboard"
-            className={`font-sans text-label-md transition-all duration-300 ${
-              pathname === "/dashboard"
-                ? "text-primary border-b-2 border-primary pb-1"
-                : "text-on-surface hover:text-primary"
-            }`}
-          >
-            Private Jet
-          </Link>
-          <a
-            href="#concierge"
-            className="font-sans text-label-md text-on-surface hover:text-primary transition-colors duration-300"
-          >
-            Concierge
-          </a>
           <a
             href="#about"
             className="font-sans text-label-md text-on-surface hover:text-primary transition-colors duration-300"
