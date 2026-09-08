@@ -23,20 +23,77 @@ export default function Footer() {
           <Link href="/" className="font-display text-headline-sm text-primary mb-6 inline-block">
             Tripora
           </Link>
-          <p className="text-on-tertiary-container font-sans text-label-sm mb-8 leading-relaxed">
+          <p className="text-on-tertiary-container font-sans text-label-sm mb-6 leading-relaxed">
             Crafting extraordinary journeys for the global elite. Member of the Excellence Group.
           </p>
-          <div className="flex space-x-4">
-            <div className="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary cursor-pointer transition-colors">
-              <span className="material-symbols-outlined text-on-surface text-[20px]">
-                public
-              </span>
-            </div>
-            <div className="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary cursor-pointer transition-colors">
-              <span className="material-symbols-outlined text-on-surface text-[20px]">
+
+          <div className="space-y-2.5 mb-6 font-sans text-label-sm">
+            <a
+              href="tel:+919656464124"
+              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">call</span>
+              +91 96564 64124
+            </a>
+            <a
+              href="mailto:tripora68@gmail.com"
+              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">mail</span>
+              tripora68@gmail.com
+            </a>
+            <a
+              href="https://instagram.com/tripora.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">photo_camera</span>
+              tripora.in
+            </a>
+          </div>
+
+          <div className="flex space-x-3">
+            <a
+              href="https://wa.me/919656464124"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
                 chat
               </span>
-            </div>
+            </a>
+            <a
+              href="https://instagram.com/tripora.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                photo_camera
+              </span>
+            </a>
+            <a
+              href="mailto:tripora68@gmail.com"
+              title="Email Us"
+              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                mail
+              </span>
+            </a>
+            <a
+              href="tel:+919656464124"
+              title="Call Us"
+              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                call
+              </span>
+            </a>
           </div>
         </div>
 
@@ -67,9 +124,24 @@ export default function Footer() {
         {/* Column 2 */}
         <div className="col-span-1">
           <h5 className="text-on-surface font-sans text-label-md mb-6 uppercase tracking-widest">
-            Company
+            Contact & Company
           </h5>
           <ul className="space-y-4">
+            <li>
+              <a href="tel:+919656464124" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
+                Call: +91 96564 64124
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/tripora.in" target="_blank" rel="noopener noreferrer" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
+                Instagram: @tripora.in
+              </a>
+            </li>
+            <li>
+              <a href="mailto:tripora68@gmail.com" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
+                Email: tripora68@gmail.com
+              </a>
+            </li>
             <li>
               <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
                 Privacy Policy
@@ -78,11 +150,6 @@ export default function Footer() {
             <li>
               <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
                 Terms of Service
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Press
               </a>
             </li>
           </ul>

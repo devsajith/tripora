@@ -347,7 +347,7 @@ export default function DetailsPage() {
                   {isBooked ? "Reserving Passage..." : "Book Passage"}
                 </button>
                 <a
-                  href="tel:+91484000000"
+                  href="tel:+919656464124"
                   className="w-full border border-outline-variant py-4 rounded-xl font-sans text-label-md uppercase tracking-widest text-center block text-on-surface hover:bg-white/5 transition-all duration-300"
                 >
                   Contact Concierge

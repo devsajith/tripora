@@ -140,7 +140,7 @@ export default function Home() {
             {/* WhatsApp Contact CTA */}
             <div className="flex justify-center">
               <a
-                href="https://wa.me/91484000000?text=Hello%20Tripora%2C%20I%20am%20interested%20in%20booking%20a%20luxury%20kerala%2Findia%20passage."
+                href="https://wa.me/919656464124?text=Hello%20Tripora%2C%20I%20am%20interested%20in%20booking%20a%20luxury%20kerala%2Findia%20passage."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-surface-container/60 hover:bg-surface-container border border-outline-variant/30 hover:border-secondary/50 px-8 py-4 rounded-full flex items-center gap-4 transition-all duration-300 active:scale-95 group shadow-2xl hover:shadow-[0_0_30px_rgba(233,195,73,0.15)]"

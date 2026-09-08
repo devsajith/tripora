@@ -230,7 +230,7 @@ export default function Dashboard() {
             </a>
 
             <a
-              href="tel:+41440000000"
+              href="tel:+919656464124"
               className="flex items-center justify-between bg-surface-container/70 p-5 rounded-xl border border-outline-variant/10 hover:bg-surface-container transition-all active:scale-[0.98]"
             >
               <div className="flex items-center gap-4">
