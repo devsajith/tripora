@@ -17,6 +17,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Tripora | Luxury Travel Kerala & India",
   description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${manrope.variable} h-full antialiased dark`}
+      className={`${playfair.variable} ${manrope.variable} h-full antialiased`}
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />

@@ -16,52 +16,65 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-surface-container-lowest border-t border-outline-variant/30 py-16 mt-auto">
-      <div className="max-w-container-max-width mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <footer className="bg-primary text-white py-10 mt-auto relative border-t border-white/10">
+      {/* Terracotta ambient glow bar at top of footer */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-tertiary/80 to-transparent"></div>
+
+      <div className="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Info Column */}
         <div className="col-span-1">
-          <Link href="/" className="font-display text-headline-sm text-primary mb-6 inline-block">
-            Tripora
+          <Link href="/" className="flex items-center gap-3 mb-3 group inline-flex">
+            <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 group-hover:border-tertiary transition-colors shadow-md flex-shrink-0">
+              <span className="material-symbols-outlined text-white text-xl">flight_takeoff</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display text-xl font-bold text-white tracking-[0.12em] uppercase leading-none">
+                Tripora
+              </span>
+              <span className="font-sans text-[8px] tracking-widest uppercase font-semibold text-secondary-container mt-0.5">
+                Travel. Explore. Remember.
+              </span>
+            </div>
           </Link>
-          <p className="text-on-tertiary-container font-sans text-label-sm mb-6 leading-relaxed">
-            Crafting extraordinary journeys for the global elite. Member of the Excellence Group.
+          <p className="text-white/70 font-sans text-xs mb-4 leading-relaxed">
+            Crafting extraordinary 7-day luxury journeys across Kerala's misty tea estates, serene backwaters, and golden coasts.
           </p>
 
-          <div className="space-y-2.5 mb-6 font-sans text-label-sm">
+          <div className="space-y-2 mb-4 font-sans text-xs">
             <a
               href="tel:+919656464124"
-              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-white/80 hover:text-tertiary transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px] text-primary">call</span>
+              <span className="material-symbols-outlined text-[16px] text-tertiary">call</span>
               +91 96564 64124
             </a>
             <a
               href="mailto:tripora68@gmail.com"
-              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-white/80 hover:text-tertiary transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px] text-primary">mail</span>
+              <span className="material-symbols-outlined text-[16px] text-tertiary">mail</span>
               tripora68@gmail.com
             </a>
             <a
               href="https://instagram.com/tripora.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-on-tertiary-container hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-white/80 hover:text-tertiary transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px] text-primary">photo_camera</span>
+              <span className="material-symbols-outlined text-[16px] text-tertiary">photo_camera</span>
               tripora.in
             </a>
           </div>
 
-          <div className="flex space-x-3">
+          <div className="flex space-x-2.5">
             <a
               href="https://wa.me/919656464124"
               target="_blank"
               rel="noopener noreferrer"
               title="WhatsApp"
-              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-tertiary hover:bg-tertiary/20 text-white cursor-pointer transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[16px]">
                 chat
               </span>
             </a>
@@ -70,27 +83,27 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram"
-              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-tertiary hover:bg-tertiary/20 text-white cursor-pointer transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[16px]">
                 photo_camera
               </span>
             </a>
             <a
               href="mailto:tripora68@gmail.com"
               title="Email Us"
-              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-tertiary hover:bg-tertiary/20 text-white cursor-pointer transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[16px]">
                 mail
               </span>
             </a>
             <a
               href="tel:+919656464124"
               title="Call Us"
-              className="w-9 h-9 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary text-on-surface hover:text-primary cursor-pointer transition-colors"
+              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-tertiary hover:bg-tertiary/20 text-white cursor-pointer transition-colors"
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[16px]">
                 call
               </span>
             </a>
@@ -99,23 +112,33 @@ export default function Footer() {
 
         {/* Column 1 */}
         <div className="col-span-1">
-          <h5 className="text-on-surface font-sans text-label-md mb-6 uppercase tracking-widest">
-            Experiences
+          <h5 className="text-tertiary font-sans text-xs font-semibold mb-4 uppercase tracking-[0.2em]">
+            Kerala Destinations
           </h5>
-          <ul className="space-y-4">
+          <ul className="space-y-2 font-sans text-xs">
             <li>
-              <Link href="/" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Heritage Tours
+              <Link href="/" className="text-white/80 hover:text-white transition-colors">
+                Fort Kochi &amp; Heritage
               </Link>
             </li>
             <li>
-              <Link href="/destinations/ethereal-alpine-sanctuary" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Munnar Sanctuary
+              <Link href="/destinations/ethereal-alpine-sanctuary" className="text-white/80 hover:text-white transition-colors">
+                Munnar Tea Lodges
               </Link>
             </li>
             <li>
-              <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Coastal Villas
+              <a href="#itinerary" className="text-white/80 hover:text-white transition-colors">
+                Alleppey Houseboats
+              </a>
+            </li>
+            <li>
+              <a href="#itinerary" className="text-white/80 hover:text-white transition-colors">
+                Kumarakom Lake Resort
+              </a>
+            </li>
+            <li>
+              <a href="#itinerary" className="text-white/80 hover:text-white transition-colors">
+                Kovalam Beach Villas
               </a>
             </li>
           </ul>
@@ -123,33 +146,33 @@ export default function Footer() {
 
         {/* Column 2 */}
         <div className="col-span-1">
-          <h5 className="text-on-surface font-sans text-label-md mb-6 uppercase tracking-widest">
-            Contact & Company
+          <h5 className="text-tertiary font-sans text-xs font-semibold mb-4 uppercase tracking-[0.2em]">
+            Pan-India Circuits
           </h5>
-          <ul className="space-y-4">
+          <ul className="space-y-2 font-sans text-xs">
             <li>
-              <a href="tel:+919656464124" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Call: +91 96564 64124
+              <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+                Royal Rajasthan Palaces
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/tripora.in" target="_blank" rel="noopener noreferrer" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Instagram: @tripora.in
+              <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+                Golden Triangle Taj Mahal
               </a>
             </li>
             <li>
-              <a href="mailto:tripora68@gmail.com" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Email: tripora68@gmail.com
+              <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+                Hampi &amp; South India Sacred
               </a>
             </li>
             <li>
-              <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Privacy Policy
+              <a href="#contact" className="text-white/80 hover:text-white transition-colors">
+                Ladakh Himalayan Valleys
               </a>
             </li>
             <li>
-              <a href="#" className="text-on-tertiary-container hover:text-primary transition-colors text-label-sm">
-                Terms of Service
+              <a href="#" className="text-white/80 hover:text-white transition-colors">
+                Terms &amp; Privacy Policy
               </a>
             </li>
           </ul>
@@ -157,28 +180,28 @@ export default function Footer() {
 
         {/* Newsletter Column */}
         <div className="col-span-1">
-          <h5 className="text-on-surface font-sans text-label-md mb-6 uppercase tracking-widest">
-            Newsletter
+          <h5 className="text-tertiary font-sans text-xs font-semibold mb-4 uppercase tracking-[0.2em]">
+            Private Journal
           </h5>
           {subscribed ? (
-            <p className="text-secondary text-label-sm">
+            <p className="text-tertiary text-xs font-semibold">
               Thank you for subscribing to our private list.
             </p>
           ) : (
             <>
-              <p className="text-on-tertiary-container text-label-sm mb-4">
-                Receive invitations to private openings.
+              <p className="text-white/70 text-xs mb-3 leading-relaxed">
+                Receive invitations to private openings and curated seasonal passages across Kerala.
               </p>
-              <form onSubmit={handleSubscribe} className="flex border-b border-outline-variant/50 pb-2">
+              <form onSubmit={handleSubscribe} className="flex border-b border-white/30 focus-within:border-tertiary pb-1.5">
                 <input
-                  className="bg-transparent border-none focus:outline-none focus:ring-0 text-label-sm w-full p-0 text-on-surface placeholder:text-on-tertiary"
+                  className="bg-transparent border-none focus:outline-none focus:ring-0 text-xs w-full p-0 text-white placeholder:text-white/40"
                   placeholder="Email Address"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button type="submit" className="text-primary material-symbols-outlined hover:translate-x-1 transition-transform">
+                <button type="submit" className="text-tertiary material-symbols-outlined hover:translate-x-1 transition-transform">
                   arrow_forward
                 </button>
               </form>
@@ -188,9 +211,10 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="max-w-container-max-width mx-auto px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 text-center text-on-tertiary-container font-sans text-label-sm">
-        © 2024 Tripora Excellence Group. All rights reserved.
+      <div className="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop mt-8 pt-6 border-t border-white/10 text-center text-white/50 font-sans text-xs tracking-wider">
+        © 2026 Tripora Excellence Group. All rights reserved. Made with bespoke Kerala craftsmanship.
       </div>
     </footer>
   );
 }
+

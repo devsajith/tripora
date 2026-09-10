@@ -12,14 +12,14 @@ export default function BottomNavbar() {
   }
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-surface/95 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(0,0,128,0.15)] rounded-t-xl">
+    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-surface/95 backdrop-blur-xl border-t border-secondary/20 shadow-[0_-8px_30px_rgba(0,0,0,0.9)] rounded-t-2xl">
       <div className="flex justify-around items-center px-6 pb-6 pt-3">
         {/* Home */}
         <Link
           href="/"
           className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
             pathname === "/"
-              ? "text-primary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full"
+              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
               : "text-on-surface-variant opacity-70 hover:opacity-100"
           }`}
         >
@@ -29,7 +29,7 @@ export default function BottomNavbar() {
           >
             home
           </span>
-          <span className="text-label-sm mt-1">Home</span>
+          <span className="text-label-sm mt-1 font-medium">Home</span>
         </Link>
 
         {/* Search */}
@@ -38,7 +38,7 @@ export default function BottomNavbar() {
           className="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:opacity-100 transition-opacity duration-200"
         >
           <span className="material-symbols-outlined">search</span>
-          <span className="text-label-sm mt-1">Search</span>
+          <span className="text-label-sm mt-1 font-medium">Search</span>
         </Link>
 
         {/* Bookings */}
@@ -46,7 +46,7 @@ export default function BottomNavbar() {
           href="/dashboard"
           className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
             pathname === "/dashboard"
-              ? "text-primary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full"
+              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
               : "text-on-surface-variant opacity-70 hover:opacity-100"
           }`}
         >
@@ -56,7 +56,7 @@ export default function BottomNavbar() {
           >
             confirmation_number
           </span>
-          <span className="text-label-sm mt-1">Bookings</span>
+          <span className="text-label-sm mt-1 font-medium">Bookings</span>
         </Link>
 
         {/* Profile */}
@@ -64,12 +64,12 @@ export default function BottomNavbar() {
           href="/dashboard"
           className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
             pathname === "/dashboard"
-              ? "text-primary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full"
+              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
               : "text-on-surface-variant opacity-70 hover:opacity-100"
           }`}
         >
           <span className="material-symbols-outlined">person</span>
-          <span className="text-label-sm mt-1">Profile</span>
+          <span className="text-label-sm mt-1 font-medium">Profile</span>
         </Link>
       </div>
     </nav>

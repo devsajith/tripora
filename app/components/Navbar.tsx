@@ -24,122 +24,130 @@ export default function Navbar() {
   const isDetailsPage = pathname.includes("/destinations/");
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-surface/80 backdrop-blur-xl ${
-        isScrolled
-          ? "h-16 shadow-md"
-          : "h-20"
-      }`}
-    >
-      {/* DESKTOP NAVBAR VIEW */}
-      <div className="hidden md:flex justify-between items-center max-w-container-max-width mx-auto px-margin-desktop h-full w-full">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-display text-headline-sm font-bold text-primary tracking-tight cursor-pointer active:scale-95 transition-transform"
-        >
-          Tripora
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="flex items-center space-x-10">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300">
+      {/* MAIN NAVIGATION BAR */}
+      <nav
+        className={`w-full transition-all duration-300 border-b border-primary/10 bg-white/95 backdrop-blur-md ${
+          isScrolled
+            ? "h-14 shadow-[0_4px_20px_rgba(0,38,29,0.08)]"
+            : "h-16"
+        }`}
+      >
+        {/* DESKTOP NAVBAR VIEW */}
+        <div className="hidden lg:flex justify-between items-center max-w-container-max-width mx-auto px-margin-desktop h-full w-full">
+          {/* Logo */}
           <Link
             href="/"
-            className={`font-sans text-label-md transition-all duration-300 ${
-              pathname === "/"
-                ? "text-primary border-b-2 border-primary pb-1"
-                : "text-on-surface hover:text-primary"
-            }`}
+            className="flex items-center gap-2.5 cursor-pointer active:scale-95 transition-transform group"
           >
-            Destinations
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center border border-primary/20 shadow-xs flex-shrink-0 group-hover:bg-primary-container transition-colors">
+              <span className="material-symbols-outlined text-white text-xl">flight_takeoff</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display text-xl font-bold text-primary tracking-[0.08em] uppercase leading-none">
+                Tripora
+              </span>
+              <span className="font-sans text-[8px] tracking-[0.2em] uppercase font-semibold text-tertiary mt-0.5">
+                Travel. Explore. Remember.
+              </span>
+            </div>
           </Link>
-          <a
-            href="#experiences"
-            className="font-sans text-label-md text-on-surface hover:text-primary transition-colors duration-300"
-          >
-            Experiences
-          </a>
-          <a
-            href="#about"
-            className="font-sans text-label-md text-on-surface hover:text-primary transition-colors duration-300"
-          >
-            About
-          </a>
-        </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30">
-            <span className="material-symbols-outlined text-on-surface-variant text-[20px]">
-              search
-            </span>
-            <input
-              className="bg-transparent border-none focus:outline-none focus:ring-0 text-label-md ml-2 w-32 placeholder:text-on-surface-variant/50 text-on-surface"
-              placeholder="Search experiences"
-              type="text"
-            />
+          {/* Desktop Menu - Only About Us, Packages, Contact */}
+          <div className="flex items-center space-x-8 font-sans text-xs uppercase tracking-wider font-bold">
+            <a
+              href="#overview"
+              className="text-primary hover:text-tertiary transition-colors duration-200"
+            >
+              About Us
+            </a>
+            <a
+              href="#itinerary"
+              className="text-primary hover:text-tertiary transition-colors duration-200"
+            >
+              Packages
+            </a>
+            <a
+              href="#contact"
+              className="text-primary hover:text-tertiary transition-colors duration-200"
+            >
+              Contact
+            </a>
           </div>
 
-          <Link
-            href="/destinations/ethereal-alpine-sanctuary"
-            className="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-sans text-label-md hover:opacity-80 transition-all active:scale-95 uppercase tracking-widest text-center"
-          >
-            Book Now
+          {/* Actions */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20the%207%20Days%20Kerala%20Tour%20Package."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-primary/20 hover:border-primary text-primary font-semibold px-3.5 py-1.5 rounded-lg font-sans text-xs transition-all active:scale-95 flex items-center gap-1.5 bg-surface-container/50 hover:bg-surface-container"
+            >
+              <span className="material-symbols-outlined text-[15px] text-emerald-600">chat</span>
+              <span>WhatsApp</span>
+            </a>
+
+            <a
+              href="#contact"
+              className="bg-tertiary hover:bg-tertiary-hover text-white font-semibold px-4 py-2 rounded-lg font-sans text-xs transition-all active:scale-95 uppercase tracking-wider text-center shadow-xs flex items-center gap-1.5"
+            >
+              <span>Enquire Now</span>
+              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        {/* MOBILE NAVBAR VIEW */}
+        <div className="flex lg:hidden justify-between items-center px-margin-mobile h-full w-full relative">
+          <div className="flex items-center z-10">
+            {isDetailsPage ? (
+              <button
+                onClick={() => router.push("/")}
+                className="h-10 w-10 flex items-center justify-center rounded-full bg-surface-container border border-primary/20 active:scale-90 transition-transform"
+              >
+                <span className="material-symbols-outlined text-primary text-xl">
+                  arrow_back
+                </span>
+              </button>
+            ) : (
+              <Link
+                href="/"
+                className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center border border-primary/20 block active:scale-90 transition-transform shadow-xs"
+              >
+                <span className="material-symbols-outlined text-white text-xl">flight_takeoff</span>
+              </Link>
+            )}
+          </div>
+
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-auto flex flex-col items-center">
+            <span className="font-display text-xl font-bold text-primary tracking-[0.1em] uppercase leading-none">
+              Tripora
+            </span>
+            <span className="font-sans text-[8px] tracking-widest uppercase font-semibold text-tertiary mt-0.5">
+              Travel. Explore. Remember.
+            </span>
           </Link>
-        </div>
-      </div>
 
-      {/* MOBILE NAVBAR VIEW (Centered Logo, Dynamic Actions) */}
-      <div className="flex md:hidden justify-between items-center px-margin-mobile h-full w-full relative">
-        {/* Left Side: Back Arrow on Details, Profile on others */}
-        <div className="flex items-center z-10">
-          {isDetailsPage ? (
-            <button
-              onClick={() => router.push("/")}
-              className="h-10 w-10 flex items-center justify-center rounded-full bg-surface-container/30 border border-white/5 active:scale-90 transition-transform"
+          <div className="flex items-center z-10 gap-2">
+            <a
+              href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20the%207%20Days%20Kerala%20Tour%20Package."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-lg bg-emerald-700 text-white flex items-center justify-center active:scale-90"
+              title="Chat on WhatsApp"
             >
-              <span className="material-symbols-outlined text-primary text-xl">
-                arrow_back
-              </span>
-            </button>
-          ) : (
-            <Link
-              href="/dashboard"
-              className="w-9 h-9 rounded-full bg-surface-container overflow-hidden border border-outline-variant/30 block active:scale-90 transition-transform"
+              <span className="material-symbols-outlined text-[18px]">chat</span>
+            </a>
+            <a
+              href="#contact"
+              className="bg-tertiary text-white text-[11px] font-bold px-3 py-2 rounded-md uppercase tracking-wider flex items-center gap-1 shadow-xs"
             >
-              <img
-                alt="User Profile"
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxYncc-7TLtRp-8_fcUxubkdUvwNrYN2YkSdbUBY6z5aFff3NtZ6kqTTVIQJCLyY71eI514yuOpPgobf7rU2Xmwxg2u7_DPocwVb_aH0NiEwHGoWZ4SA_JulO8SG-maP0TVvHjp2z0HYfpenAjzGDszpSfR3ubYkovctkbcBx6LpiIXu27YdXoppGIc7v-hVSXPdVA3ASBZSBPerjkw10KRNdnijuqwaaCjwk2z3lfie3kw7phzkYV1SFrROH3ilDr1oveMlEWvF4"
-              />
-            </Link>
-          )}
+              <span>Enquire</span>
+            </a>
+          </div>
         </div>
-
-        {/* Center: Centered Logo Title */}
-        <div className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-none">
-          <span className="font-display text-2xl font-bold text-primary tracking-tight">
-            Tripora
-          </span>
-        </div>
-
-        {/* Right Side: Heart on Details, Bell on others */}
-        <div className="flex items-center z-10">
-          {isDetailsPage ? (
-            <button className="h-10 w-10 flex items-center justify-center rounded-full bg-surface-container/30 border border-white/5 active:scale-90 transition-transform">
-              <span className="material-symbols-outlined text-primary text-xl">
-                favorite
-              </span>
-            </button>
-          ) : (
-            <button className="h-10 w-10 flex items-center justify-center rounded-full bg-surface-container/30 border border-white/5 active:scale-90 transition-transform">
-              <span className="material-symbols-outlined text-primary text-xl">
-                notifications
-              </span>
-            </button>
-          )}
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
+

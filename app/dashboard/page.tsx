@@ -72,18 +72,18 @@ export default function Dashboard() {
         <header className="mb-16">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
-              <p className="text-secondary font-sans text-label-md mb-2 tracking-widest font-semibold uppercase">
+              <p className="text-primary font-sans text-xs mb-2 tracking-[0.25em] font-semibold uppercase">
                 Established Privilege
               </p>
-              <h1 className="font-display text-4xl sm:text-5xl md:text-display-lg text-white leading-tight">
-                Welcome back, <span className="text-primary italic">Julian</span>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-display-lg text-white leading-tight font-normal">
+                Welcome back, <span className="text-primary italic font-serif">Julian</span>
               </h1>
             </div>
-            <div className="text-left md:text-right border-t md:border-t-0 border-outline-variant/20 pt-4 md:pt-0">
-              <p className="font-sans text-[10px] text-label-sm text-on-surface-variant tracking-widest font-semibold uppercase">
+            <div className="text-left md:text-right border-t md:border-t-0 border-primary/20 pt-4 md:pt-0">
+              <p className="font-sans text-[10px] text-label-sm text-on-surface-variant tracking-[0.2em] font-semibold uppercase">
                 Membership Tier
               </p>
-              <p className="font-display text-headline-sm text-secondary">
+              <p className="font-display text-headline-sm text-primary tracking-wider font-semibold">
                 Palladium Elite
               </p>
             </div>
@@ -93,16 +93,16 @@ export default function Dashboard() {
         {/* Bento Grid Dashboard */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           {/* Kerala Countdown Card */}
-          <div className="col-span-12 lg:col-span-8 relative h-[350px] md:h-[500px] rounded-xl overflow-hidden group glow-accent">
+          <div className="col-span-12 lg:col-span-8 relative h-[350px] md:h-[500px] rounded-xl overflow-hidden group glow-accent border border-primary/20">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               alt="Kumarakom Lake Resort, Kerala"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3rpAp0UctqMIYA8Dapv66TZl8l8e4LNTgeXqaCi0KG7EGWTeGwZhSk7WEMIl59V2K8FKHjqjoHTVoKvC6IyeAqv3BHVuQsMR2knQgLgOSZDIBwIrQAo1A1dKXGyuS7sLBre-j1T4RWunVhAA4pl5KrGjxBBpXOuU-0IOcCll6Tpa3zC0JSBI1ONEcYKm8RJbRRFLgyEMkuGtCQI5cfkSL5ZrrgQ7khkERLwOolFkFQ-mdNg-rOmlvajRFhIOHPKM50sg0qTSKIE"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-0">
               <div>
-                <span className="inline-block px-3 py-1 bg-primary text-on-primary font-sans text-[10px] text-label-sm font-semibold mb-4 rounded-sm">
+                <span className="inline-block px-3 py-1 bg-primary text-on-primary font-sans text-[10px] tracking-widest font-bold mb-4 rounded-sm uppercase shadow-md">
                   NEXT JOURNEY
                 </span>
                 <h2 className="font-display text-headline-md md:text-headline-lg text-white mb-2 leading-tight">
@@ -112,15 +112,15 @@ export default function Dashboard() {
                   Private Pool Villa &amp; Ayurvedic Sanctuary
                 </p>
               </div>
-              <div className="text-left md:text-right w-full md:w-auto flex md:block justify-between items-center border-t border-white/10 md:border-t-0 pt-4 md:pt-0">
-                <p className="font-sans text-[10px] text-label-sm text-on-surface-variant tracking-widest md:mb-1 font-semibold">
+              <div className="text-left md:text-right w-full md:w-auto flex md:block justify-between items-center border-t border-primary/20 md:border-t-0 pt-4 md:pt-0">
+                <p className="font-sans text-[10px] text-label-sm text-on-surface-variant tracking-[0.2em] md:mb-1 font-semibold">
                   DEPARTING IN
                 </p>
                 <div className="flex gap-2 items-baseline">
-                  <span className="font-display text-4xl md:text-display-lg text-secondary">
+                  <span className="font-display text-4xl md:text-display-lg text-primary font-normal">
                     08
                   </span>
-                  <span className="font-sans text-label-md text-secondary/80 font-bold">
+                  <span className="font-sans text-label-md text-primary/80 font-bold tracking-wider">
                     DAYS
                   </span>
                 </div>
@@ -129,25 +129,25 @@ export default function Dashboard() {
           </div>
 
           {/* Flight Status Component */}
-          <div className="col-span-12 lg:col-span-4 bg-surface-container rounded-xl p-8 flex flex-col justify-between border border-outline-variant/10">
+          <div className="col-span-12 lg:col-span-4 bg-surface-container rounded-xl p-8 flex flex-col justify-between border border-primary/20 shadow-lg">
             <div>
               <div className="flex justify-between items-center mb-6">
                 <h3 className="font-display text-headline-sm text-white">Live Flight Status</h3>
-                <span className="flex items-center gap-1 text-[11px] font-sans text-secondary font-bold bg-secondary/10 px-2 py-0.5 rounded">
-                  <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span>
+                <span className="flex items-center gap-1.5 text-[11px] font-sans text-primary font-bold bg-primary/15 px-3 py-1 rounded-full border border-primary/30">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
                   On Time
                 </span>
               </div>
 
               {/* Mobile Horizontal Connector View (Hidden on Desktop) */}
-              <div className="flex justify-between items-center py-4 border-y border-outline-variant/10 my-4 md:hidden">
+              <div className="flex justify-between items-center py-4 border-y border-primary/20 my-4 md:hidden">
                 <div className="text-center">
                   <p className="text-3xl text-primary leading-tight font-display">DEL</p>
                   <p className="text-[11px] text-on-surface-variant">New Delhi</p>
                 </div>
                 <div className="flex-1 flex flex-col items-center px-4">
-                  <div className="w-full h-[1px] bg-outline-variant/30 relative">
-                    <span className="material-symbols-outlined absolute -top-3.5 left-1/2 -translate-x-1/2 text-secondary text-[18px]">
+                  <div className="w-full h-[1px] bg-primary/30 relative">
+                    <span className="material-symbols-outlined absolute -top-3.5 left-1/2 -translate-x-1/2 text-primary text-[18px]">
                       flight_takeoff
                     </span>
                   </div>
@@ -161,18 +161,18 @@ export default function Dashboard() {
 
               {/* Desktop Vertical View (Hidden on Mobile) */}
               <div className="hidden md:block space-y-8 my-6">
-                <div className="relative pl-6 border-l border-primary/30">
-                  <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-primary"></div>
+                <div className="relative pl-6 border-l border-primary/40">
+                  <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(212,175,55,0.6)]"></div>
                   <p className="font-sans text-[10px] text-label-sm text-on-surface-variant font-semibold tracking-wider">
                     DEL • NEW DELHI
                   </p>
                   <p className="font-display text-headline-sm text-white">14:20</p>
-                  <p className="font-sans text-label-md text-secondary font-bold">
+                  <p className="font-sans text-label-md text-primary font-bold">
                     ON TIME
                   </p>
                 </div>
-                <div className="relative pl-6 border-l border-outline-variant/30">
-                  <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-outline-variant"></div>
+                <div className="relative pl-6 border-l border-primary/20">
+                  <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-primary/40"></div>
                   <p className="font-sans text-[10px] text-label-sm text-on-surface-variant font-semibold tracking-wider">
                     COK • COCHIN
                   </p>
@@ -184,7 +184,7 @@ export default function Dashboard() {
               </div>
 
               {/* Flight Logistics Info */}
-              <div className="grid grid-cols-2 gap-4 border-t border-outline-variant/10 pt-4 md:hidden">
+              <div className="grid grid-cols-2 gap-4 border-t border-primary/20 pt-4 md:hidden">
                 <div>
                   <p className="text-[10px] text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Gate</p>
                   <p className="font-bold text-white text-body-md">B42</p>
@@ -196,7 +196,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-outline-variant/10">
+            <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-primary/20">
               <p className="font-sans text-[10px] text-label-sm text-on-surface-variant font-semibold mb-2">
                 AIRCRAFT
               </p>
@@ -215,10 +215,10 @@ export default function Dashboard() {
           <div className="col-span-12 lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
             <a
               href="#"
-              className="flex items-center justify-between bg-surface-container/70 p-5 rounded-xl border border-outline-variant/10 hover:bg-surface-container transition-all active:scale-[0.98]"
+              className="flex items-center justify-between bg-surface-container/80 p-5 rounded-xl border border-primary/15 hover:border-primary/40 hover:bg-surface-container transition-all active:scale-[0.98]"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary-container/30 flex items-center justify-center text-primary">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <span className="material-symbols-outlined">settings</span>
                 </div>
                 <div>
@@ -226,15 +226,15 @@ export default function Dashboard() {
                   <p className="text-[11px] font-sans text-on-surface-variant">Account and security settings</p>
                 </div>
               </div>
-              <span className="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+              <span className="material-symbols-outlined text-primary">chevron_right</span>
             </a>
 
             <a
               href="tel:+919656464124"
-              className="flex items-center justify-between bg-surface-container/70 p-5 rounded-xl border border-outline-variant/10 hover:bg-surface-container transition-all active:scale-[0.98]"
+              className="flex items-center justify-between bg-surface-container/80 p-5 rounded-xl border border-primary/15 hover:border-primary/40 hover:bg-surface-container transition-all active:scale-[0.98]"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <span className="material-symbols-outlined">support_agent</span>
                 </div>
                 <div>
@@ -242,12 +242,12 @@ export default function Dashboard() {
                   <p className="text-[11px] font-sans text-on-surface-variant">Instant concierge assistance</p>
                 </div>
               </div>
-              <span className="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+              <span className="material-symbols-outlined text-primary">chevron_right</span>
             </a>
           </div>
 
           {/* Reservations List */}
-          <div className="col-span-12 lg:col-span-8 bg-surface-container rounded-xl p-8 border border-outline-variant/10">
+          <div className="col-span-12 lg:col-span-8 bg-surface-container rounded-xl p-8 border border-primary/20 shadow-lg">
             <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-10 gap-4">
               <h3 className="font-display text-headline-sm text-white">
                 Recent Reservations
@@ -255,7 +255,7 @@ export default function Dashboard() {
               <div className="flex gap-4">
                 <button
                   onClick={handleClearBookings}
-                  className="text-on-surface-variant hover:text-white font-sans text-label-md border border-outline-variant/30 px-4 py-1.5 rounded-lg transition-colors text-xs"
+                  className="text-on-surface-variant hover:text-white font-sans text-label-md border border-primary/20 px-4 py-1.5 rounded-lg transition-colors text-xs"
                 >
                   Reset List
                 </button>
@@ -267,10 +267,10 @@ export default function Dashboard() {
 
             <div className="flex flex-col gap-6">
               {reservations.map((item) => (
-                <div key={item.id} className="flex gap-6 group cursor-pointer border-b border-outline-variant/5 pb-6 last:border-0 last:pb-0">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-low">
+                <div key={item.id} className="flex gap-6 group cursor-pointer border-b border-primary/10 pb-6 last:border-0 last:pb-0">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-low border border-primary/20">
                     <img
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                       src={item.img}
                       alt={item.title}
                     />
@@ -278,12 +278,12 @@ export default function Dashboard() {
                   <div className="flex-grow flex justify-between items-start">
                     <div className="space-y-1">
                       <span
-                        className={`font-sans text-[9px] text-label-sm font-bold tracking-widest uppercase ${
+                        className={`font-sans text-[9px] text-label-sm font-bold tracking-widest uppercase px-2 py-0.5 rounded ${
                           item.status === "COMPLETED"
-                            ? "text-secondary"
+                            ? "text-primary bg-primary/10 border border-primary/30"
                             : item.status === "UPCOMING"
-                            ? "text-on-primary-container bg-primary-container/20 px-2 py-0.5 rounded"
-                            : "text-primary"
+                            ? "text-on-primary-container bg-primary-container border border-primary/40"
+                            : "text-on-surface-variant bg-surface-container-high"
                         }`}
                       >
                         {item.status}
