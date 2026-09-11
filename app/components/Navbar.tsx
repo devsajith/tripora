@@ -40,8 +40,8 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2.5 cursor-pointer active:scale-95 transition-transform group"
           >
-            <div className="w-9 h-9 rounded-full bg-emerald-800 flex items-center justify-center border border-emerald-700/30 shadow-xs flex-shrink-0 group-hover:bg-emerald-900 transition-colors">
-              <span className="material-symbols-outlined text-white text-lg">flight_takeoff</span>
+            <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0">
+              <img src="/logo.webp" alt="Tripora Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl font-bold text-primary tracking-[0.06em] uppercase leading-none">
@@ -55,30 +55,32 @@ export default function Navbar() {
 
           {/* Desktop Menu - About Us, Packages, Destinations, Contact */}
           <div className="flex items-center space-x-8 font-sans text-xs uppercase tracking-wider font-bold text-primary">
-            <a
-              href="#overview"
+            <Link
+              href="/#overview"
               className="hover:text-emerald-700 transition-colors duration-200"
             >
               About Us
-            </a>
-            <a
-              href="#itinerary"
-              className="hover:text-emerald-700 transition-colors duration-200"
+            </Link>
+            <Link
+              href="/packages"
+              className={`hover:text-emerald-700 transition-colors duration-200 ${
+                pathname === "/packages" ? "text-emerald-700 font-extrabold" : ""
+              }`}
             >
               Packages
-            </a>
-            <a
-              href="#destinations"
+            </Link>
+            <Link
+              href="/#destinations"
               className="hover:text-emerald-700 transition-colors duration-200"
             >
               Destinations
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/#contact"
               className="hover:text-emerald-700 transition-colors duration-200"
             >
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* Actions */}
@@ -118,9 +120,9 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/"
-                className="w-9 h-9 rounded-full bg-emerald-800 flex items-center justify-center border border-emerald-700/30 block active:scale-90 transition-transform shadow-xs"
+                className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 block active:scale-90 transition-transform shadow-xs"
               >
-                <span className="material-symbols-outlined text-white text-lg">flight_takeoff</span>
+                <img src="/logo.webp" alt="Tripora" className="w-full h-full object-cover" />
               </Link>
             )}
           </div>

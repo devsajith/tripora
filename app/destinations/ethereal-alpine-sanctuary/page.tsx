@@ -15,203 +15,19 @@ interface DayItinerary {
   images: { url: string; title: string }[];
 }
 
-const packageItinerary: DayItinerary[] = [
-  {
-    day: 1,
-    title: "Kochi → Athirappilly → Munnar",
-    route: "Arrival & Waterfalls Scenic Transfer",
-    stayLocation: "Munnar Hotel / Resort",
-    desc: "Welcome to God's Own Country! Begin your journey with a scenic drive through misty valleys, lush forests, and cascading waterfalls.",
-    activities: [
-      "Kochi Airport / Railway Station pickup",
-      "Direct transfer to Athirappilly Waterfalls sightseeing",
-      "En route Cheeyappara Waterfalls & Valara Waterfalls",
-      "Check-in & Overnight stay in Munnar",
-    ],
-    images: [
-      {
-        url: "/locations/athirappilly.jpg",
-        title: "Athirapilly Waterfalls",
-      },
-      {
-        url: "/locations/cheeyappara.jpg",
-        title: "Cheeyappara Waterfalls",
-      },
-      {
-        url: "/locations/munnar.jpg",
-        title: "Munnar Scenic Drive",
-      },
-    ],
-  },
-  {
-    day: 2,
-    title: "Munnar Sightseeing",
-    route: "Tea Gardens & High Peaks Exploration",
-    stayLocation: "Munnar Hotel / Resort",
-    desc: "Explore the emerald hills of Munnar, renowned for rolling tea plantations, pristine lakes, and majestic high-altitude vistas.",
-    activities: [
-      "Visit scenic Mattupetty Dam & boat ride",
-      "Echo Point natural acoustics experience",
-      "Kundala Lake pedal boating & photo spots",
-      "Guided stroll through sprawling Tea Plantations",
-      "Top Station mountain viewpoint / Optional sightseeing",
-      "Overnight stay in Munnar",
-    ],
-    images: [
-      {
-        url: "/locations/munnar.jpg",
-        title: "Mattupetty Dam",
-      },
-      {
-        url: "/locations/munnar.jpg",
-        title: "Kundala Lake",
-      },
-      {
-        url: "/locations/munnar.jpg",
-        title: "Tea Plantations",
-      },
-    ],
-  },
-  {
-    day: 3,
-    title: "Munnar → Thekkady",
-    route: "Spice Estates & Wildlife Sanctuary",
-    stayLocation: "Thekkady Hotel / Resort",
-    desc: "Descend into the aromatic spice hills of Thekkady, home to Periyar Tiger Reserve and cardamom plantations.",
-    activities: [
-      "Delicious breakfast & checkout from Munnar",
-      "Scenic hill transfer to Thekkady",
-      "Guided Spice Plantation tour (cardamom, pepper, cinnamon)",
-      "Optional Periyar Lake boating & wildlife spotting",
-      "Overnight stay in Thekkady",
-    ],
-    images: [
-      {
-        url: "/locations/thekkady.jpg",
-        title: "Spice Plantation",
-      },
-      {
-        url: "/locations/thekkady.jpg",
-        title: "Periyar Boating",
-      },
-      {
-        url: "/locations/thekkady.jpg",
-        title: "Wildlife Experience",
-      },
-    ],
-  },
-  {
-    day: 4,
-    title: "Thekkady → Kumarakom",
-    route: "Tranquil Backwater Lagoon Retreat",
-    stayLocation: "Kumarakom Backwater Resort",
-    desc: "Relax by the tranquil backwaters of Vembanad Lake in Kumarakom, experiencing calm village life and luxury resort amenities.",
-    activities: [
-      "Breakfast & checkout from Thekkady",
-      "Transfer to Kumarakom lagoon shores",
-      "Backwater sightseeing & bird sanctuary visits",
-      "Leisure time at luxury lakeside resort",
-      "Overnight stay in Kumarakom",
-    ],
-    images: [
-      {
-        url: "/locations/kumarakom.jpg",
-        title: "Backwater Sightseeing",
-      },
-      {
-        url: "/locations/kumarakom.jpg",
-        title: "Resort View",
-      },
-      {
-        url: "/locations/kumarakom.jpg",
-        title: "Serene Backwaters",
-      },
-    ],
-  },
-  {
-    day: 5,
-    title: "Kumarakom → Alleppey",
-    route: "Houseboat Check-in & Sunset Cruise",
-    stayLocation: "Alleppey Deluxe Houseboat",
-    desc: "Drift into pure tranquility as you cruise through the enchanting palm-fringed canals of Alleppey aboard your private wooden houseboat.",
-    activities: [
-      "Breakfast & checkout from Kumarakom",
-      "Short transfer to Alleppey jetty",
-      "Check-in to Traditional Deluxe Houseboat (welcome drink & lunch)",
-      "Afternoon & sunset backwater cruise through village canals",
-      "Overnight stay on Alleppey Houseboat with candlelit dinner",
-    ],
-    images: [
-      {
-        url: "/locations/alleppey.jpg",
-        title: "Houseboat Stay",
-      },
-      {
-        url: "/locations/alleppey.jpg",
-        title: "Backwater Cruise",
-      },
-      {
-        url: "/locations/alleppey.jpg",
-        title: "Sunset Magic",
-      },
-    ],
-  },
-  {
-    day: 6,
-    title: "Alleppey → Trivandrum",
-    route: "Golden Beaches & Capital Heritage",
-    stayLocation: "Trivandrum / Kovalam Beach Hotel",
-    desc: "Relax on golden sandy shores in Kovalam and explore the rich cultural monuments of Kerala's capital city.",
-    activities: [
-      "Morning breakfast & checkout from houseboat",
-      "Transfer to Trivandrum / Kovalam",
-      "Kovalam Beach relaxation & ocean promenade walk",
-      "Trivandrum local sightseeing & palace landmarks",
-      "Overnight stay in Trivandrum",
-    ],
-    images: [
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Kovalam Beach",
-      },
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Trivandrum Sightseeing",
-      },
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Heritage & Culture",
-      },
-    ],
-  },
-  {
-    day: 7,
-    title: "Trivandrum Sightseeing & Departure",
-    route: "Sacred Temple & Departure Transfer",
-    stayLocation: "Departure",
-    desc: "Conclude your unforgettable Kerala journey with spiritual temple visits, local handicraft shopping, and seamless airport transfer.",
-    activities: [
-      "Breakfast & checkout from hotel",
-      "Visit sacred Sri Padmanabhaswamy Temple",
-      "Shopping & souvenirs free time",
-      "Drop at Trivandrum Airport / Railway Station with lifelong memories!",
-    ],
-    images: [
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Sri Padmanabhaswamy Temple",
-      },
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Shopping & Souvenirs",
-      },
-      {
-        url: "/locations/trivandrum.jpg",
-        title: "Drop & Departure",
-      },
-    ],
-  },
-];
+import plansData from "@/public/plans.json";
+
+const k7Package = plansData.packages[0];
+
+const packageItinerary = k7Package.itinerary.map((item) => ({
+  day: item.day,
+  title: item.title,
+  route: item.route,
+  stayLocation: item.stay,
+  desc: item.subtitle,
+  activities: item.activities,
+  images: item.images.map((img) => ({ url: img.url, title: img.label })),
+}));
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -230,7 +46,7 @@ export default function DetailsPage() {
         day: "numeric",
       })} (7 Days / 6 Nights)`,
       status: "UPCOMING",
-      img: "/locations/alleppey.jpg",
+      img: "/locations/AllepyBackwater.webp",
     };
 
     const existing = localStorage.getItem("tripora_bookings");
@@ -260,7 +76,7 @@ export default function DetailsPage() {
           <img
             className="w-full h-full object-cover opacity-60"
             alt="Kerala Tour Package"
-            src="/locations/alleppey.jpg"
+            src="/locations/AllepyBackwater.webp"
           />
           <div className="absolute inset-0 details-hero-gradient"></div>
 

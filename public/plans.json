@@ -1,0 +1,436 @@
+{
+  "packages": [
+    {
+      "id": "pkg-kerala-7d",
+      "title": "7 Days of Kerala (God's Own Country)",
+      "duration": "6 Nights / 7 Days",
+      "price": "Signature Priority Package",
+      "vehicle": "Private AC Chauffeur Vehicle",
+      "badge": "⭐ Official #1 Priority Package",
+      "route": "Kochi → Athirappilly → Munnar → Thekkady → Kumarakom → Alleppey → Trivandrum",
+      "subtitle": "The ultimate 7-day circuit covering waterfalls, tea estates, tiger reserve, Kumarakom & Kovalam beach.",
+      "inclusions": [
+        "Handpicked 3-Star / 4-Star Hotels & Deluxe Houseboat",
+        "Private AC Vehicle with experienced driver",
+        "Complete sightseeing & airport pickup/drop",
+        "24/7 Concierge assistance throughout your stay"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Kochi → Athirappilly → Munnar",
+          "route": "Arrival & Waterfall Scenic Transfer",
+          "stay": "MUNNAR HOTEL / RESORT",
+          "subtitle": "Welcome to God's Own Country! Begin your journey with lush green drives and cascading waterfalls.",
+          "activities": [
+            "Kochi Airport / Railway Station pickup by private chauffeur",
+            "Direct transfer to Athirappilly Waterfalls sightseeing",
+            "En route Cheeyappara Waterfalls & Valara Waterfalls photo stops",
+            "Check-in at Munnar hotel & evening leisure time",
+            "Overnight stay in Munnar"
+          ],
+          "images": [
+            { "url": "/locations/athirappilly.webp", "label": "Athirapilly Waterfalls" },
+            { "url": "/locations/cheeyappara.webp", "label": "Cheeyappara Waterfalls" },
+            { "url": "/locations/valarafalls.webp", "label": "Valara Waterfalls" }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Munnar Sightseeing",
+          "route": "Tea Gardens & High Peaks Exploration",
+          "stay": "MUNNAR HOTEL / RESORT",
+          "subtitle": "Explore emerald tea hills, natural acoustic points, and high-altitude lakes.",
+          "activities": [
+            "Mattupetty Dam visit & optional speedboat ride",
+            "Echo Point natural acoustics experience",
+            "Kundala Lake pedal boating & scenic photo spots",
+            "Guided walk through sprawling Tea Plantations",
+            "Top Station mountain viewpoint / Optional sightseeing",
+            "Overnight stay in Munnar"
+          ],
+          "images": [
+            { "url": "/locations/Munnarteagarden.webp", "label": "Munnar Tea Estates" },
+            { "url": "/locations/mattupetty.webp", "label": "Mattupetty Lake & Dam" },
+            { "url": "/locations/topstation.webp", "label": "Top Station View Point" }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Munnar → Thekkady",
+          "route": "Spice Estates & Wildlife Sanctuary",
+          "stay": "THEKKADY HOTEL / RESORT",
+          "subtitle": "Experience the wild side of Kerala amid lush forests, spices, and serene lakes.",
+          "activities": [
+            "Delicious breakfast & checkout from Munnar",
+            "Scenic hill drive to Thekkady spice country",
+            "Guided Spice Plantation tour (cardamom, pepper, cinnamon)",
+            "Optional Periyar Lake boating & wildlife spotting",
+            "Overnight stay in Thekkady"
+          ],
+          "images": [
+            { "url": "/locations/thekkady.webp", "label": "Thekkady Sanctuary" },
+            { "url": "/locations/ThekkadyBoating.webp", "label": "Periyar Wildlife Boating" },
+            { "url": "/locations/spiceplantations.webp", "label": "Spice Plantation Tour" }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Thekkady → Kumarakom",
+          "route": "Tranquil Backwater Lagoon Retreat",
+          "stay": "KUMARAKOM BACKWATER RESORT",
+          "subtitle": "Relax by the tranquil backwaters and enjoy the calm, village life of Kerala.",
+          "activities": [
+            "Breakfast & checkout from Thekkady",
+            "Scenic transfer to Kumarakom lagoon shores",
+            "Backwater sightseeing & bird sanctuary visits",
+            "Leisure time at luxury lakeside resort",
+            "Overnight stay in Kumarakom"
+          ],
+          "images": [
+            { "url": "/locations/kumarakom.webp", "label": "Kumarakom Lagoon Resort" },
+            { "url": "/locations/vembanad.webp", "label": "Vembanad Lake View" },
+            { "url": "/locations/bird.webp", "label": "Bird Sanctuary Trail" }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Kumarakom → Alleppey",
+          "route": "Houseboat Check-in & Sunset Cruise",
+          "stay": "ALLEPPEY HOUSEBOAT",
+          "subtitle": "Drift into tranquility as you cruise through the enchanting backwaters of Alleppey.",
+          "activities": [
+            "Breakfast & checkout from Kumarakom",
+            "Short transfer to Alleppey jetty",
+            "Check-in to traditional Deluxe Houseboat with welcome drink & lunch",
+            "Afternoon & sunset backwater cruise through village canals",
+            "Overnight stay on Alleppey Houseboat with freshly cooked dinner"
+          ],
+          "images": [
+            { "url": "/locations/houseboat.webp", "label": "Alleppey Houseboat" },
+            { "url": "/locations/AllepyBackwater.webp", "label": "Backwater Cruise" },
+            { "url": "/locations/sunsetcruise.webp", "label": "Sunset Magic Cruise" }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Alleppey → Trivandrum",
+          "route": "Golden Beaches & Capital Heritage",
+          "stay": "TRIVANDRUM / KOVALAM HOTEL",
+          "subtitle": "Relax on golden beaches and explore the rich culture and heritage of Trivandrum.",
+          "activities": [
+            "Morning breakfast & checkout from houseboat",
+            "Transfer to Trivandrum / Kovalam Beach",
+            "Kovalam Beach relaxation & ocean promenade walk",
+            "Trivandrum local sightseeing & landmark visits",
+            "Overnight stay in Trivandrum"
+          ],
+          "images": [
+            { "url": "/locations/Kovalam.webp", "label": "Kovalam Lighthouse Beach" },
+            { "url": "/locations/trivandrum.webp", "label": "Trivandrum Heritage Landmarks" },
+            { "url": "/locations/PadmanabhaswamyTemple.webp", "label": "Sri Padmanabhaswamy Temple" }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Trivandrum Sightseeing & Departure",
+          "route": "Sacred Temple & Departure Transfer",
+          "stay": "DEPARTURE",
+          "subtitle": "Take back memories that last a lifetime!",
+          "activities": [
+            "Breakfast & checkout from hotel",
+            "Visit sacred Sri Padmanabhaswamy Temple & Napier Museum",
+            "Local handicraft shopping & souvenirs free time",
+            "Drop at Trivandrum Airport / Railway Station with lifelong memories!"
+          ],
+          "images": [
+            { "url": "/locations/PadmanabhaswamyTemple.webp", "label": "Sri Padmanabhaswamy Temple" },
+            { "url": "/locations/trivandrum.webp", "label": "Napier Museum & Heritage" },
+            { "url": "/locations/Kovalam.webp", "label": "Drop & Departure" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkg-munnar-3d",
+      "title": "Munnar Escape",
+      "duration": "2 Nights / 3 Days",
+      "price": "₹16,500 for 2 Persons",
+      "vehicle": "Private Sedan Package",
+      "badge": "Special Offer • ₹16,500",
+      "route": "Arrival → Munnar → Mattupetty → Top Station → Drop",
+      "subtitle": "Scenic mountains • Waterfalls • Tea Gardens • Adventure • Valley Views",
+      "inclusions": [
+        "2 Nights stay at a 3★ property with swimming pool",
+        "Private Sedan car for all transfers & sightseeing",
+        "Pickup from designated point & drop-off",
+        "Driver allowance, fuel, toll & transportation",
+        "All mentioned sightseeing as per itinerary"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival → Munnar Sightseeing",
+          "route": "En Route Waterfalls & Scenic Attractions",
+          "stay": "MUNNAR 3★ HOTEL (WITH POOL)",
+          "subtitle": "Pickup from designated point & proceed to Munnar enjoying cascading waterfalls and tea valleys.",
+          "activities": [
+            "Cheeyappara Waterfalls & Valara Waterfalls",
+            "Guided Spice Plantation Visit",
+            "Live Chocolate Factory Visit",
+            "Adventure Zipline & Glass Bridge",
+            "Handloom Weaving Centre",
+            "Chithirapuram & 2nd Mile View Points",
+            "Attukad Waterfall View Point",
+            "Check-in & Overnight stay in Munnar 3★ Resort"
+          ],
+          "images": [
+            { "url": "/locations/cheeyappara.webp", "label": "Cheeyappara Waterfalls" },
+            { "url": "/locations/valarafalls.webp", "label": "Valara Waterfalls" },
+            { "url": "/locations/spiceplantations.webp", "label": "Spice Plantation Visit" }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Mattupetty & Top Station Route",
+          "route": "Highland Lakes & Mountain Vistas",
+          "stay": "MUNNAR 3★ HOTEL (WITH POOL)",
+          "subtitle": "After breakfast, proceed for a full-day sightseeing tour towards Mattupetty & Top Station.",
+          "activities": [
+            "Flower Garden & Photo Point",
+            "Elephant Park & Mattupetty Tea Factory",
+            "Mattupetty Dam & Sunmoon Valley Boating Point",
+            "Shooting Point & Wild Elephant Arrival Spot",
+            "Echo Point natural acoustics experience",
+            "Kundala Dam reservoir",
+            "Yellapatty Vegetable Farm View Point",
+            "Top Station high peak viewpoint",
+            "Overnight stay in Munnar"
+          ],
+          "images": [
+            { "url": "/locations/mattupetty.webp", "label": "Mattupetty Dam & Lake" },
+            { "url": "/locations/kundala.webp", "label": "Kundala Dam" },
+            { "url": "/locations/topstation.webp", "label": "Top Station View Point" }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Munnar Local Sightseeing → Departure",
+          "route": "Scenic Hills & Departure Transfer",
+          "stay": "DEPARTURE",
+          "subtitle": "Explore Munnar's picturesque hills before proceeding for your departure transfer.",
+          "activities": [
+            "Munnar Flower Garden",
+            "Signal Point & Idli Hills",
+            "Lockhart View Point",
+            "Gap Road Route (subject to weather & time availability)",
+            "After sightseeing, proceed for comfortable drop-off!"
+          ],
+          "images": [
+            { "url": "/locations/Munnarteagarden.webp", "label": "Munnar Tea Hills" },
+            { "url": "/locations/MunnarSunrise.webp", "label": "Munnar Sunrise View" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkg-kerala-5d",
+      "title": "5 Days / 4 Nights Kerala Tour",
+      "duration": "4 Nights / 5 Days",
+      "price": "Custom Quote",
+      "vehicle": "Private AC Vehicle",
+      "badge": "Couples & Families Special",
+      "route": "Kochi → Munnar → Thekkady → Alleppey",
+      "subtitle": "Complete Kerala highlights: Tea estates, spice hills, and Alleppey Houseboat cruise.",
+      "inclusions": [
+        "3-Star / 4-Star Hotel Accommodation in Munnar & Thekkady",
+        "Private AC Vehicle for all transfers & sightseeing",
+        "Alleppey sharing Houseboat Stay with traditional meals",
+        "Driver & complete sightseeing as per itinerary",
+        "Pickup from Kochi & drop-off at Kochi Airport/Station"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Kochi → Munnar",
+          "route": "Arrival & Waterfall Drive",
+          "stay": "MUNNAR HOTEL / RESORT",
+          "subtitle": "Pickup from Kochi Airport / Railway Station and drive to the misty hills of Munnar.",
+          "activities": [
+            "Pickup from Kochi Airport / Railway Station",
+            "Drive to Munnar with en-route sightseeing",
+            "Cheeyappara Waterfalls & Valara Waterfalls",
+            "Spice Plantations Visit",
+            "Hotel check-in & overnight stay in Munnar"
+          ],
+          "images": [
+            { "url": "/locations/Jewtown.webp", "label": "Kochi Jew Town" },
+            { "url": "/locations/cheeyappara.webp", "label": "Cheeyappara Waterfalls" },
+            { "url": "/locations/Munnarteagarden.webp", "label": "Munnar Tea Estates" }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Munnar Sightseeing",
+          "route": "Lakes & Tea Estates",
+          "stay": "MUNNAR HOTEL / RESORT",
+          "subtitle": "Full-day exploration of Munnar's iconic tea gardens and reservoirs.",
+          "activities": [
+            "Mattupetty Dam visit & boat ride",
+            "Echo Point natural acoustic experience",
+            "Kundala Lake & Photo Point",
+            "Guided stroll through Tea Gardens",
+            "Return to hotel & overnight stay in Munnar"
+          ],
+          "images": [
+            { "url": "/locations/mattupetty.webp", "label": "Mattupetty Lake" },
+            { "url": "/locations/Munnarteagarden.webp", "label": "Tea Gardens Walk" }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Munnar → Thekkady",
+          "route": "Spice Estates & Cultural Shows",
+          "stay": "THEKKADY HOTEL / RESORT",
+          "subtitle": "Travel to Thekkady spice sanctuary with optional Kathakali & Kalaripayattu cultural shows.",
+          "activities": [
+            "Scenic hill drive from Munnar to Thekkady",
+            "Hotel check-in at Thekkady",
+            "Optional Kathakali & Kalaripayattu martial arts shows",
+            "Optional Periyar Lake boating & wildlife activities",
+            "Overnight stay in Thekkady"
+          ],
+          "images": [
+            { "url": "/locations/thekkady.webp", "label": "Thekkady Sanctuary" },
+            { "url": "/locations/ThekkadyBoating.webp", "label": "Wildlife Boating" }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Thekkady → Alleppey",
+          "route": "Houseboat Check-in & Backwater Cruise",
+          "stay": "ALLEPPEY HOUSEBOAT",
+          "subtitle": "Breakfast & checkout, drive to Alleppey jetty for a memorable houseboat cruise.",
+          "activities": [
+            "Breakfast & checkout from Thekkady",
+            "Drive to Alleppey & check-in to Kerala Houseboat",
+            "Enjoy Backwater Cruise & Village Views",
+            "Traditional Kerala Lunch & Sunset Views",
+            "Overnight stay in Alleppey Houseboat"
+          ],
+          "images": [
+            { "url": "/locations/AllepyBackwater.webp", "label": "Alleppey Backwaters" },
+            { "url": "/locations/sunsetcruise.webp", "label": "Sunset Cruise" }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Alleppey → Kochi Departure",
+          "route": "Houseboat Checkout & Drop",
+          "stay": "DEPARTURE",
+          "subtitle": "Morning breakfast on houseboat followed by transfer to Kochi Airport / Railway Station.",
+          "activities": [
+            "Morning houseboat checkout",
+            "Transfer to Kochi Airport / Railway Station",
+            "End of the Kerala trip with beautiful memories!"
+          ],
+          "images": [
+            { "url": "/locations/fortkochi.webp", "label": "Fort Kochi Heritage" }
+          ]
+        }
+      ]
+    }
+  ],
+  "corePillars": [
+    {
+      "title": "Comfortable Stay",
+      "desc": "Handpicked premium hotels, jungle resorts & luxury backwater houseboats",
+      "icon": "hotel"
+    },
+    {
+      "title": "Delicious Meals",
+      "desc": "Daily authentic Kerala breakfasts & freshly prepared onboard meals",
+      "icon": "restaurant"
+    },
+    {
+      "title": "Scenic Sightseeing",
+      "desc": "Cascading waterfalls, tea estates, tiger reserves & coastal heritage",
+      "icon": "photo_camera"
+    },
+    {
+      "title": "Safe & Reliable Transport",
+      "desc": "Dedicated private AC vehicle with knowledgeable local chauffeur",
+      "icon": "directions_car"
+    },
+    {
+      "title": "24/7 Assistance",
+      "desc": "Round-the-clock local concierge support for a stress-free vacation",
+      "icon": "support_agent"
+    }
+  ],
+  "packageInclusions": [
+    {
+      "title": "Hotel Stay",
+      "desc": "Clean, comfortable 3-Star / 4-Star handpicked hotels and luxury resort accommodations",
+      "icon": "bed"
+    },
+    {
+      "title": "Private Vehicle",
+      "desc": "Exclusive AC Sedan / SUV for all transfers and sightseeing throughout your tour",
+      "icon": "directions_car"
+    },
+    {
+      "title": "Experienced Driver",
+      "desc": "Professional, polite local driver fluent in English & Hindi with expert route knowledge",
+      "icon": "badge"
+    },
+    {
+      "title": "Sightseeing",
+      "desc": "Complete daily sightseeing entry & route coverage as per itinerary",
+      "icon": "travel_explore"
+    },
+    {
+      "title": "Airport / Railway Pickup & Drop",
+      "desc": "Hassle-free arrival pickup and departure drop-off",
+      "icon": "connecting_airports"
+    }
+  ],
+  "destinationSpotlights": [
+    {
+      "name": "Munnar",
+      "title": "Misty Tea Highlands",
+      "img": "/locations/Munnarteagarden.webp",
+      "desc": "Rolling emerald tea plantations, cool mountain air, and waterfalls."
+    },
+    {
+      "name": "Alleppey",
+      "title": "Enchanting Backwaters",
+      "img": "/locations/AllepyBackwater.webp",
+      "desc": "Overnight luxury houseboat cruise along palm-fringed village canals."
+    },
+    {
+      "name": "Thekkady",
+      "title": "Wild Spices & Forests",
+      "img": "/locations/ThekkadyBoating.webp",
+      "desc": "Aromatic spice gardens, Periyar boat safaris, and wild elephants."
+    },
+    {
+      "name": "Kumarakom",
+      "title": "Tranquil Lagoon Stays",
+      "img": "/locations/vembanad.webp",
+      "desc": "Lakeside luxury resorts, bird sanctuary trails, and serene water views."
+    },
+    {
+      "name": "Trivandrum",
+      "title": "Heritage & Golden Coasts",
+      "img": "/locations/Kovalam.webp",
+      "desc": "Spiritual temple majesty, Kovalam lighthouse beach, and royal culture."
+    },
+    {
+      "name": "Kochi",
+      "title": "Gateway of Heritage",
+      "img": "/locations/fortkochi.webp",
+      "desc": "Historic Fort Kochi, Chinese fishing nets, and vibrant spice bazaars."
+    }
+  ]
+}

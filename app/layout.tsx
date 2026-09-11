@@ -18,8 +18,9 @@ export const metadata: Metadata = {
   title: "Tripora | Luxury Travel Kerala & India",
   description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
   icons: {
-    icon: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.webp",
+    shortcut: "/favicon.ico",
+    apple: "/logo.webp",
   },
 };
 
