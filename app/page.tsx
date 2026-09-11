@@ -486,7 +486,10 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 1: HERO SECTION */}
         {/* ========================================================================= */}
-        <section id="overview" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-10 md:py-12 px-margin-mobile md:px-margin-desktop">
+        {/* ========================================================================= */}
+        {/* SECTION 1: HERO SECTION */}
+        {/* ========================================================================= */}
+        <section id="overview" className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden pt-12 pb-20 px-margin-mobile md:px-margin-desktop bg-emerald-950">
           {/* Background Image with Dark Atmospheric Overlay */}
           <div className="absolute inset-0 z-0">
             <img
@@ -494,105 +497,263 @@ export default function Home() {
               alt="Alleppey Houseboat Kerala Backwaters"
               className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/70 to-emerald-950/40"></div>
           </div>
 
           <div className="relative z-10 max-w-container-max-width mx-auto text-center text-white w-full">
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-1.5 bg-secondary-container/20 backdrop-blur-md border border-secondary-container/40 text-secondary-container px-3 py-1 rounded-full mb-3 font-sans text-[11px] uppercase tracking-[0.18em] font-semibold">
-              <span className="material-symbols-outlined text-[14px]">verified</span>
-              <span>Official 7 Days Kerala Signature Package</span>
-            </div>
+            {/* Cursive Accent */}
+            <span className="font-script text-4xl sm:text-6xl text-amber-300 block mb-1 drop-shadow-md">
+              Journey To
+            </span>
 
             {/* Main Hero Headline */}
-            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-2 leading-none">
-              Kerala <span className="text-secondary-container italic font-serif font-normal">TOUR PACKAGES</span>
+            <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-3 uppercase leading-none text-white drop-shadow-lg">
+              NATURE'S BEST
             </h1>
 
-            {/* Tagline from Brochure */}
-            <p className="font-display text-xl sm:text-2xl md:text-3xl text-emerald-200/90 font-light italic mb-4">
-              God's Own Country Awaits You
+            {/* Subtitle */}
+            <p className="max-w-xl mx-auto text-white/90 font-sans text-xs sm:text-base mb-8 leading-relaxed font-light">
+              Discover stunning Kerala destinations and create memories that last a lifetime.
             </p>
 
-            <p className="max-w-xl mx-auto text-white/80 font-sans text-xs sm:text-sm mb-6 leading-relaxed">
-              Experience the flagship 7-Day Kerala circuit from waterfalls to backwaters &amp; beaches, plus short getaway packages crafted for couples and families.
-            </p>
-
-            {/* CTA Action Buttons */}
-            <div className="flex flex-wrap justify-center items-center gap-3 mb-8">
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
               <a
                 href="#itinerary"
-                className="bg-tertiary hover:bg-tertiary-hover text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-1.5"
+                className="bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-xs uppercase tracking-wider font-bold px-7 py-3 rounded-full transition-all shadow-lg active:scale-95 flex items-center gap-2"
               >
-                <span>Explore 7-Day Plan &amp; Packages</span>
-                <span className="material-symbols-outlined text-sm">expand_more</span>
+                <span>Explore Packages</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </a>
 
               <a
                 href="#contact"
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-xl transition-all active:scale-95 flex items-center gap-1.5"
+                className="bg-white/15 hover:bg-white/25 text-white border border-white/30 backdrop-blur-md font-sans text-xs uppercase tracking-wider font-bold px-7 py-3 rounded-full transition-all active:scale-95 flex items-center gap-2"
               >
-                <span className="material-symbols-outlined text-emerald-400 text-sm">calendar_month</span>
+                <span className="material-symbols-outlined text-amber-300 text-sm">calendar_month</span>
                 <span>Check Availability</span>
               </a>
             </div>
 
-            {/* Core 5 Service Pillars Grid from Brochure Page 1 */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-6 border-t border-white/15 max-w-4xl mx-auto">
-              {corePillars.map((pillar, idx) => (
-                <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 text-left hover:bg-white/10 transition-all">
-                  <span className="material-symbols-outlined text-secondary-container text-xl mb-1">{pillar.icon}</span>
-                  <h4 className="font-sans font-bold text-[11px] uppercase text-white tracking-wider mb-0.5">{pillar.title}</h4>
-                  <p className="font-sans text-[10px] text-white/70 leading-snug">{pillar.desc}</p>
-                </div>
-              ))}
-            </div>
+            {/* Floating Filter Search Pill Bar */}
+            <div className="-mb-24 relative z-20 max-w-4xl mx-auto bg-white text-on-surface rounded-3xl p-3 sm:p-4 shadow-2xl border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-3 text-left">
+              <div className="w-full md:w-1/3 px-4 py-1.5 md:border-r border-gray-200">
+                <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Location</p>
+                <select className="bg-transparent font-sans text-xs font-bold text-primary focus:outline-none w-full cursor-pointer mt-0.5">
+                  <option>Select location</option>
+                  <option>Munnar Highlands</option>
+                  <option>Alleppey Backwaters</option>
+                  <option>Thekkady Wild Spices</option>
+                  <option>Kumarakom Lagoon</option>
+                  <option>Trivandrum Coast</option>
+                  <option>Fort Kochi</option>
+                </select>
+              </div>
 
-            {/* Slogan */}
-            <p className="mt-4 font-serif italic text-white/60 text-xs tracking-wide">
-              "One Journey, Endless Memories"
-            </p>
+              <div className="w-full md:w-1/3 px-4 py-1.5 md:border-r border-gray-200">
+                <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Theme / Package</p>
+                <select className="bg-transparent font-sans text-xs font-bold text-primary focus:outline-none w-full cursor-pointer mt-0.5">
+                  <option>Select theme</option>
+                  <option>7 Days God's Own Country (Priority #1)</option>
+                  <option>Munnar Escape (3D/2N - ₹16,500)</option>
+                  <option>5 Days / 4 Nights Kerala Tour</option>
+                </select>
+              </div>
+
+              <div className="w-full md:w-1/3 px-4 py-1.5 flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Travelers</p>
+                  <select className="bg-transparent font-sans text-xs font-bold text-primary focus:outline-none cursor-pointer mt-0.5">
+                    <option>2 Adults</option>
+                    <option>Family (2 Adults + 2 Kids)</option>
+                    <option>Group / Custom</option>
+                  </select>
+                </div>
+
+                <a
+                  href="#itinerary"
+                  className="w-11 h-11 rounded-full bg-emerald-800 hover:bg-emerald-900 text-white flex items-center justify-center shadow-md transition-transform active:scale-95 flex-shrink-0"
+                  title="Search Packages"
+                >
+                  <span className="material-symbols-outlined text-xl">search</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 2: DESTINATION SPOTLIGHTS */}
+        {/* SECTION 2: PLAN YOUR TRIP IN 3 EASY STEPS */}
         {/* ========================================================================= */}
-        <section className="py-10 md:py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+        <section className="pt-28 pb-16 px-margin-mobile md:px-margin-desktop bg-surface">
           <div className="max-w-container-max-width mx-auto">
-            <div className="text-center max-w-xl mx-auto mb-6 md:mb-8">
-              <span className="text-tertiary font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
-                Featured Destinations
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
+              <div>
+                <h2 className="font-sans text-3xl sm:text-4xl font-bold text-primary">
+                  Plan Your Trip <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">in 3 Easy Steps</span>
+                </h2>
+                <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-1">
+                  Simple steps to book your dream vacation.
+                </p>
+              </div>
+
+              <a
+                href="#itinerary"
+                className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-xs transition-colors"
+              >
+                View All
+              </a>
+            </div>
+
+            {/* 3 Vertical Feature Cards with Gradients */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Card 01 */}
+              <div className="bg-gradient-to-b from-teal-700 to-emerald-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-teal-600/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                <div className="w-14 h-14 rounded-full bg-white/95 text-teal-800 flex items-center justify-center mb-6 shadow-md">
+                  <span className="material-symbols-outlined text-2xl">location_on</span>
+                </div>
+                <div>
+                  <span className="font-sans text-4xl sm:text-5xl font-extrabold text-white/25 block mb-1">01</span>
+                  <h3 className="font-sans text-xl font-bold mb-2 text-white">Choose Destination</h3>
+                  <p className="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                    Pick your favorite place from our handpicked list of Kerala highlights like Munnar, Alleppey &amp; Thekkady.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-white/15 flex items-center gap-2 text-xs font-bold text-teal-200 uppercase tracking-wider">
+                  <span>Explore Locations</span>
+                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+
+              {/* Card 02 */}
+              <div className="bg-gradient-to-b from-sky-600 to-teal-800 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-sky-400/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                <div className="w-14 h-14 rounded-full bg-white/95 text-sky-800 flex items-center justify-center mb-6 shadow-md">
+                  <span className="material-symbols-outlined text-2xl">payments</span>
+                </div>
+                <div>
+                  <span className="font-sans text-4xl sm:text-5xl font-extrabold text-white/25 block mb-1">02</span>
+                  <h3 className="font-sans text-xl font-bold mb-2 text-white">Select Package</h3>
+                  <p className="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                    Choose the ideal 7-Day, 3-Day or 5-Day itinerary for your budget, family size, and preferred travel dates.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-white/15 flex items-center gap-2 text-xs font-bold text-sky-200 uppercase tracking-wider">
+                  <span>View Itineraries</span>
+                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+
+              {/* Card 03 */}
+              <div className="bg-gradient-to-b from-emerald-800 to-teal-950 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-emerald-700/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
+                <div className="w-14 h-14 rounded-full bg-white/95 text-emerald-800 flex items-center justify-center mb-6 shadow-md">
+                  <span className="material-symbols-outlined text-2xl">luggage</span>
+                </div>
+                <div>
+                  <span className="font-sans text-4xl sm:text-5xl font-extrabold text-white/25 block mb-1">03</span>
+                  <h3 className="font-sans text-xl font-bold mb-2 text-white">Enjoy Your Trip</h3>
+                  <p className="font-sans text-xs text-white/80 leading-relaxed mb-6">
+                    Pack your bags and get ready for an unforgettable Kerala journey with our dedicated AC vehicle &amp; driver.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-white/15 flex items-center gap-2 text-xs font-bold text-emerald-200 uppercase tracking-wider">
+                  <span>Start Vacation</span>
+                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION 3: TRENDING DESTINATIONS */}
+        {/* ========================================================================= */}
+        <section id="destinations" className="py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-t border-emerald-900/10 relative">
+          <div className="max-w-container-max-width mx-auto">
+            {/* Section Header */}
+            <div className="text-center max-w-xl mx-auto mb-10">
+              <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold">
+                Trending Destinations
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl text-primary font-bold mt-1">
-                Discover the Magic of Kerala
+              <h2 className="font-sans text-3xl sm:text-4xl text-primary font-bold mt-1">
+                Handpicked Destinations <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">loved by travelers</span>
               </h2>
               <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-1.5">
-                Iconic destinations woven seamlessly into our curated tour packages.
+                Explore iconic Kerala spots woven seamlessly into our curated tour packages.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {/* Showcase Grid: Badges + Featured Cutout Banner */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+              {/* Left Column: 6 Feature Badges */}
+              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {[
+                  { title: "Best Price Guaranteed", icon: "verified" },
+                  { title: "Curated Experiences", icon: "shield" },
+                  { title: "24/7 Travel Support", icon: "support_agent" },
+                  { title: "Safe & Secure", icon: "lock" },
+                  { title: "Signature Circuits", icon: "explore" },
+                  { title: "Handpicked Stays", icon: "hotel" },
+                ].map((badge, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-2xl p-4 shadow-sm border border-emerald-900/10 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow group"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2 group-hover:bg-emerald-800 group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-xl">{badge.icon}</span>
+                    </div>
+                    <span className="font-sans text-xs font-bold text-primary leading-snug">{badge.title}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Column: Organic Cutout Showcase Image */}
+              <div className="lg:col-span-6 relative">
+                <div className="rounded-[40px] overflow-hidden shadow-2xl border-4 border-white h-72 sm:h-80 relative group">
+                  <img
+                    src="/locations/alleppey.jpg"
+                    alt="Alleppey Backwaters Scenic View"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                    <span className="bg-emerald-800/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider w-max mb-2">
+                      ⭐ Highlight Spotlight
+                    </span>
+                    <h3 className="font-display text-2xl font-bold text-white mb-1">Alleppey Luxury Houseboat Cruise</h3>
+                    <p className="font-sans text-xs text-white/80">Experience sunset over palm-fringed backwater canals.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Destination Spotlight Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {destinationSpotlights.map((dest, i) => (
                 <div
                   key={i}
-                  className="group relative rounded-xl overflow-hidden shadow-sm bg-white border border-primary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="group relative rounded-2xl overflow-hidden shadow-sm bg-white border border-emerald-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
                 >
-                  <div className="h-36 sm:h-40 relative overflow-hidden">
-                    <img
-                      src={dest.img}
-                      alt={dest.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                      <span className="material-symbols-outlined text-tertiary text-xs">location_on</span>
-                      <span className="font-sans text-[10px] font-bold text-primary uppercase">{dest.name}</span>
+                  <div>
+                    <div className="h-44 relative overflow-hidden">
+                      <img
+                        src={dest.img}
+                        alt={dest.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-xs">
+                        <span className="material-symbols-outlined text-emerald-700 text-xs">location_on</span>
+                        <span className="font-sans text-[11px] font-bold text-primary uppercase">{dest.name}</span>
+                      </div>
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-display text-lg font-bold text-primary mb-1.5">{dest.title}</h3>
+                      <p className="font-sans text-xs text-on-surface-variant leading-relaxed mb-4">{dest.desc}</p>
                     </div>
                   </div>
-                  <div className="p-3.5 sm:p-4">
-                    <h3 className="font-display text-base font-bold text-primary mb-1">{dest.title}</h3>
-                    <p className="font-sans text-[11px] text-on-surface-variant leading-snug line-clamp-2">{dest.desc}</p>
+
+                  <div className="px-5 pb-5 pt-0 flex justify-between items-center text-xs font-bold text-emerald-800 uppercase tracking-wider">
+                    <span>Included in Packages</span>
+                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                   </div>
                 </div>
               ))}
@@ -601,326 +762,265 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 3: ALL PACKAGES & DETAILED ITINERARY SWITCHER */}
+        {/* SECTION 4: ALL PACKAGES & DETAILED ITINERARY SWITCHER */}
         {/* ========================================================================= */}
-        <section id="itinerary" className="py-10 md:py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-y border-primary/10">
+        <section id="itinerary" className="py-16 px-margin-mobile md:px-margin-desktop bg-surface border-y border-emerald-900/10">
           <div className="max-w-container-max-width mx-auto">
             
             {/* Section Header */}
-            <div className="text-center max-w-xl mx-auto mb-6 md:mb-8">
-              <span className="text-tertiary font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
-                Curated Packages
+            <div className="text-center max-w-xl mx-auto mb-10">
+              <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold">
+                Featured Packages
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl text-primary font-bold mt-1">
-                Select Your Kerala Holiday Package
+              <h2 className="font-sans text-3xl sm:text-4xl text-primary font-bold mt-1">
+                Select Your Holiday <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">Package</span>
               </h2>
               <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-1.5">
                 Our signature 7-Day Plan is featured first. Click any package below to inspect day-by-day itineraries and book.
               </p>
             </div>
 
-            {/* 3 Package Cards Selection Grid (7 Day Plan First) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 md:mb-10">
-              {allPackages.map((pkg, idx) => {
-                const isSelected = selectedPkgIndex === idx;
-                return (
-                  <div
-                    key={pkg.id}
-                    onClick={() => {
-                      setSelectedPkgIndex(idx);
-                      setActiveDay(1);
-                    }}
-                    className={`rounded-xl p-4 sm:p-5 border cursor-pointer transition-all duration-300 relative flex flex-col justify-between ${
-                      isSelected
-                        ? "bg-primary text-white border-primary shadow-lg scale-[1.01]"
-                        : "bg-white text-primary border-primary/15 hover:border-primary/40 hover:shadow-sm"
-                    }`}
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-2.5">
-                        <span className={`text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                          isSelected ? "bg-tertiary text-white" : "bg-primary/10 text-primary"
+            {/* Split Layout Container: Left Side Package List, Right Side Detailed Explanation */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* LEFT SIDE: Package Selection List (Stacked Cards) */}
+              <div className="lg:col-span-4 space-y-3">
+                <h3 className="font-sans text-xs uppercase tracking-wider font-bold text-emerald-800 flex items-center gap-1.5 mb-2">
+                  <span className="material-symbols-outlined text-base">format_list_bulleted</span>
+                  <span>Select Tour Package</span>
+                </h3>
+
+                {allPackages.map((pkg, idx) => {
+                  const isSelected = selectedPkgIndex === idx;
+                  return (
+                    <div
+                      key={pkg.id}
+                      onClick={() => {
+                        setSelectedPkgIndex(idx);
+                        setActiveDay(1);
+                      }}
+                      className={`rounded-2xl p-3.5 sm:p-4 border cursor-pointer transition-all duration-300 relative flex flex-col justify-between ${
+                        isSelected
+                          ? "bg-emerald-900 text-white border-emerald-800 shadow-lg scale-[1.01]"
+                          : "bg-white text-primary border-emerald-900/10 hover:border-emerald-700/40 hover:shadow-md"
+                      }`}
+                    >
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                            isSelected ? "bg-amber-400 text-emerald-950" : "bg-emerald-100 text-emerald-800"
+                          }`}>
+                            {pkg.badge}
+                          </span>
+                          <span className={`font-sans text-xs font-bold ${isSelected ? "text-amber-300" : "text-emerald-800"}`}>
+                            {pkg.duration}
+                          </span>
+                        </div>
+
+                        <h4 className="font-sans text-base font-bold mb-1">{pkg.title}</h4>
+                        <p className={`font-sans text-[11px] mb-2 line-clamp-1 ${isSelected ? "text-white/80" : "text-on-surface-variant"}`}>
+                          {pkg.route}
+                        </p>
+
+                        <div className={`p-2 rounded-xl mb-2 text-xs font-sans font-bold ${
+                          isSelected ? "bg-white/15 text-white" : "bg-emerald-50 text-emerald-900 border border-emerald-900/10"
                         }`}>
-                          {pkg.badge}
-                        </span>
-                        <span className={`font-sans text-[11px] font-bold ${isSelected ? "text-secondary-container" : "text-tertiary"}`}>
-                          {pkg.duration}
-                        </span>
+                          💰 {pkg.price}
+                        </div>
                       </div>
 
-                      <h3 className="font-display text-lg sm:text-xl font-bold mb-1.5">{pkg.title}</h3>
-                      <p className={`font-sans text-[11px] mb-3 line-clamp-2 ${isSelected ? "text-white/80" : "text-on-surface-variant"}`}>
-                        {pkg.route}
-                      </p>
-
-                      <div className={`p-2.5 rounded-lg mb-3 text-[11px] font-sans font-semibold ${
-                        isSelected ? "bg-white/10 text-white" : "bg-surface text-primary border border-primary/10"
-                      }`}>
-                        💰 {pkg.price}
+                      <div className="pt-2 border-t border-current/15 flex items-center justify-between font-sans text-[11px] font-bold uppercase tracking-wider">
+                        <span>{isSelected ? "Selected Package" : "Select & Inspect"}</span>
+                        <span className="material-symbols-outlined text-sm">
+                          {isSelected ? "check_circle" : "arrow_forward"}
+                        </span>
                       </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <div className="pt-3 border-t border-current/15 flex items-center justify-between font-sans text-[11px] font-bold uppercase tracking-wider">
-                      <span>{isSelected ? "Active Package" : "View Itinerary"}</span>
-                      <span className="material-symbols-outlined text-sm">
-                        {isSelected ? "check_circle" : "arrow_forward"}
+              {/* RIGHT SIDE: Selected Package Detailed Explanation & Day Breakdown */}
+              <div className="lg:col-span-8 bg-white rounded-2xl border border-emerald-900/10 shadow-md p-4 sm:p-5">
+                
+                {/* Active Package Banner */}
+                <div className="flex flex-col sm:flex-row justify-between sm:items-center pb-4 border-b border-gray-100 gap-3 mb-4">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                      <span className="bg-emerald-800 text-white font-sans text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        {currentPkg.duration}
+                      </span>
+                      <span className="bg-emerald-100 text-emerald-900 font-sans text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        {currentPkg.vehicle}
                       </span>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Selected Package Detailed Banner & Day Switcher */}
-            <div className="bg-white rounded-2xl border border-primary/10 shadow-md p-4 sm:p-6 md:p-8">
-              
-              {/* Active Package Banner */}
-              <div className="flex flex-col lg:flex-row justify-between lg:items-center pb-5 border-b border-primary/10 gap-4 mb-6">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                    <span className="bg-tertiary text-white font-sans text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
-                      {currentPkg.duration}
-                    </span>
-                    <span className="bg-primary/10 text-primary font-sans text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
-                      {currentPkg.vehicle}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-primary">
-                    {currentPkg.title}
-                  </h3>
-                  <p className="font-serif italic text-xs sm:text-sm text-primary/80 mt-0.5">
-                    "{currentPkg.subtitle}"
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <div className="bg-surface-container px-3.5 py-2 rounded-xl border border-primary/10">
-                    <p className="text-[9px] uppercase font-bold text-outline">Package Status</p>
-                    <p className="text-xs sm:text-sm font-bold text-primary">{currentPkg.price}</p>
+                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-primary">
+                      {currentPkg.title}
+                    </h3>
+                    <p className="font-serif italic text-xs text-primary/80 mt-0.5">
+                      "{currentPkg.subtitle}"
+                    </p>
                   </div>
 
-                  <a
-                    href={getWhatsAppUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-sans text-xs uppercase tracking-wider font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5"
-                  >
-                    <span className="material-symbols-outlined text-sm">chat</span>
-                    <span>Book on WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Package Inclusions Highlights */}
-              <div className="bg-surface p-3.5 sm:p-4 rounded-xl border border-primary/10 mb-6">
-                <h4 className="font-display text-xs font-bold text-primary mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-tertiary text-base">inventory_2</span>
-                  <span>Package Inclusions</span>
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 font-sans text-[11px]">
-                  {currentPkg.inclusions.map((inc, i) => (
-                    <div key={i} className="flex items-start gap-1.5 bg-white p-2.5 rounded-lg border border-primary/5">
-                      <span className="material-symbols-outlined text-emerald-600 text-sm flex-shrink-0 mt-0.5">check_circle</span>
-                      <span className="text-on-surface-variant font-medium leading-snug">{inc}</span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <div className="bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-900/10">
+                      <p className="text-[8px] uppercase font-bold text-gray-400">Package Pricing</p>
+                      <p className="text-xs font-bold text-emerald-900">{currentPkg.price}</p>
                     </div>
+
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-[11px] uppercase tracking-wider font-bold px-4 py-2 rounded-full transition-all shadow-sm flex items-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-sm">chat</span>
+                      <span>WhatsApp Book</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Package Inclusions Highlights */}
+                <div className="bg-surface p-3 rounded-xl border border-emerald-900/10 mb-4">
+                  <h4 className="font-sans text-[11px] font-bold text-primary mb-2 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-emerald-700 text-sm">inventory_2</span>
+                    <span>Package Inclusions</span>
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-sans text-[11px]">
+                    {currentPkg.inclusions.map((inc, i) => (
+                      <div key={i} className="flex items-start gap-1.5 bg-white p-2 rounded-lg border border-gray-100">
+                        <span className="material-symbols-outlined text-emerald-700 text-xs flex-shrink-0 mt-0.5">check_circle</span>
+                        <span className="text-on-surface-variant font-medium leading-snug">{inc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Day Selector Tabs for Active Package */}
+                <div className="flex overflow-x-auto no-scrollbar gap-1.5 mb-4 pb-0.5 justify-start sm:justify-center">
+                  {currentPkg.itinerary.map((dayItem) => (
+                    <button
+                      key={dayItem.day}
+                      onClick={() => setActiveDay(dayItem.day)}
+                      className={`px-3.5 py-1.5 rounded-full font-sans text-[11px] font-bold uppercase tracking-wider flex-shrink-0 transition-all ${
+                        activeDay === dayItem.day
+                          ? "bg-emerald-800 text-white shadow-xs scale-105"
+                          : "bg-surface text-primary border border-emerald-900/10 hover:bg-emerald-100"
+                      }`}
+                    >
+                      Day {dayItem.day}
+                    </button>
                   ))}
                 </div>
-              </div>
 
-              {/* Day Selector Tabs for Active Package */}
-              <div className="flex overflow-x-auto no-scrollbar gap-1.5 mb-6 pb-1 justify-start sm:justify-center">
-                {currentPkg.itinerary.map((dayItem) => (
-                  <button
-                    key={dayItem.day}
-                    onClick={() => setActiveDay(dayItem.day)}
-                    className={`px-4 py-2 rounded-lg font-sans text-[11px] font-bold uppercase tracking-wider flex-shrink-0 transition-all ${
-                      activeDay === dayItem.day
-                        ? "bg-primary text-white shadow-sm scale-105"
-                        : "bg-surface text-primary border border-primary/10 hover:bg-surface-container"
-                    }`}
-                  >
-                    Day {dayItem.day}
-                  </button>
-                ))}
-              </div>
-
-              {/* Active Day Content Breakdown */}
-              {currentPkg.itinerary
-                .filter((item) => item.day === activeDay)
-                .map((currentDay) => (
-                  <div key={currentDay.day} className="space-y-5 animate-fadeIn">
-                    <div className="flex flex-col lg:flex-row justify-between lg:items-center pb-3 border-b border-primary/10 gap-3">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-tertiary text-white font-sans text-[10px] font-bold px-2.5 py-0.5 rounded-md uppercase">
-                            DAY {currentDay.day}
-                          </span>
-                          <span className="text-outline text-[11px] font-sans uppercase font-bold tracking-wider">
-                            {currentDay.route}
-                          </span>
-                        </div>
-                        <h4 className="font-display text-xl font-bold text-primary">
-                          {currentDay.title}
-                        </h4>
-                      </div>
-
-                      <div className="bg-surface-container px-3 py-1.5 rounded-lg border border-primary/10 flex items-center gap-2">
-                        <span className="material-symbols-outlined text-tertiary text-sm">hotel</span>
+                {/* Active Day Content Breakdown */}
+                {currentPkg.itinerary
+                  .filter((item) => item.day === activeDay)
+                  .map((currentDay) => (
+                    <div key={currentDay.day} className="space-y-4 animate-fadeIn">
+                      <div className="flex flex-col lg:flex-row justify-between lg:items-center pb-2 border-b border-gray-100 gap-2">
                         <div>
-                          <p className="text-[9px] uppercase font-bold text-outline">Overnight Accommodation</p>
-                          <p className="text-[11px] font-bold text-primary">{currentDay.stay}</p>
+                          <div className="flex items-center gap-2 mb-0.5">
+                            <span className="bg-emerald-800 text-white font-sans text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase">
+                              DAY {currentDay.day}
+                            </span>
+                            <span className="text-gray-400 text-[11px] font-sans uppercase font-bold tracking-wider">
+                              {currentDay.route}
+                            </span>
+                          </div>
+                          <h4 className="font-sans text-lg font-bold text-primary">
+                            {currentDay.title}
+                          </h4>
+                        </div>
+
+                        <div className="bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-900/10 flex items-center gap-1.5">
+                          <span className="material-symbols-outlined text-emerald-700 text-sm">hotel</span>
+                          <div>
+                            <p className="text-[8px] uppercase font-bold text-gray-400">Overnight Accommodation</p>
+                            <p className="text-[11px] font-bold text-emerald-900">{currentDay.stay}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <p className="font-serif italic text-xs sm:text-sm text-primary/80 leading-relaxed">
-                      "{currentDay.subtitle}"
-                    </p>
+                      <p className="font-serif italic text-xs text-primary/80 leading-relaxed">
+                        "{currentDay.subtitle}"
+                      </p>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                      {/* Left Activities List */}
-                      <div className="lg:col-span-7">
-                        <h5 className="font-display text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-tertiary text-base">checklist</span>
-                          <span>Attractions &amp; Sightseeing</span>
-                        </h5>
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+                        {/* Left Activities List */}
+                        <div className="lg:col-span-7">
+                          <h5 className="font-sans text-xs font-bold text-primary mb-2 flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-emerald-700 text-sm">checklist</span>
+                            <span>Attractions &amp; Sightseeing</span>
+                          </h5>
 
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 font-sans text-[11px]">
-                          {currentDay.activities.map((act, i) => (
-                            <li key={i} className="flex items-start gap-2 p-2 rounded-lg bg-surface/60 border border-primary/5 hover:bg-surface transition-colors">
-                              <span className="w-4 h-4 rounded-full bg-primary/10 text-primary font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">
-                                {i + 1}
-                              </span>
-                              <span className="text-on-surface-variant font-medium leading-snug">{act}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 font-sans text-[11px]">
+                            {currentDay.activities.map((act, i) => (
+                              <li key={i} className="flex items-start gap-1.5 p-2 rounded-lg bg-surface border border-gray-100 hover:bg-emerald-50 transition-colors">
+                                <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[9px] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  {i + 1}
+                                </span>
+                                <span className="text-on-surface-variant font-medium leading-snug">{act}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                      {/* Right Photo Gallery */}
-                      <div className="lg:col-span-5">
-                        <h5 className="font-display text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-tertiary text-base">collections</span>
-                          <span>Day Highlights</span>
-                        </h5>
+                        {/* Right Photo Gallery */}
+                        <div className="lg:col-span-5">
+                          <h5 className="font-sans text-xs font-bold text-primary mb-2 flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-emerald-700 text-sm">collections</span>
+                            <span>Day Highlights</span>
+                          </h5>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          {currentDay.images.map((img, i) => (
-                            <div key={i} className="group relative h-24 sm:h-28 rounded-lg overflow-hidden border border-primary/10">
-                              <img
-                                src={img.url}
-                                alt={img.label}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2">
-                                <span className="text-white font-sans text-[11px] font-bold tracking-wide">{img.label}</span>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {currentDay.images.map((img, i) => (
+                              <div key={i} className="group relative h-20 sm:h-24 rounded-xl overflow-hidden border border-gray-100 shadow-xs">
+                                <img
+                                  src={img.url}
+                                  alt={img.label}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex items-end p-2">
+                                  <span className="text-white font-sans text-[10px] font-bold tracking-wide line-clamp-1">{img.label}</span>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-            </div>
+                  ))}
+              </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 4: KERALA EXPERIENCE HIGHLIGHTS */}
+        {/* SECTION 5: CONTACT / BOOKING SECTION */}
         {/* ========================================================================= */}
-        <section id="highlights" className="py-10 md:py-12 bg-primary text-white">
-          <div className="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-            <div className="text-center mb-6 md:mb-8">
-              <span className="text-secondary-container font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
-                EXPERIENCE MUNNAR &amp; KERALA WITH TRIPORA
-              </span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mt-1">
-                Explore More. <span className="text-secondary-container italic font-serif font-normal">WORRY LESS.</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { title: "Scenic Hills", desc: "Breathtaking views & cool highland climate", icon: "landscape" },
-                { title: "Spice & Nature", desc: "The land of aromatic spices and wild sanctuaries", icon: "forest" },
-                { title: "Backwater Bliss", desc: "Peaceful backwaters, lagoons, and lakes", icon: "water" },
-                { title: "Memorable Moments", desc: "Unforgettable experiences to cherish forever", icon: "sentiment_satisfied" },
-              ].map((item, idx) => (
-                <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:bg-white/10 transition-colors">
-                  <span className="material-symbols-outlined text-secondary-container text-2xl mb-2">{item.icon}</span>
-                  <h3 className="font-display text-base font-bold text-white mb-0.5">{item.title}</h3>
-                  <p className="font-sans text-[11px] text-white/70">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 pt-4 text-center border-t border-white/10">
-              <p className="font-serif italic text-base sm:text-lg text-emerald-200">
-                "Kerala is not just a destination, it's an emotion."
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* SECTION 5: PACKAGE INCLUSIONS */}
-        {/* ========================================================================= */}
-        <section id="inclusions" className="py-10 md:py-12 px-margin-mobile md:px-margin-desktop bg-surface border-b border-primary/10">
+        <section id="contact" className="py-16 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
           <div className="max-w-container-max-width mx-auto">
-            <div className="text-center max-w-xl mx-auto mb-6 md:mb-8">
-              <span className="text-tertiary font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
-                Worry-Free Travel
-              </span>
-              <h2 className="font-display text-2xl sm:text-3xl text-primary font-bold mt-1">
-                Standard Package Inclusions
-              </h2>
-              <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-1.5">
-                Everything required for an effortless, comfortable Kerala holiday is included.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {packageInclusions.map((inc, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-4 border border-primary/10 shadow-xs flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary flex-shrink-0">
-                    <span className="material-symbols-outlined text-xl">{inc.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-bold text-primary mb-0.5">{inc.title}</h3>
-                    <p className="font-sans text-[11px] text-on-surface-variant leading-snug">{inc.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* SECTION 6: CONTACT / BOOKING SECTION */}
-        {/* ========================================================================= */}
-        <section id="contact" className="py-10 md:py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
-          <div className="max-w-container-max-width mx-auto">
-            <div className="bg-primary text-white rounded-2xl p-6 sm:p-10 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="bg-emerald-950 text-white rounded-3xl p-6 sm:p-12 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-emerald-900/40">
               {/* Left Contact Info */}
-              <div className="lg:col-span-6 space-y-4">
-                <span className="text-secondary-container font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
+              <div className="lg:col-span-6 space-y-5">
+                <span className="text-amber-300 font-sans text-[11px] uppercase tracking-[0.2em] font-bold">
                   CONTACT / BOOKING
                 </span>
-                <h2 className="font-display text-2xl sm:text-4xl font-bold text-white leading-tight">
-                  Let's plan your perfect <span className="text-secondary-container italic font-serif">Kerala getaway!</span>
+                <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                  Let's plan your perfect <span className="text-amber-300 font-script font-normal text-4xl sm:text-6xl">Kerala getaway!</span>
                 </h2>
                 <p className="text-white/80 font-sans text-xs sm:text-sm leading-relaxed">
                   Have questions about custom dates, hotel upgrades, or private vehicle preferences? Connect directly with our Kerala travel experts.
                 </p>
 
-                <div className="space-y-3 pt-3 border-t border-white/15 font-sans text-xs">
+                <div className="space-y-3 pt-4 border-t border-white/15 font-sans text-xs">
                   <a
                     href="tel:+919656464124"
-                    className="flex items-center gap-3 text-white hover:text-secondary-container transition-colors group"
+                    className="flex items-center gap-3 text-white hover:text-amber-300 transition-colors group"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20">
-                      <span className="material-symbols-outlined text-secondary-container text-base">call</span>
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20">
+                      <span className="material-symbols-outlined text-amber-300 text-lg">call</span>
                     </div>
                     <div>
                       <p className="text-[9px] text-white/60 uppercase font-bold">Phone / Call Us</p>
@@ -930,10 +1030,10 @@ export default function Home() {
 
                   <a
                     href="mailto:tripora68@gmail.com"
-                    className="flex items-center gap-3 text-white hover:text-secondary-container transition-colors group"
+                    className="flex items-center gap-3 text-white hover:text-amber-300 transition-colors group"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20">
-                      <span className="material-symbols-outlined text-secondary-container text-base">mail</span>
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20">
+                      <span className="material-symbols-outlined text-amber-300 text-lg">mail</span>
                     </div>
                     <div>
                       <p className="text-[9px] text-white/60 uppercase font-bold">Email Us</p>
@@ -945,10 +1045,10 @@ export default function Home() {
                     href="https://instagram.com/tripora.in"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-white hover:text-secondary-container transition-colors group"
+                    className="flex items-center gap-3 text-white hover:text-amber-300 transition-colors group"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20">
-                      <span className="material-symbols-outlined text-secondary-container text-base">photo_camera</span>
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20">
+                      <span className="material-symbols-outlined text-amber-300 text-lg">photo_camera</span>
                     </div>
                     <div>
                       <p className="text-[9px] text-white/60 uppercase font-bold">Instagram</p>
@@ -957,9 +1057,9 @@ export default function Home() {
                   </a>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-2">
+                <div className="flex flex-wrap gap-2 pt-2">
                   {["Scenic Beauty", "Unique Experiences", "Unforgettable Journey", "Happy Memories"].map((badge, idx) => (
-                    <span key={idx} className="bg-white/10 text-white text-[10px] font-sans px-2.5 py-0.5 rounded-full border border-white/10">
+                    <span key={idx} className="bg-white/10 text-white text-[10px] font-sans px-3 py-1 rounded-full border border-white/10">
                       ✨ {badge}
                     </span>
                   ))}
@@ -967,18 +1067,18 @@ export default function Home() {
               </div>
 
               {/* Right Booking / WhatsApp Form */}
-              <div className="lg:col-span-6 bg-white text-on-surface rounded-xl p-5 sm:p-6 shadow-md">
-                <h3 className="font-display text-xl font-bold text-primary mb-1">
+              <div className="lg:col-span-6 bg-white text-on-surface rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 className="font-sans text-2xl font-bold text-primary mb-1">
                   Request Package Quote
                 </h3>
-                <p className="font-sans text-[11px] text-on-surface-variant mb-4">
+                <p className="font-sans text-xs text-on-surface-variant mb-5">
                   Fill in your details to receive an instant WhatsApp itinerary quote and custom pricing.
                 </p>
 
                 {submitted ? (
-                  <div className="text-center py-6 space-y-3">
-                    <span className="material-symbols-outlined text-emerald-600 text-4xl">check_circle</span>
-                    <h4 className="font-display text-lg font-bold text-primary">Inquiry Submitted!</h4>
+                  <div className="text-center py-8 space-y-4">
+                    <span className="material-symbols-outlined text-emerald-600 text-5xl">check_circle</span>
+                    <h4 className="font-sans text-xl font-bold text-primary">Inquiry Submitted!</h4>
                     <p className="font-sans text-xs text-on-surface-variant">
                       Thank you, {formState.name}! We will contact you immediately via phone / WhatsApp.
                     </p>
@@ -986,43 +1086,43 @@ export default function Home() {
                       href={getWhatsAppUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-emerald-600 text-white font-sans text-xs uppercase tracking-wider font-bold px-5 py-2.5 rounded-lg hover:bg-emerald-700 transition-colors"
+                      className="inline-flex items-center gap-2 bg-emerald-700 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full hover:bg-emerald-800 transition-colors shadow-md"
                     >
                       <span className="material-symbols-outlined text-sm">chat</span>
                       <span>Continue on WhatsApp</span>
                     </a>
                   </div>
                 ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-3 font-sans text-xs">
+                  <form onSubmit={handleFormSubmit} className="space-y-4 font-sans text-xs">
                     <div>
-                      <label className="block font-bold text-primary mb-0.5 uppercase tracking-wider text-[9px]">Your Name</label>
+                      <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">Your Name</label>
                       <input
                         type="text"
                         required
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-primary/20 focus:outline-none focus:border-tertiary text-xs"
+                        className="w-full px-5 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block font-bold text-primary mb-0.5 uppercase tracking-wider text-[9px]">Phone / WhatsApp</label>
+                        <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">Phone / WhatsApp</label>
                         <input
                           type="tel"
                           required
                           placeholder="+91 98765 43210"
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-primary/20 focus:outline-none focus:border-tertiary text-xs"
+                          className="w-full px-5 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface"
                           value={formState.phone}
                           onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                         />
                       </div>
                       <div>
-                        <label className="block font-bold text-primary mb-0.5 uppercase tracking-wider text-[9px]">Travel Date</label>
+                        <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">Travel Date</label>
                         <input
                           type="date"
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-primary/20 focus:outline-none focus:border-tertiary text-xs"
+                          className="w-full px-5 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface"
                           value={formState.travelDate}
                           onChange={(e) => setFormState({ ...formState, travelDate: e.target.value })}
                         />
@@ -1030,9 +1130,9 @@ export default function Home() {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-primary mb-0.5 uppercase tracking-wider text-[9px]">Select Package</label>
+                      <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">Select Package</label>
                       <select
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-primary/20 focus:outline-none focus:border-tertiary text-xs bg-white"
+                        className="w-full px-5 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface cursor-pointer"
                         value={formState.selectedPackage}
                         onChange={(e) => setFormState({ ...formState, selectedPackage: e.target.value })}
                       >
@@ -1043,20 +1143,20 @@ export default function Home() {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-primary mb-0.5 uppercase tracking-wider text-[9px]">Special Requests / Notes</label>
+                      <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">Special Requests / Notes</label>
                       <textarea
                         rows={2}
                         placeholder="Any preferred hotel category, meal requirements, or custom pickups..."
-                        className="w-full px-3.5 py-2 rounded-lg border border-primary/20 focus:outline-none focus:border-tertiary text-xs"
+                        className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface"
                         value={formState.notes}
                         onChange={(e) => setFormState({ ...formState, notes: e.target.value })}
                       ></textarea>
                     </div>
 
-                    <div className="pt-1 space-y-2">
+                    <div className="pt-2 space-y-2">
                       <button
                         type="submit"
-                        className="w-full bg-tertiary hover:bg-tertiary-hover text-white font-bold py-2.5 rounded-lg uppercase tracking-wider text-[11px] transition-colors shadow-xs flex items-center justify-center gap-1.5"
+                        className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-3 rounded-full uppercase tracking-wider text-[11px] transition-colors shadow-md flex items-center justify-center gap-2"
                       >
                         <span>Send Booking Inquiry</span>
                         <span className="material-symbols-outlined text-sm">send</span>
@@ -1066,7 +1166,7 @@ export default function Home() {
                         href={getWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-lg uppercase tracking-wider text-[11px] transition-colors shadow-xs flex items-center justify-center gap-1.5"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-full uppercase tracking-wider text-[11px] transition-colors shadow-md flex items-center justify-center gap-2"
                       >
                         <span className="material-symbols-outlined text-sm">chat</span>
                         <span>Instant WhatsApp Booking</span>
