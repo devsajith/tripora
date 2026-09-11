@@ -50,8 +50,8 @@ export default function Home() {
           {/* Background Image with Dark Atmospheric Overlay */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/locations/AllepyBackwater.webp"
-              alt="Alleppey Houseboat Kerala Backwaters"
+              src="/hero.jpg"
+              alt="Kerala Backwaters Houseboat Sunset View"
               className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/70 to-emerald-950/40"></div>
@@ -164,6 +164,130 @@ export default function Home() {
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION: ABOUT US / WHY TRIPORA */}
+        {/* ========================================================================= */}
+        <section id="about" className="py-10 px-margin-mobile md:px-margin-desktop bg-surface border-t border-emerald-900/10">
+          <div className="max-w-container-max-width mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Column: Image Showcase & Floating Trust Badges */}
+              <div className="lg:col-span-6 relative">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[380px] sm:h-[440px]">
+                  <img
+                    src="/locations/Munnarteagarden.webp"
+                    alt="Tripora Kerala Tea Gardens Munnar"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+
+                  {/* Overlaid Bottom Title */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="bg-amber-400 text-emerald-950 font-sans text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block shadow-md">
+                      ⭐ Local Kerala Experts
+                    </span>
+                    <h3 className="font-sans text-xl font-bold text-white leading-tight">
+                      Crafting Unforgettable Journeys in God's Own Country
+                    </h3>
+                  </div>
+                </div>
+
+                {/* Floating Stat Card 1 */}
+                <div className="absolute -bottom-5 -right-2 sm:right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-emerald-900/10 shadow-xl flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+                    ★
+                  </div>
+                  <div>
+                    <p className="font-sans text-sm font-extrabold text-primary">4.9 / 5 Rating</p>
+                    <p className="font-sans text-[10px] text-on-surface-variant font-medium">10,000+ Happy Vacationers</p>
+                  </div>
+                </div>
+
+                {/* Floating Stat Card 2 */}
+                <div className="absolute -top-4 -left-2 sm:left-4 bg-emerald-900 text-white p-3 rounded-2xl border border-emerald-700/30 shadow-xl flex items-center gap-2.5">
+                  <span className="material-symbols-outlined text-amber-300 text-xl">directions_car</span>
+                  <div className="text-[11px] font-bold">
+                    <p className="leading-tight">100% Private AC Vehicles</p>
+                    <p className="text-[9px] text-white/70 font-normal">Dedicated Verified Local Drivers</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Brand Story & Trust Pillars */}
+              <div className="lg:col-span-6 space-y-4">
+                <div>
+                  <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold block mb-1">
+                    ABOUT TRIPORA
+                  </span>
+                  <h2 className="font-sans text-3xl sm:text-4xl text-primary font-bold leading-tight">
+                    Your Trusted Companion for <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">Kerala Holidays</span>
+                  </h2>
+                </div>
+
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  At <strong>Tripora</strong>, we believe travel is not just about visiting places—it's about feeling the soul of Kerala. Born out of a deep love for mist-clad tea mountains, emerald backwaters, and pristine palm beaches, we craft hassle-free tour packages tailored for families, couples, and group travelers.
+                </p>
+
+                {/* 4 Feature Badges */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="bg-surface p-3 rounded-2xl border border-emerald-900/10 flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-emerald-800 text-lg flex-shrink-0 mt-0.5">verified_user</span>
+                    <div>
+                      <h4 className="font-sans text-xs font-bold text-primary">Transparent Pricing</h4>
+                      <p className="font-sans text-[10.5px] text-on-surface-variant leading-snug">Zero hidden fees. Tolls, fuel &amp; driver allowance included.</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-surface p-3 rounded-2xl border border-emerald-900/10 flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-emerald-800 text-lg flex-shrink-0 mt-0.5">support_agent</span>
+                    <div>
+                      <h4 className="font-sans text-xs font-bold text-primary">24/7 On-Trip Support</h4>
+                      <p className="font-sans text-[10.5px] text-on-surface-variant leading-snug">Instant WhatsApp concierge throughout your entire trip.</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-surface p-3 rounded-2xl border border-emerald-900/10 flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-emerald-800 text-lg flex-shrink-0 mt-0.5">hotel</span>
+                    <div>
+                      <h4 className="font-sans text-xs font-bold text-primary">Handpicked Stays</h4>
+                      <p className="font-sans text-[10.5px] text-on-surface-variant leading-snug">Vetted 3-Star &amp; 4-Star resorts and private houseboats.</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-surface p-3 rounded-2xl border border-emerald-900/10 flex items-start gap-2.5">
+                    <span className="material-symbols-outlined text-emerald-800 text-lg flex-shrink-0 mt-0.5">route</span>
+                    <div>
+                      <h4 className="font-sans text-xs font-bold text-primary">Custom Itineraries</h4>
+                      <p className="font-sans text-[10.5px] text-on-surface-variant leading-snug">Flexible travel dates, vehicle choices &amp; custom stops.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#contact"
+                    className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95 flex items-center gap-2"
+                  >
+                    <span>Plan Your Vacation</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20would%20like%20to%20know%20more%20about%20your%20Kerala%20tour%20packages."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-900/20 font-sans text-xs font-bold px-5 py-3 rounded-full transition-all flex items-center gap-1.5"
+                  >
+                    <span className="material-symbols-outlined text-sm text-emerald-700">chat</span>
+                    <span>Chat With Expert</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -328,7 +452,7 @@ export default function Home() {
 
                   <div className="p-5 pt-0">
                     <Link
-                      href="/packages"
+                      href={`/packages#${pkg.id}`}
                       className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold py-2.5 rounded-xl transition-colors shadow-xs flex items-center justify-center gap-1.5"
                     >
                       <span>Inspect Detailed Itinerary</span>

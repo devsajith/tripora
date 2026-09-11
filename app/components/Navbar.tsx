@@ -6,22 +6,49 @@ import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
+      setIsScrolled(window.scrollY > 20);
+
+      if (pathname === "/packages") {
+        setActiveSection("packages");
+        return;
+      }
+
+      const aboutElem = document.getElementById("about");
+      const destElem = document.getElementById("destinations");
+      const contactElem = document.getElementById("contact");
+      const scrollPos = window.scrollY + 200;
+
+      if (contactElem && scrollPos >= contactElem.offsetTop) {
+        setActiveSection("contact");
+      } else if (destElem && scrollPos >= destElem.offsetTop) {
+        setActiveSection("destinations");
+      } else if (aboutElem && scrollPos >= aboutElem.offsetTop) {
+        setActiveSection("about");
       } else {
-        setIsScrolled(false);
+        setActiveSection("home");
       }
     };
+
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const isDetailsPage = pathname.includes("/destinations/");
+
+  const navItems = [
+    { id: "home", label: "Home", href: "/" },
+    { id: "about", label: "About Us", href: "/#about" },
+    { id: "destinations", label: "Destinations", href: "/#destinations" },
+    { id: "packages", label: "Packages", href: "/packages" },
+    { id: "contact", label: "Contact", href: "/#contact" },
+  ];
 
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300">
@@ -53,55 +80,39 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Menu - About Us, Packages, Destinations, Contact */}
-          <div className="flex items-center space-x-8 font-sans text-xs uppercase tracking-wider font-bold text-primary">
-            <Link
-              href="/#overview"
-              className="hover:text-emerald-700 transition-colors duration-200"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/packages"
-              className={`hover:text-emerald-700 transition-colors duration-200 ${
-                pathname === "/packages" ? "text-emerald-700 font-extrabold" : ""
-              }`}
-            >
-              Packages
-            </Link>
-            <Link
-              href="/#destinations"
-              className="hover:text-emerald-700 transition-colors duration-200"
-            >
-              Destinations
-            </Link>
-            <Link
-              href="/#contact"
-              className="hover:text-emerald-700 transition-colors duration-200"
-            >
-              Contact
-            </Link>
+          {/* Desktop Menu - Home, About Us, Destinations, Packages, Contact */}
+          <div className="flex items-center space-x-7 font-sans text-xs uppercase tracking-wider font-bold">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setActiveSection(item.id)}
+                  className={`relative py-1 transition-colors duration-200 ${
+                    isActive
+                      ? "text-emerald-800 font-extrabold"
+                      : "text-primary hover:text-emerald-700"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-800 rounded-full animate-fadeIn" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20the%207%20Days%20Kerala%20Tour%20Package."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-emerald-700/20 hover:border-emerald-700 text-primary font-semibold px-4 py-1.5 rounded-full font-sans text-xs transition-all active:scale-95 flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100"
-            >
-              <span className="material-symbols-outlined text-[15px] text-emerald-700">chat</span>
-              <span>WhatsApp</span>
-            </a>
-
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-5 py-2 rounded-full font-sans text-xs transition-all active:scale-95 uppercase tracking-wider text-center shadow-xs flex items-center gap-1.5"
             >
               <span>Enquire Now</span>
               <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -137,21 +148,12 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center z-10 gap-2">
-            <a
-              href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20the%207%20Days%20Kerala%20Tour%20Package."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-emerald-700 text-white flex items-center justify-center active:scale-90"
-              title="Chat on WhatsApp"
-            >
-              <span className="material-symbols-outlined text-[18px]">chat</span>
-            </a>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="bg-emerald-800 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs"
             >
               <span>Enquire</span>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

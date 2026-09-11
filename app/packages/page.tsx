@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import plansData from "@/public/plans.json";
@@ -8,13 +9,18 @@ import plansData from "@/public/plans.json";
 const allPackages = plansData.packages;
 
 export default function PackagesPage() {
-  const [selectedPkgIndex, setSelectedPkgIndex] = useState(0);
-  const [activeDay, setActiveDay] = useState(1);
+  // Track open day accordions per package (default: all days open)
+  const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({});
 
-  const currentPkg = allPackages[selectedPkgIndex];
+  const toggleAccordion = (key: string) => {
+    setOpenAccordions((prev) => ({
+      ...prev,
+      [key]: prev[key] === false ? true : false,
+    }));
+  };
 
-  const getWhatsAppUrl = () => {
-    const text = `Hi Tripora! I am interested in the *${currentPkg.title} (${currentPkg.duration})* package.%0A%0APrice: ${currentPkg.price}`;
+  const getWhatsAppUrl = (pkgTitle: string, pkgDuration: string, pkgPrice: string) => {
+    const text = `Hi Tripora! I am interested in booking the *${pkgTitle} (${pkgDuration})* package.%0A%0A*Price:* ${pkgPrice}`;
     return `https://wa.me/919656464124?text=${text}`;
   };
 
@@ -24,202 +30,279 @@ export default function PackagesPage() {
 
       <main className="flex-grow pt-16">
         {/* ========================================================================= */}
-        {/* DETAILED ITINERARY & PACKAGE SWITCHER SECTION */}
+        {/* PAGE HEADER */}
         {/* ========================================================================= */}
-        <section className="py-8 sm:py-10 px-margin-mobile md:px-margin-desktop bg-surface">
-          <div className="max-w-container-max-width mx-auto">
-            {/* Page Header */}
-            <div className="mb-6 border-b border-emerald-900/10 pb-4">
-              <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold">
-                Tripora Tour Packages
-              </span>
-              <h1 className="font-sans text-2xl sm:text-4xl text-primary font-extrabold mt-0.5">
-                Explore Our <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">Kerala Packages</span>
-              </h1>
-              <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-1">
-                Select any package below to inspect full day-by-day itineraries, inclusions, and book via WhatsApp.
-              </p>
-            </div>
-            {/* COMPACT PACKAGE SELECTOR BAR */}
-            <div className="mb-6">
-              <label className="block text-xs uppercase tracking-wider font-bold text-emerald-800 mb-2 flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-base">format_list_bulleted</span>
-                <span>Select Package:</span>
-              </label>
+        <section className="py-8 sm:py-10 px-margin-mobile md:px-margin-desktop bg-surface border-b border-emerald-900/10">
+          <div className="max-w-container-max-width mx-auto text-center max-w-2xl">
+            <span className="bg-emerald-100 text-emerald-900 font-sans text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Handcrafted Tour Packages
+            </span>
+            <h1 className="font-sans text-3xl sm:text-5xl text-primary font-extrabold mt-2 leading-tight">
+              Kerala <span className="text-emerald-700 font-script font-normal text-4xl sm:text-6xl">Holiday Packages</span>
+            </h1>
+            <p className="text-on-surface-variant font-sans text-xs sm:text-sm mt-2 leading-relaxed">
+              Explore signature Kerala itineraries with private AC transport, handpicked stays, backwater houseboats, and 24/7 dedicated driver support.
+            </p>
+          </div>
+        </section>
 
-              {/* Horizontal Pill Selector Buttons */}
-              <div className="flex overflow-x-auto no-scrollbar gap-2 pb-1">
-                {allPackages.map((pkg, idx) => {
-                  const isSelected = selectedPkgIndex === idx;
-                  return (
-                    <button
-                      key={pkg.id}
-                      onClick={() => {
-                        setSelectedPkgIndex(idx);
-                        setActiveDay(1);
-                      }}
-                      className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold font-sans transition-all duration-200 flex items-center gap-2.5 border ${
-                        isSelected
-                          ? "bg-emerald-900 text-white border-emerald-800 shadow-md scale-[1.01]"
-                          : "bg-white text-primary hover:bg-emerald-50 border-emerald-900/10"
-                      }`}
-                    >
-                      <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                        isSelected ? "bg-amber-400 text-emerald-950" : "bg-emerald-100 text-emerald-800"
-                      }`}>
-                        {pkg.duration}
-                      </span>
-                      <span>{pkg.title}</span>
-                      <span className={`text-[11px] font-extrabold ${isSelected ? "text-amber-300" : "text-emerald-800"}`}>
-                        {pkg.price}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* COMPACT FULL WIDTH PACKAGE EXPLAINER CARD */}
-            <div className="bg-white rounded-2xl border border-emerald-900/10 shadow-md p-3.5 sm:p-4">
-                
-                {/* Active Package Banner Header */}
-                <div className="flex flex-col sm:flex-row justify-between sm:items-center pb-2.5 border-b border-gray-100 gap-2 mb-3">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-1.5 mb-1">
-                      <span className="bg-emerald-800 text-white font-sans text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                        {currentPkg.duration}
-                      </span>
-                      <span className="bg-emerald-100 text-emerald-900 font-sans text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                        {currentPkg.vehicle}
-                      </span>
-                    </div>
-                    <h2 className="font-sans text-lg sm:text-xl font-bold text-primary leading-tight">
-                      {currentPkg.title}
-                    </h2>
-                    <p className="font-serif italic text-[11px] text-primary/70">
-                      "{currentPkg.subtitle}"
-                    </p>
+        {/* ========================================================================= */}
+        {/* PACKAGES LIST SECTION */}
+        {/* ========================================================================= */}
+        <section className="py-10 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+          <div className="max-w-container-max-width mx-auto space-y-10">
+            {allPackages.map((pkg) => (
+              <div
+                key={pkg.id}
+                id={pkg.id}
+                className="bg-white rounded-3xl border border-emerald-900/10 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl scroll-mt-24"
+              >
+                {/* 1. Package Header Banner */}
+                <div className="relative bg-emerald-950 text-white p-6 sm:p-8">
+                  {/* Background Image Accent */}
+                  <div className="absolute inset-0 z-0 opacity-25 overflow-hidden">
+                    <img
+                      src={pkg.itinerary[0]?.images[0]?.url || "/locations/AllepyBackwater.webp"}
+                      alt={pkg.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-emerald-950/60"></div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <div className="bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-900/10 text-right">
-                      <p className="text-[7px] uppercase font-bold text-gray-400 leading-none">Starting Price</p>
-                      <p className="text-xs font-extrabold text-emerald-900 leading-snug">{currentPkg.price}</p>
+                  <div className="relative z-10 flex flex-col lg:flex-row justify-between lg:items-center gap-4">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="bg-amber-400 text-emerald-950 font-sans text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                          {pkg.badge}
+                        </span>
+                        <span className="bg-white/15 text-white backdrop-blur-md font-sans text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                          {pkg.duration}
+                        </span>
+                      </div>
+                      <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-white">
+                        {pkg.title}
+                      </h2>
+                      <p className="font-sans text-xs sm:text-sm text-white/80 mt-1">
+                        📍 <span className="font-semibold">{pkg.route}</span>
+                      </p>
                     </div>
 
+                    {/* Price & Action */}
+                    <div className="flex flex-wrap items-center gap-3 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15">
+                      <div>
+                        <p className="text-[9px] uppercase font-bold text-amber-300">Package Starting Price</p>
+                        <p className="text-xl sm:text-2xl font-extrabold text-white">{pkg.price}</p>
+                      </div>
+
+                      <a
+                        href={getWhatsAppUrl(pkg.title, pkg.duration, pkg.price)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-emerald-600 hover:bg-emerald-500 text-white font-sans text-xs uppercase tracking-wider font-bold px-5 py-2.5 rounded-full transition-all shadow-md flex items-center gap-1.5 active:scale-95 ml-auto sm:ml-0"
+                      >
+                        <span className="material-symbols-outlined text-sm">chat</span>
+                        <span>Book on WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Key Specs & Inclusions */}
+                <div className="p-6 sm:p-8 border-b border-gray-100 bg-surface/50">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div className="bg-white p-4 rounded-2xl border border-emerald-900/10 shadow-xs flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center flex-shrink-0">
+                        <span className="material-symbols-outlined text-xl">directions_car</span>
+                      </div>
+                      <div>
+                        <p className="text-[9px] uppercase font-bold text-gray-400">Private Vehicle</p>
+                        <p className="text-xs font-bold text-primary">{pkg.vehicle}</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-white p-4 rounded-2xl border border-emerald-900/10 shadow-xs flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center flex-shrink-0">
+                        <span className="material-symbols-outlined text-xl">hotel</span>
+                      </div>
+                      <div>
+                        <p className="text-[9px] uppercase font-bold text-gray-400">Accommodation</p>
+                        <p className="text-xs font-bold text-primary">Handpicked 3★ / 4★ Hotels</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-white p-4 rounded-2xl border border-emerald-900/10 shadow-xs flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center flex-shrink-0">
+                        <span className="material-symbols-outlined text-xl">houseboat</span>
+                      </div>
+                      <div>
+                        <p className="text-[9px] uppercase font-bold text-gray-400">Backwater Highlight</p>
+                        <p className="text-xs font-bold text-primary">Deluxe Houseboat Cruise</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Inclusions List */}
+                  <div>
+                    <h3 className="font-sans text-xs font-bold text-primary uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-emerald-700 text-sm">inventory_2</span>
+                      <span>Package Inclusions:</span>
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 font-sans text-xs">
+                      {pkg.inclusions.map((inc, i) => (
+                        <div key={i} className="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-emerald-900/10 shadow-2xs">
+                          <span className="material-symbols-outlined text-emerald-700 text-sm">check_circle</span>
+                          <span className="text-on-surface-variant font-medium">{inc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Expandable Day-by-Day Timeline Accordion */}
+                <div className="p-6 sm:p-8 bg-white">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="font-sans text-sm sm:text-base font-bold text-primary uppercase tracking-wider flex items-center gap-2">
+                      <span className="material-symbols-outlined text-emerald-800">event_note</span>
+                      <span>Day-by-Day Detailed Itinerary</span>
+                    </h3>
+                    <span className="text-xs text-emerald-700 font-semibold hidden sm:inline">
+                      Click any day to view activities &amp; photos
+                    </span>
+                  </div>
+
+                  {/* Days Accordion List */}
+                  <div className="space-y-3">
+                    {pkg.itinerary.map((dayItem) => {
+                      const accordionKey = `${pkg.id}-${dayItem.day}`;
+                      const isOpen = openAccordions[accordionKey] !== false;
+
+                      return (
+                        <div
+                          key={dayItem.day}
+                          className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                            isOpen
+                              ? "border-emerald-700/40 bg-emerald-950/5 shadow-xs"
+                              : "border-gray-200 bg-white hover:border-emerald-700/20"
+                          }`}
+                        >
+                          {/* Accordion Bar Header */}
+                          <div
+                            onClick={() => toggleAccordion(accordionKey)}
+                            className="p-4 cursor-pointer flex justify-between items-center select-none"
+                          >
+                            <div className="flex flex-wrap items-center gap-3">
+                              <span className={`font-sans text-xs font-extrabold px-3 py-1 rounded-full uppercase ${
+                                isOpen ? "bg-emerald-800 text-white" : "bg-emerald-100 text-emerald-900"
+                              }`}>
+                                DAY {dayItem.day}
+                              </span>
+                              <div>
+                                <h4 className="font-sans text-sm sm:text-base font-bold text-primary">
+                                  {dayItem.title}
+                                </h4>
+                                <p className="font-sans text-[11px] text-gray-500 font-medium">
+                                  📍 {dayItem.route}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                              <div className="hidden md:flex items-center gap-1 text-xs font-bold text-emerald-900 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-900/10">
+                                <span className="material-symbols-outlined text-sm text-emerald-700">hotel</span>
+                                <span>{dayItem.stay}</span>
+                              </div>
+
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 ${
+                                isOpen ? "bg-emerald-800 text-white rotate-180" : "bg-gray-100 text-gray-600"
+                              }`}>
+                                <span className="material-symbols-outlined text-sm">expand_more</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Accordion Content Body */}
+                          {isOpen && (
+                            <div className="p-4 sm:p-5 pt-0 border-t border-emerald-900/10 space-y-4 animate-fadeIn">
+                              <p className="font-serif italic text-xs sm:text-sm text-primary/80 leading-relaxed mt-3">
+                                "{dayItem.subtitle}"
+                              </p>
+
+                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+                                {/* Left Sightseeing List */}
+                                <div className="lg:col-span-7 space-y-2">
+                                  <h5 className="font-sans text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+                                    <span className="material-symbols-outlined text-emerald-700 text-sm">checklist</span>
+                                    <span>Sightseeing &amp; Activities</span>
+                                  </h5>
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {dayItem.activities.map((act, idx) => (
+                                      <div key={idx} className="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-gray-100 text-xs">
+                                        <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                          {idx + 1}
+                                        </span>
+                                        <span className="text-on-surface-variant font-medium leading-snug">{act}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Right Day Location Gallery */}
+                                <div className="lg:col-span-5 space-y-2">
+                                  <h5 className="font-sans text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
+                                    <span className="material-symbols-outlined text-emerald-700 text-sm">photo_camera</span>
+                                    <span>Location Highlights</span>
+                                  </h5>
+                                  <div className="grid grid-cols-2 gap-2">
+                                    {dayItem.images.map((img, idx) => (
+                                      <div key={idx} className="group relative h-24 sm:h-28 rounded-xl overflow-hidden shadow-xs border border-gray-100">
+                                        <img
+                                          src={img.url}
+                                          alt={img.label}
+                                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex items-end p-2">
+                                          <span className="text-white font-sans text-[10px] font-bold line-clamp-1">{img.label}</span>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 4. Package Card Bottom Action Footer */}
+                <div className="p-4 sm:p-6 bg-surface border-t border-emerald-900/10 flex flex-col sm:flex-row justify-between items-center gap-3">
+                  <div className="text-xs text-on-surface-variant font-sans text-center sm:text-left">
+                    <span className="font-bold text-primary">Need a customized itinerary?</span> We can adjust hotels, dates &amp; vehicles.
+                  </div>
+
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                    <Link
+                      href="/#contact"
+                      className="w-full sm:w-auto bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-900/20 font-sans text-xs font-bold px-5 py-2.5 rounded-full uppercase tracking-wider text-center transition-colors shadow-xs"
+                    >
+                      Enquire Custom Plan
+                    </Link>
+
                     <a
-                      href={getWhatsAppUrl()}
+                      href={getWhatsAppUrl(pkg.title, pkg.duration, pkg.price)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-[10px] uppercase tracking-wider font-bold px-3.5 py-1.5 rounded-full transition-all shadow-xs flex items-center gap-1"
+                      className="w-full sm:w-auto bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-2.5 rounded-full transition-all shadow-md text-center flex items-center justify-center gap-1.5"
                     >
-                      <span className="material-symbols-outlined text-xs">chat</span>
-                      <span>WhatsApp Book</span>
+                      <span className="material-symbols-outlined text-sm">chat</span>
+                      <span>Book Package</span>
                     </a>
                   </div>
                 </div>
-
-                {/* Compact Inclusions Bar */}
-                <div className="bg-surface px-3 py-1.5 rounded-xl border border-emerald-900/10 mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 font-sans text-[10.5px]">
-                  <span className="font-bold text-primary uppercase text-[9px] tracking-wider flex items-center gap-1 text-emerald-800">
-                    <span className="material-symbols-outlined text-xs">inventory_2</span>
-                    <span>Inclusions:</span>
-                  </span>
-                  {currentPkg.inclusions.map((inc, i) => (
-                    <span key={i} className="flex items-center gap-1 text-on-surface-variant font-medium">
-                      <span className="material-symbols-outlined text-emerald-700 text-[11px]">check_circle</span>
-                      <span>{inc}</span>
-                    </span>
-                  ))}
-                </div>
-
-                {/* Day Selector Tabs */}
-                <div className="flex overflow-x-auto no-scrollbar gap-1 mb-3 pb-0.5 justify-start sm:justify-center">
-                  {currentPkg.itinerary.map((dayItem) => (
-                    <button
-                      key={dayItem.day}
-                      onClick={() => setActiveDay(dayItem.day)}
-                      className={`px-3 py-1 rounded-full font-sans text-[10px] font-bold uppercase tracking-wider flex-shrink-0 transition-all ${
-                        activeDay === dayItem.day
-                          ? "bg-emerald-800 text-white shadow-xs scale-105"
-                          : "bg-surface text-primary border border-emerald-900/10 hover:bg-emerald-100"
-                      }`}
-                    >
-                      Day {dayItem.day}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Active Day Content Breakdown */}
-                {currentPkg.itinerary
-                  .filter((item) => item.day === activeDay)
-                  .map((currentDay) => (
-                    <div key={currentDay.day} className="space-y-2.5 animate-fadeIn">
-                      <div className="flex flex-col sm:flex-row justify-between sm:items-center pb-1.5 border-b border-gray-100 gap-1.5">
-                        <div className="flex items-center gap-2">
-                          <span className="bg-emerald-800 text-white font-sans text-[8.5px] font-bold px-2 py-0.5 rounded-full uppercase">
-                            DAY {currentDay.day}
-                          </span>
-                          <h3 className="font-sans text-base font-bold text-primary">
-                            {currentDay.title}
-                          </h3>
-                          <span className="text-gray-400 text-[10px] font-sans uppercase font-semibold hidden md:inline">
-                            ({currentDay.route})
-                          </span>
-                        </div>
-
-                        <div className="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-900/10 flex items-center gap-1 text-[10px]">
-                          <span className="material-symbols-outlined text-emerald-700 text-xs">hotel</span>
-                          <span className="font-bold text-emerald-900">Stay: {currentDay.stay}</span>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-start">
-                        {/* Left Activities List */}
-                        <div className="lg:col-span-7">
-                          <h4 className="font-sans text-[11px] font-bold text-primary mb-1.5 flex items-center gap-1">
-                            <span className="material-symbols-outlined text-emerald-700 text-xs">checklist</span>
-                            <span>Attractions &amp; Sightseeing</span>
-                          </h4>
-
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1 font-sans text-[10.5px]">
-                            {currentDay.activities.map((act, i) => (
-                              <li key={i} className="flex items-start gap-1 p-1.5 rounded-lg bg-surface border border-gray-100 hover:bg-emerald-50 transition-colors">
-                                <span className="w-3.5 h-3.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[8.5px] flex items-center justify-center flex-shrink-0 mt-0.5">
-                                  {i + 1}
-                                </span>
-                                <span className="text-on-surface-variant font-medium leading-tight">{act}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Right Photo Gallery */}
-                        <div className="lg:col-span-5">
-                          <h4 className="font-sans text-[11px] font-bold text-primary mb-1.5 flex items-center gap-1">
-                            <span className="material-symbols-outlined text-emerald-700 text-xs">collections</span>
-                            <span>Day Highlights</span>
-                          </h4>
-
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {currentDay.images.map((img, i) => (
-                              <div key={i} className="group relative h-16 sm:h-18 rounded-lg overflow-hidden border border-gray-100 shadow-xs">
-                                <img
-                                  src={img.url}
-                                  alt={img.label}
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex items-end p-1.5">
-                                  <span className="text-white font-sans text-[9px] font-bold tracking-wide line-clamp-1">{img.label}</span>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
       </main>
