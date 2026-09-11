@@ -6,71 +6,59 @@ import { usePathname } from "next/navigation";
 export default function BottomNavbar() {
   const pathname = usePathname();
 
-  // Hide mobile bottom navbar on details pages to make room for fixed booking bar
+  // Hide mobile bottom navbar on specific full details pages if needed
   if (pathname.includes("/destinations/")) {
     return null;
   }
 
+  const items = [
+    { id: "home", label: "Home", href: "/", icon: "home", isPage: pathname === "/" },
+    { id: "packages", label: "Packages", href: "/packages", icon: "inventory_2", isPage: pathname === "/packages" },
+    { id: "destinations", label: "Places", href: "/#destinations", icon: "explore", isPage: false },
+    { id: "about", label: "About", href: "/#about", icon: "info", isPage: false },
+    { id: "contact", label: "Enquire", href: "/#contact", icon: "chat", isPage: false, isAction: true },
+  ];
+
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-surface/95 backdrop-blur-xl border-t border-secondary/20 shadow-[0_-8px_30px_rgba(0,0,0,0.9)] rounded-t-2xl">
-      <div className="flex justify-around items-center px-6 pb-6 pt-3">
-        {/* Home */}
-        <Link
-          href="/"
-          className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
-            pathname === "/"
-              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
-              : "text-on-surface-variant opacity-70 hover:opacity-100"
-          }`}
-        >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: pathname === "/" ? "'FILL' 1" : "'FILL' 0" }}
-          >
-            home
-          </span>
-          <span className="text-label-sm mt-1 font-medium">Home</span>
-        </Link>
+    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-xl border-t border-emerald-900/10 shadow-[0_-4px_20px_rgba(10,46,38,0.08)] pb-safe">
+      <div className="flex justify-around items-center px-3 py-2">
+        {items.map((item) => {
+          const isActive = item.isPage;
+          if (item.isAction) {
+            return (
+              <a
+                key={item.id}
+                href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20a%20Kerala%20Tour%20Package."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center bg-emerald-800 text-white px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-xs active:scale-95 transition-transform"
+              >
+                <span className="material-symbols-outlined text-base">chat</span>
+                <span>WhatsApp</span>
+              </a>
+            );
+          }
 
-        {/* Search */}
-        <Link
-          href="/"
-          className="flex flex-col items-center justify-center text-on-surface-variant opacity-70 hover:opacity-100 transition-opacity duration-200"
-        >
-          <span className="material-symbols-outlined">search</span>
-          <span className="text-label-sm mt-1 font-medium">Search</span>
-        </Link>
-
-        {/* Bookings */}
-        <Link
-          href="/dashboard"
-          className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
-            pathname === "/dashboard"
-              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
-              : "text-on-surface-variant opacity-70 hover:opacity-100"
-          }`}
-        >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: pathname === "/dashboard" ? "'FILL' 1" : "'FILL' 0" }}
-          >
-            confirmation_number
-          </span>
-          <span className="text-label-sm mt-1 font-medium">Bookings</span>
-        </Link>
-
-        {/* Profile */}
-        <Link
-          href="/dashboard"
-          className={`flex flex-col items-center justify-center relative transition-all duration-200 ${
-            pathname === "/dashboard"
-              ? "text-tertiary scale-95 after:content-[''] after:absolute after:-bottom-1 after:w-1.5 after:h-1.5 after:bg-tertiary after:rounded-full"
-              : "text-on-surface-variant opacity-70 hover:opacity-100"
-          }`}
-        >
-          <span className="material-symbols-outlined">person</span>
-          <span className="text-label-sm mt-1 font-medium">Profile</span>
-        </Link>
+          return (
+            <Link
+              key={item.id}
+              href={item.href}
+              className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 ${
+                isActive
+                  ? "text-emerald-800 font-extrabold"
+                  : "text-primary/70 hover:text-emerald-800"
+              }`}
+            >
+              <span
+                className="material-symbols-outlined text-xl"
+                style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}
+              >
+                {item.icon}
+              </span>
+              <span className="text-[10px] font-bold mt-0.5">{item.label}</span>
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

@@ -16,11 +16,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-emerald-950 text-white py-7 mt-auto relative border-t border-emerald-900/40">
+    <footer className="bg-emerald-950 text-white py-10 sm:py-12 mt-auto relative border-t border-emerald-900/40">
       {/* Top accent glow line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-amber-300/60 to-transparent"></div>
 
-      <div className="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Info Column */}
         <div className="col-span-1">
           <Link href="/" className="flex items-center gap-2.5 mb-2.5 group inline-flex">

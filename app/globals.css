@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+@import "tailwindcss";
 
 @theme {
   /* NavikX Travel Design System - Fresh Emerald & White Canvas */
@@ -34,22 +34,88 @@
   --color-outline: #6E827D;
   --color-outline-variant: #C2D1CC;
 
+  /* Spacing & Layout System */
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-margin-desktop: 2.5rem;
+  --spacing-container-max-width: 80rem;
+
   /* Fonts */
   --font-sans: var(--font-manrope);
   --font-display: var(--font-playfair);
   --font-script: 'Caveat', cursive, serif;
 }
 
-:root {
-  background-color: #F6FAF8;
-  color: #10211D;
+html {
+  scroll-behavior: smooth !important;
 }
 
 body {
   background-color: #F6FAF8;
   color: #10211D;
   font-family: var(--font-manrope), sans-serif;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+}
+
+/* Scroll Offset for Fixed Header */
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Smooth Scroll Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll Reveal Observer Classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .font-script {

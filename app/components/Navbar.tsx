@@ -61,7 +61,7 @@ export default function Navbar() {
         }`}
       >
         {/* DESKTOP NAVBAR VIEW */}
-        <div className="hidden lg:flex justify-between items-center max-w-container-max-width mx-auto px-margin-desktop h-full w-full">
+        <div className="hidden lg:flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-full w-full">
           {/* Logo */}
           <Link
             href="/"
@@ -117,7 +117,7 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE NAVBAR VIEW */}
-        <div className="flex lg:hidden justify-between items-center px-margin-mobile h-full w-full relative">
+        <div className="flex lg:hidden justify-between items-center px-4 sm:px-6 h-full w-full relative">
           <div className="flex items-center z-10">
             {isDetailsPage ? (
               <button
