@@ -1,26 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
   return (
     <footer className="bg-emerald-950 text-white py-10 sm:py-12 mt-auto relative border-t border-emerald-900/40">
       {/* Top accent glow line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-amber-300/60 to-transparent"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Info Column */}
         <div className="col-span-1">
           <Link href="/" className="flex items-center gap-2.5 mb-2.5 group inline-flex">
@@ -149,7 +135,7 @@ export default function Footer() {
             </li>
             <li>
               <a href="#itinerary" className="text-white/80 hover:text-white transition-colors">
-                Munnar Escape (3D/2N - ₹16,500 for 2)
+                Munnar Escape (3D/2N)
               </a>
             </li>
             <li>
@@ -163,40 +149,6 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </div>
-
-        {/* Newsletter Column */}
-        <div className="col-span-1">
-          <h5 className="text-amber-300 font-sans text-[10px] font-bold mb-2.5 uppercase tracking-[0.18em]">
-            Stay Updated
-          </h5>
-          {subscribed ? (
-            <p className="text-amber-300 text-[11px] font-bold">
-              Thank you for subscribing! We will send you exclusive travel updates.
-            </p>
-          ) : (
-            <>
-              <p className="text-white/70 text-[11px] mb-2 leading-snug">
-                Subscribe to get the best travel deals and custom Kerala tour ideas directly.
-              </p>
-              <form onSubmit={handleSubscribe} className="flex gap-1.5">
-                <input
-                  className="bg-white/10 border border-white/20 rounded-full text-[11px] px-3.5 py-1.5 text-white placeholder:text-white/50 focus:outline-none focus:border-amber-300 w-full"
-                  placeholder="Enter your email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase transition-colors flex-shrink-0"
-                >
-                  Join
-                </button>
-              </form>
-            </>
-          )}
         </div>
       </div>
 

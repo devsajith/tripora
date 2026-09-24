@@ -71,7 +71,7 @@ export default function Navbar() {
               <img src="/logo.webp" alt="Tripora Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl font-bold text-primary tracking-[0.06em] uppercase leading-none">
+              <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none">
                 Tripora
               </span>
               <span className="font-sans text-[8px] tracking-[0.2em] uppercase font-bold text-emerald-700 mt-0.5">
@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/" className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-auto flex flex-col items-center">
-            <span className="font-display text-xl font-bold text-primary tracking-[0.08em] uppercase leading-none">
+            <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none">
               Tripora
             </span>
             <span className="font-sans text-[8px] tracking-widest uppercase font-semibold text-emerald-700 mt-0.5">

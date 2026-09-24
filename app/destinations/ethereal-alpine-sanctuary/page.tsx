@@ -102,7 +102,7 @@ export default function DetailsPage() {
         {/* ========================================================= */}
         {/* PACKAGE OVERVIEW BAR */}
         {/* ========================================================= */}
-        <section className="bg-white border-b border-outline-variant/40 py-8 shadow-xs">
+        <section className="bg-white border-b border-outline-variant/40 py-8 shadow-xs reveal-up">
           <div className="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-6 text-center md:text-left">
               <div className="border-r border-outline-variant/30 pr-4 last:border-0">
@@ -163,7 +163,7 @@ export default function DetailsPage() {
             <div className="lg:col-span-8 space-y-12">
               
               {/* Route & Highlights Box */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-xs">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-xs reveal-from-left">
                 <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-tertiary mb-2 block">
                   PACKAGE HIGHLIGHTS
                 </span>
@@ -319,7 +319,7 @@ export default function DetailsPage() {
               </div>
 
               {/* Package Inclusions Checklist */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-xs">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-xs reveal-scale">
                 <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-tertiary mb-2 block">
                   TRANSPARENT INCLUSIONS
                 </span>
@@ -385,7 +385,7 @@ export default function DetailsPage() {
             </div>
 
             {/* Right Booking Panel (4 Cols) */}
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 reveal-from-right delay-150">
               <div className="sticky top-28 bg-white rounded-2xl p-6 border border-outline-variant/40 shadow-lg space-y-6" id="book-bar">
                 <div className="border-b border-outline-variant/30 pb-4">
                   <span className="font-sans text-[10px] font-bold text-tertiary uppercase tracking-widest block mb-1">

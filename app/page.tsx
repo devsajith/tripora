@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ScrollObserver from "./components/ScrollObserver";
 
 import plansData from "@/public/plans.json";
 
@@ -39,12 +38,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       <Navbar />
-      <ScrollObserver />
 
       <main className="flex-grow pt-16">
-        {/* ========================================================================= */}
-        {/* SECTION 1: HERO SECTION */}
-        {/* ========================================================================= */}
         {/* ========================================================================= */}
         {/* SECTION 1: HERO SECTION */}
         {/* ========================================================================= */}
@@ -59,7 +54,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/70 to-emerald-950/40"></div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto text-center text-white w-full">
+          <div className="relative z-10 max-w-7xl mx-auto text-center text-white w-full animate-fade-in-up">
             {/* Cursive Accent */}
             <span className="font-script text-4xl sm:text-6xl text-amber-300 block mb-2 drop-shadow-md">
               Journey To
@@ -86,14 +81,31 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
+          {/* Animated Scroll Down Indicator Cue */}
+          <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 text-center animate-bounce-slow">
+            <a
+              href="#steps"
+              className="inline-flex flex-col items-center text-white/75 hover:text-amber-300 transition-colors group cursor-pointer"
+            >
+              <span className="text-[10px] uppercase font-bold tracking-widest mb-1 text-white/70 group-hover:text-amber-300 transition-colors">
+                Scroll to explore
+              </span>
+              <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:border-amber-300/40 transition-colors">
+                <span className="material-symbols-outlined text-base text-amber-300">
+                  keyboard_arrow_down
+                </span>
+              </div>
+            </a>
+          </div>
         </section>
 
         {/* ========================================================================= */}
         {/* SECTION 2: PLAN YOUR TRIP IN 3 EASY STEPS */}
         {/* ========================================================================= */}
-        <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface reveal-on-scroll">
+        <section id="steps" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 gap-4 reveal-up">
               <div>
                 <h2 className="font-sans text-3xl sm:text-4xl font-bold text-primary">
                   Plan Your Trip <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">in 3 Easy Steps</span>
@@ -111,11 +123,14 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* 3 Vertical Feature Cards with Gradients */}
+            {/* 3 Vertical Feature Cards with Gradients - Staggered Scroll Reveals */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {/* Card 01 */}
-              <div className="bg-gradient-to-b from-teal-700 to-emerald-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-teal-600/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-white/95 text-teal-800 flex items-center justify-center mb-5 shadow-md">
+              {/* Card 01: Choose Destination -> #destinations */}
+              <Link
+                href="#destinations"
+                className="reveal-up delay-100 bg-gradient-to-b from-teal-700 to-emerald-900 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-teal-600/30 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/95 text-teal-800 flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
                   <span className="material-symbols-outlined text-xl">location_on</span>
                 </div>
                 <div>
@@ -129,11 +144,14 @@ export default function Home() {
                   <span>Explore Locations</span>
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
-              </div>
+              </Link>
 
-              {/* Card 02 */}
-              <div className="bg-gradient-to-b from-sky-600 to-teal-800 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-sky-400/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-white/95 text-sky-800 flex items-center justify-center mb-5 shadow-md">
+              {/* Card 02: Select Package -> /packages */}
+              <Link
+                href="/packages"
+                className="reveal-up delay-200 bg-gradient-to-b from-sky-600 to-teal-800 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-sky-400/30 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/95 text-sky-800 flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
                   <span className="material-symbols-outlined text-xl">payments</span>
                 </div>
                 <div>
@@ -147,11 +165,14 @@ export default function Home() {
                   <span>View Itineraries</span>
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
-              </div>
+              </Link>
 
-              {/* Card 03 */}
-              <div className="bg-gradient-to-b from-emerald-800 to-teal-950 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-emerald-700/30 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-white/95 text-emerald-800 flex items-center justify-center mb-5 shadow-md">
+              {/* Card 03: Enjoy Your Trip -> #contact */}
+              <Link
+                href="#contact"
+                className="reveal-up delay-300 bg-gradient-to-b from-emerald-800 to-teal-950 rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden shadow-lg border border-emerald-700/30 flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/95 text-emerald-800 flex items-center justify-center mb-5 shadow-md group-hover:scale-105 transition-transform">
                   <span className="material-symbols-outlined text-xl">luggage</span>
                 </div>
                 <div>
@@ -165,7 +186,7 @@ export default function Home() {
                   <span>Start Vacation</span>
                   <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -173,12 +194,12 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION: ABOUT US / WHY TRIPORA */}
         {/* ========================================================================= */}
-        <section id="about" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface border-t border-emerald-900/10 reveal-on-scroll">
+        <section id="about" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface border-t border-emerald-900/10">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               
               {/* Left Column: Image Showcase & Floating Trust Badges */}
-              <div className="lg:col-span-6 relative">
+              <div className="lg:col-span-6 relative reveal-from-left">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[280px] sm:h-[420px]">
                   <img
                     src="/locations/Munnarteagarden.webp"
@@ -199,7 +220,7 @@ export default function Home() {
                 </div>
 
                 {/* Stat Cards - Stacked grid on mobile, overlay on desktop */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-5 lg:mt-0 lg:absolute lg:-bottom-7 lg:right-4 z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-5 lg:mt-0 lg:absolute lg:-bottom-7 lg:right-4 z-10 reveal-scale delay-200">
                   <div className="bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-emerald-900/10 shadow-lg flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-emerald-800 text-white flex items-center justify-center font-bold text-base shadow-sm flex-shrink-0">
                       ★
@@ -221,7 +242,7 @@ export default function Home() {
               </div>
 
               {/* Right Column: Brand Story & Trust Pillars */}
-              <div className="lg:col-span-6 space-y-5">
+              <div className="lg:col-span-6 space-y-5 reveal-from-right">
                 <div>
                   <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold block mb-1.5">
                     ABOUT TRIPORA
@@ -235,9 +256,9 @@ export default function Home() {
                   At <strong>Tripora</strong>, we believe travel is not just about visiting places—it's about feeling the soul of Kerala. Born out of a deep love for mist-clad tea mountains, emerald backwaters, and pristine palm beaches, we craft hassle-free tour packages tailored for families, couples, and group travelers.
                 </p>
 
-                {/* 4 Feature Badges */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                  <div className="bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3">
+                {/* 4 Feature Badges with Auto-Stagger */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 reveal-stagger">
+                  <div className="reveal-scale bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3 hover:border-emerald-700/30 hover:shadow-sm transition-all duration-300">
                     <span className="material-symbols-outlined text-emerald-800 text-xl flex-shrink-0 mt-0.5">verified_user</span>
                     <div>
                       <h4 className="font-sans text-xs sm:text-sm font-bold text-primary">Transparent Pricing</h4>
@@ -245,7 +266,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3">
+                  <div className="reveal-scale bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3 hover:border-emerald-700/30 hover:shadow-sm transition-all duration-300">
                     <span className="material-symbols-outlined text-emerald-800 text-xl flex-shrink-0 mt-0.5">support_agent</span>
                     <div>
                       <h4 className="font-sans text-xs sm:text-sm font-bold text-primary">24/7 On-Trip Support</h4>
@@ -253,7 +274,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3">
+                  <div className="reveal-scale bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3 hover:border-emerald-700/30 hover:shadow-sm transition-all duration-300">
                     <span className="material-symbols-outlined text-emerald-800 text-xl flex-shrink-0 mt-0.5">hotel</span>
                     <div>
                       <h4 className="font-sans text-xs sm:text-sm font-bold text-primary">Handpicked Stays</h4>
@@ -261,7 +282,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3">
+                  <div className="reveal-scale bg-surface p-4 rounded-2xl border border-emerald-900/10 flex items-start gap-3 hover:border-emerald-700/30 hover:shadow-sm transition-all duration-300">
                     <span className="material-symbols-outlined text-emerald-800 text-xl flex-shrink-0 mt-0.5">route</span>
                     <div>
                       <h4 className="font-sans text-xs sm:text-sm font-bold text-primary">Custom Itineraries</h4>
@@ -296,12 +317,13 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
+        {/* ========================================================================= */}
         {/* SECTION 3: TRENDING DESTINATIONS */}
         {/* ========================================================================= */}
-        <section id="destinations" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface-container-lowest border-t border-emerald-900/10 relative reveal-on-scroll">
+        <section id="destinations" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface-container-lowest border-t border-emerald-900/10 relative">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12">
+            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12 reveal-up">
               <h2 className="font-sans text-3xl sm:text-4xl text-primary font-bold">
                 Handpicked Destinations <span className="text-emerald-700 font-script font-normal text-3xl sm:text-5xl">loved by travelers</span>
               </h2>
@@ -313,7 +335,7 @@ export default function Home() {
             {/* Showcase Grid: Badges + Featured Cutout Banner */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
               {/* Left Column: 6 Feature Badges */}
-              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
+              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4 reveal-from-left reveal-stagger">
                 {[
                   { title: "Best Price Guaranteed", icon: "verified" },
                   { title: "Curated Experiences", icon: "shield" },
@@ -324,9 +346,9 @@ export default function Home() {
                 ].map((badge, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-emerald-900/10 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow group"
+                    className="reveal-scale bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-emerald-900/10 flex flex-col items-center justify-center text-center hover:shadow-md hover:border-emerald-700/30 transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2.5 group-hover:bg-emerald-800 group-hover:text-white transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mb-2.5 group-hover:bg-emerald-800 group-hover:text-white transition-colors duration-300">
                       <span className="material-symbols-outlined text-xl">{badge.icon}</span>
                     </div>
                     <span className="font-sans text-xs font-bold text-primary leading-snug">{badge.title}</span>
@@ -335,7 +357,7 @@ export default function Home() {
               </div>
 
               {/* Right Column: Organic Cutout Showcase Image */}
-              <div className="lg:col-span-6 relative">
+              <div className="lg:col-span-6 relative reveal-from-right delay-150">
                 <div className="rounded-[40px] overflow-hidden shadow-2xl border-4 border-white h-72 sm:h-88 relative group">
                   <img
                     src="/locations/houseboat.webp"
@@ -353,12 +375,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Destination Spotlight Cards Grid */}
+            {/* Destination Spotlight Cards Grid - Staggered Scale Reveals */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {destinationSpotlights.map((dest, i) => (
                 <div
                   key={i}
-                  className="group relative rounded-2xl overflow-hidden shadow-sm bg-white border border-emerald-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
+                  className={`reveal-scale delay-${(i + 1) * 100} group relative rounded-2xl overflow-hidden shadow-sm bg-white border border-emerald-900/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between`}
                 >
                   <div>
                     <div className="h-48 relative overflow-hidden">
@@ -392,11 +414,11 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 4: FEATURED TOUR PACKAGES SHOWCASE */}
         {/* ========================================================================= */}
-        <section id="itinerary" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface border-y border-emerald-900/10 reveal-on-scroll">
+        <section id="itinerary" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface border-y border-emerald-900/10">
           <div className="max-w-7xl mx-auto">
             
             {/* Section Header */}
-            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12">
+            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-12 reveal-up">
               <span className="text-emerald-700 font-sans text-xs uppercase tracking-[0.2em] font-bold">
                 Featured Packages
               </span>
@@ -408,12 +430,12 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 3 Package Showcase Cards Grid */}
+            {/* 3 Package Showcase Cards Grid - Staggered Reveals */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10">
-              {allPackages.map((pkg) => (
+              {allPackages.map((pkg, idx) => (
                 <div
                   key={pkg.id}
-                  className="bg-white rounded-2xl border border-emerald-900/10 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-1"
+                  className={`reveal-up delay-${(idx + 1) * 100} bg-white rounded-2xl border border-emerald-900/10 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-1`}
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-3">
@@ -467,7 +489,7 @@ export default function Home() {
             </div>
 
             {/* Bottom CTA Banner to /packages */}
-            <div className="text-center">
+            <div className="text-center reveal-scale delay-200">
               <Link
                 href="/packages"
                 className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-xs sm:text-sm uppercase tracking-wider font-bold px-8 py-3.5 rounded-full transition-all shadow-md active:scale-95"
@@ -483,12 +505,12 @@ export default function Home() {
         {/* ========================================================================= */}
         {/* SECTION 5: CONTACT / BOOKING SECTION */}
         {/* ========================================================================= */}
-        <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface-container-lowest reveal-on-scroll">
+        <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-8 lg:px-12 bg-surface-container-lowest">
           <div className="max-w-7xl mx-auto">
             <div className="bg-emerald-950 text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border border-emerald-900/40">
               
               {/* Left Contact Info */}
-              <div className="lg:col-span-5 space-y-5">
+              <div className="lg:col-span-5 space-y-5 reveal-from-left">
                 <div>
                   <span className="text-amber-300 font-sans text-[11px] uppercase tracking-[0.2em] font-bold block mb-2">
                     CONTACT / BOOKING
@@ -548,7 +570,7 @@ export default function Home() {
               </div>
 
               {/* Right Booking / WhatsApp Form */}
-              <div className="lg:col-span-7 bg-white text-on-surface rounded-2xl p-6 sm:p-8 shadow-lg">
+              <div className="lg:col-span-7 bg-white text-on-surface rounded-2xl p-6 sm:p-8 shadow-lg reveal-from-right delay-150">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
                   <h3 className="font-sans text-lg sm:text-xl font-bold text-primary">
                     Request Package Quote
@@ -622,7 +644,7 @@ export default function Home() {
                           onChange={(e) => setFormState({ ...formState, selectedPackage: e.target.value })}
                         >
                           <option>7 Days of Kerala (6N / 7D)</option>
-                          <option>Munnar Escape (2N / 3D - ₹16,500)</option>
+                          <option>Munnar Escape (2N / 3D)</option>
                           <option>5 Days / 4 Nights Kerala Tour</option>
                         </select>
                       </div>

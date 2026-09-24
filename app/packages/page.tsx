@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ScrollObserver from "../components/ScrollObserver";
 import plansData from "@/public/plans.json";
 
 const allPackages = plansData.packages;
@@ -28,14 +27,13 @@ export default function PackagesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       <Navbar />
-      <ScrollObserver />
 
       <main className="flex-grow pt-16">
         {/* ========================================================================= */}
         {/* PAGE HEADER */}
         {/* ========================================================================= */}
         <section className="py-12 sm:py-16 px-4 sm:px-8 lg:px-12 bg-surface border-b border-emerald-900/10">
-          <div className="max-w-7xl mx-auto text-center max-w-2xl">
+          <div className="max-w-7xl mx-auto text-center max-w-2xl reveal-up">
             <span className="bg-emerald-100 text-emerald-900 font-sans text-[10px] sm:text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
               Handcrafted Tour Packages
             </span>
@@ -57,7 +55,7 @@ export default function PackagesPage() {
               <div
                 key={pkg.id}
                 id={pkg.id}
-                className="bg-white rounded-3xl border border-emerald-900/10 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl scroll-mt-24 reveal-on-scroll"
+                className="bg-white rounded-3xl border border-emerald-900/10 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl scroll-mt-24 reveal-scale"
               >
                 {/* 1. Package Header Banner */}
                 <div className="relative bg-emerald-950 text-white p-6 sm:p-8 md:p-10">

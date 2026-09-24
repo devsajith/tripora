@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Playfair_Display, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 import BottomNavbar from "./components/BottomNavbar";
+import ScrollObserver from "./components/ScrollObserver";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -14,7 +15,14 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://tripora.in"),
   title: "Tripora | Luxury Travel Kerala & India",
   description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
   icons: {
@@ -32,12 +40,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${manrope.variable} h-full antialiased`}
+      className={`${playfair.variable} ${manrope.variable} ${poppins.variable} h-full antialiased`}
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full flex flex-col bg-surface text-on-surface">
+        <ScrollObserver />
         {children}
         <BottomNavbar />
       </body>

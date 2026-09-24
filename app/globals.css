@@ -42,6 +42,7 @@
   /* Fonts */
   --font-sans: var(--font-manrope);
   --font-display: var(--font-playfair);
+  --font-poppins: var(--font-poppins), sans-serif;
   --font-script: 'Caveat', cursive, serif;
 }
 
@@ -105,17 +106,138 @@ section {
   animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Scroll Reveal Observer Classes */
-.reveal-on-scroll {
+/* Scroll Reveal Observer & Directional Animation Classes */
+.reveal-on-scroll,
+.reveal-up {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal-on-scroll.reveal-active {
+.reveal-down {
+  opacity: 0;
+  transform: translateY(-28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-from-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-from-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.93);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-2.5deg) scale(0.95);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(24px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+/* Reveal Active State */
+.reveal-on-scroll.reveal-active,
+.reveal-up.reveal-active,
+.reveal-down.reveal-active,
+.reveal-from-left.reveal-active,
+.reveal-from-right.reveal-active {
   opacity: 1;
+  transform: translate(0, 0);
+}
+
+.reveal-scale.reveal-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-rotate.reveal-active {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.reveal-blur.reveal-active {
+  opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
+}
+
+/* Stagger Delay Classes */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+
+/* Auto-stagger container child delays */
+.reveal-stagger > *:nth-child(1) { transition-delay: 60ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 140ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 220ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 380ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 460ms; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 540ms; }
+.reveal-stagger > *:nth-child(8) { transition-delay: 620ms; }
+
+/* Slow bounce cue for scroll indicator */
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2.2s infinite ease-in-out;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-up,
+  .reveal-down,
+  .reveal-from-left,
+  .reveal-from-right,
+  .reveal-scale,
+  .reveal-rotate,
+  .reveal-blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .animate-bounce-slow {
+    animation: none !important;
+  }
 }
 
 .font-script {
