@@ -22,13 +22,16 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://tripora.in"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://tripora68.in"),
   title: "Tripora | Luxury Travel Kerala & India",
   description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
   icons: {
     icon: "/logo.webp",
     shortcut: "/favicon.ico",
     apple: "/logo.webp",
+  },
+  verification: {
+    google: "bd6f3196f5d10993",
   },
 };
 
