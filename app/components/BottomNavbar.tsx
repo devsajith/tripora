@@ -20,8 +20,11 @@ export default function BottomNavbar() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-xl border-t border-emerald-900/10 shadow-[0_-4px_20px_rgba(10,46,38,0.08)] pb-safe">
-      <div className="flex justify-around items-center px-3 py-2">
+    <nav
+      className="fixed bottom-0 left-0 w-full z-50 md:hidden bg-white/95 backdrop-blur-xl border-t border-emerald-900/10 shadow-[0_-4px_24px_rgba(10,46,38,0.08)]"
+      style={{ paddingBottom: "max(0.4rem, env(safe-area-inset-bottom, 0px))" }}
+    >
+      <div className="grid grid-cols-5 items-center max-w-lg mx-auto px-2 py-1.5">
         {items.map((item) => {
           const isActive = item.isPage;
           if (item.isAction) {
@@ -31,10 +34,12 @@ export default function BottomNavbar() {
                 href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20am%20interested%20in%20a%20Kerala%20Tour%20Package."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center bg-emerald-800 text-white px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-xs active:scale-95 transition-transform"
+                className="flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 group text-emerald-800"
               >
-                <span className="material-symbols-outlined text-base">chat</span>
-                <span>WhatsApp</span>
+                <div className="w-8 h-8 rounded-full bg-emerald-800 text-white flex items-center justify-center shadow-xs group-hover:bg-emerald-900 transition-colors">
+                  <span className="material-symbols-outlined text-base">chat</span>
+                </div>
+                <span className="text-[10px] font-bold text-emerald-800 mt-0.5">WhatsApp</span>
               </a>
             );
           }
@@ -43,19 +48,25 @@ export default function BottomNavbar() {
             <Link
               key={item.id}
               href={item.href}
-              className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 ${
+              className={`flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 ${
                 isActive
                   ? "text-emerald-800 font-extrabold"
                   : "text-primary/70 hover:text-emerald-800"
               }`}
             >
-              <span
-                className="material-symbols-outlined text-xl"
-                style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}
-              >
-                {item.icon}
+              <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
+                isActive ? "bg-emerald-50 text-emerald-800" : ""
+              }`}>
+                <span
+                  className="material-symbols-outlined text-xl"
+                  style={{ fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0" }}
+                >
+                  {item.icon}
+                </span>
+              </div>
+              <span className={`text-[10px] mt-0.5 ${isActive ? "font-bold text-emerald-800" : "font-medium"}`}>
+                {item.label}
               </span>
-              <span className="text-[10px] font-bold mt-0.5">{item.label}</span>
             </Link>
           );
         })}

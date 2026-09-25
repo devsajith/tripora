@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-emerald-950 text-white py-10 sm:py-12 mt-auto relative border-t border-emerald-900/40">
+    <footer className="bg-emerald-950 text-white pt-10 sm:pt-12 pb-24 md:pb-12 mt-auto relative border-t border-emerald-900/40">
       {/* Top accent glow line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-amber-300/60 to-transparent"></div>
 

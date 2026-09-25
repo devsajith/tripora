@@ -54,34 +54,32 @@ export default function Navbar() {
     <header className="fixed top-0 w-full z-50 transition-all duration-300">
       {/* MAIN NAVIGATION BAR */}
       <nav
-        className={`w-full transition-all duration-300 border-b border-emerald-900/10 bg-white/95 backdrop-blur-md ${
-          isScrolled
-            ? "h-14 shadow-[0_4px_20px_rgba(10,46,38,0.06)]"
-            : "h-16"
+        className={`w-full transition-all duration-300 border-b border-emerald-900/10 bg-white/95 backdrop-blur-md h-16 ${
+          isScrolled ? "shadow-[0_4px_20px_rgba(10,46,38,0.06)]" : ""
         }`}
       >
         {/* DESKTOP NAVBAR VIEW */}
-        <div className="hidden lg:flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-full w-full">
+        <div className="hidden lg:flex justify-between items-center max-w-7xl mx-auto px-6 lg:px-8 h-full w-full">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 cursor-pointer active:scale-95 transition-transform group"
+            className="flex items-center gap-3 cursor-pointer active:scale-95 transition-transform group flex-shrink-0"
           >
-            <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0 group-hover:border-emerald-800/30 transition-colors">
               <img src="/logo.webp" alt="Tripora Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
-              <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none">
+              <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none group-hover:text-emerald-800 transition-colors">
                 Tripora
               </span>
-              <span className="font-sans text-[8px] tracking-[0.2em] uppercase font-bold text-emerald-700 mt-0.5">
+              <span className="font-sans text-[8.5px] tracking-[0.22em] uppercase font-bold text-emerald-700 mt-1 leading-none">
                 Travel. Explore. Remember.
               </span>
             </div>
           </Link>
 
           {/* Desktop Menu - Home, About Us, Destinations, Packages, Contact */}
-          <div className="flex items-center space-x-7 font-sans text-xs uppercase tracking-wider font-bold">
+          <div className="flex items-center gap-1.5 xl:gap-2.5 font-sans text-xs uppercase tracking-wider font-bold">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -89,15 +87,15 @@ export default function Navbar() {
                   key={item.id}
                   href={item.href}
                   onClick={() => setActiveSection(item.id)}
-                  className={`relative py-1 transition-colors duration-200 ${
+                  className={`relative px-3.5 py-2 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "text-emerald-800 font-extrabold"
-                      : "text-primary hover:text-emerald-700"
+                      ? "text-emerald-800 font-extrabold bg-emerald-50/80"
+                      : "text-primary/80 hover:text-emerald-800 hover:bg-emerald-50/40"
                   }`}
                 >
                   <span>{item.label}</span>
                   {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-800 rounded-full animate-fadeIn" />
+                    <span className="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-emerald-800 rounded-full animate-fadeIn" />
                   )}
                 </Link>
               );
@@ -105,10 +103,10 @@ export default function Navbar() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <Link
               href="/#contact"
-              className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-5 py-2 rounded-full font-sans text-xs transition-all active:scale-95 uppercase tracking-wider text-center shadow-xs flex items-center gap-1.5"
+              className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-5 py-2.5 rounded-full font-sans text-xs transition-all active:scale-95 uppercase tracking-wider text-center shadow-xs hover:shadow flex items-center gap-1.5"
             >
               <span>Enquire Now</span>
               <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
@@ -117,42 +115,57 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE NAVBAR VIEW */}
-        <div className="flex lg:hidden justify-between items-center px-4 sm:px-6 h-full w-full relative">
-          <div className="flex items-center z-10">
+        <div className="flex lg:hidden justify-between items-center px-4 sm:px-6 h-full w-full">
+          {/* Left: Back button or Logo + Brand */}
+          <div className="flex items-center gap-2.5 min-w-0">
             {isDetailsPage ? (
-              <button
-                onClick={() => router.push("/")}
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-emerald-50 border border-emerald-900/10 active:scale-90 transition-transform"
-              >
-                <span className="material-symbols-outlined text-primary text-xl">
-                  arrow_back
-                </span>
-              </button>
+              <div className="flex items-center gap-2.5">
+                <button
+                  onClick={() => router.push("/")}
+                  className="h-9 w-9 flex items-center justify-center rounded-xl bg-emerald-50 border border-emerald-900/10 text-primary active:scale-90 transition-transform flex-shrink-0"
+                  aria-label="Go back"
+                >
+                  <span className="material-symbols-outlined text-xl">
+                    arrow_back
+                  </span>
+                </button>
+                <Link href="/" className="flex flex-col">
+                  <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none">
+                    Tripora
+                  </span>
+                  <span className="font-sans text-[7.5px] tracking-wider uppercase font-bold text-emerald-700 mt-0.5 leading-none">
+                    Travel. Explore. Remember.
+                  </span>
+                </Link>
+              </div>
             ) : (
               <Link
                 href="/"
-                className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 block active:scale-90 transition-transform shadow-xs"
+                className="flex items-center gap-2.5 active:scale-95 transition-transform flex-shrink-0"
               >
-                <img src="/logo.webp" alt="Tripora" className="w-full h-full object-cover" />
+                <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0">
+                  <img src="/logo.webp" alt="Tripora" className="w-full h-full object-cover" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none">
+                    Tripora
+                  </span>
+                  <span className="font-sans text-[7.5px] tracking-[0.2em] uppercase font-bold text-emerald-700 mt-0.5 leading-none">
+                    Travel. Explore. Remember.
+                  </span>
+                </div>
               </Link>
             )}
           </div>
 
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-auto flex flex-col items-center">
-            <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none">
-              Tripora
-            </span>
-            <span className="font-sans text-[8px] tracking-widest uppercase font-semibold text-emerald-700 mt-0.5">
-              Travel. Explore. Remember.
-            </span>
-          </Link>
-
-          <div className="flex items-center z-10 gap-2">
+          {/* Right: Quick Action CTA */}
+          <div className="flex items-center gap-2 flex-shrink-0 ml-3">
             <Link
               href="/#contact"
-              className="bg-emerald-800 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs"
+              className="bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs transition-all"
             >
               <span>Enquire</span>
+              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
             </Link>
           </div>
         </div>
