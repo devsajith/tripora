@@ -115,11 +115,11 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE NAVBAR VIEW */}
-        <div className="flex lg:hidden justify-between items-center px-4 sm:px-6 h-full w-full">
+        <div className="flex lg:hidden justify-between items-center px-5 sm:px-6 h-full w-full">
           {/* Left: Back button or Logo + Brand */}
           <div className="flex items-center gap-2.5 min-w-0">
             {isDetailsPage ? (
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <button
                   onClick={() => router.push("/")}
                   className="h-9 w-9 flex items-center justify-center rounded-xl bg-emerald-50 border border-emerald-900/10 text-primary active:scale-90 transition-transform flex-shrink-0"
@@ -129,11 +129,11 @@ export default function Navbar() {
                     arrow_back
                   </span>
                 </button>
-                <Link href="/" className="flex flex-col">
-                  <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none">
+                <Link href="/" className="flex flex-col min-w-0">
+                  <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none truncate">
                     Tripora
                   </span>
-                  <span className="font-sans text-[7.5px] tracking-wider uppercase font-bold text-emerald-700 mt-0.5 leading-none">
+                  <span className="font-sans text-[7.5px] tracking-wider uppercase font-bold text-emerald-700 mt-0.5 leading-none hidden min-[360px]:block truncate">
                     Travel. Explore. Remember.
                   </span>
                 </Link>
@@ -146,11 +146,11 @@ export default function Navbar() {
                 <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0">
                   <img src="/logo.webp" alt="Tripora" className="w-full h-full object-cover" />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none">
                     Tripora
                   </span>
-                  <span className="font-sans text-[7.5px] tracking-[0.2em] uppercase font-bold text-emerald-700 mt-0.5 leading-none">
+                  <span className="font-sans text-[7.5px] tracking-[0.16em] uppercase font-bold text-emerald-700 mt-0.5 leading-none hidden min-[360px]:block">
                     Travel. Explore. Remember.
                   </span>
                 </div>
@@ -158,8 +158,8 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Right: Quick Action CTA */}
-          <div className="flex items-center gap-2 flex-shrink-0 ml-3">
+          {/* Right: Quick Action CTA with guaranteed right spacing */}
+          <div className="flex items-center gap-2 flex-shrink-0 ml-3 mr-1">
             <Link
               href="/#contact"
               className="bg-emerald-800 hover:bg-emerald-900 active:scale-95 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-xs transition-all"
