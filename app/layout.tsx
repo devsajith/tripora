@@ -27,7 +27,42 @@ export const metadata: Metadata = {
     default: "Kerala Tour Packages & Travel Agency | Tripora",
     template: "%s | Tripora",
   },
-  description: "Experience bespoke luxury travel across Kerala's serene backwaters and India's majestic heritage enclaves. Curated journeys for the discerning traveler.",
+  description:
+    "Discover handcrafted Kerala holiday packages with Tripora. Curated family & honeymoon tours with luxury houseboats, private cabs, and 24/7 local support.",
+  keywords: [
+    "Kerala tour packages",
+    "Kerala travel agency",
+    "Tripora",
+    "Munnar tour package",
+    "Alleppey houseboat booking",
+    "Kerala honeymoon packages",
+    "Kerala family vacation",
+    "Kerala holiday packages",
+  ],
+  openGraph: {
+    title: "Kerala Tour Packages & Travel Agency | Tripora",
+    description:
+      "Discover handcrafted Kerala holiday packages with Tripora. Curated family & honeymoon tours with luxury houseboats, private cabs, and 24/7 local support.",
+    url: "https://tripora68.in",
+    siteName: "Tripora",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/locations/AllepyBackwater.webp",
+        width: 1200,
+        height: 630,
+        alt: "Tripora Luxury Kerala Travel Packages",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kerala Tour Packages & Travel Agency | Tripora",
+    description:
+      "Discover handcrafted Kerala holiday packages with Tripora. Curated family & honeymoon tours with luxury houseboats, private cabs, and 24/7 local support.",
+    images: ["/locations/AllepyBackwater.webp"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
