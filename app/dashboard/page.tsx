@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -41,21 +42,17 @@ const defaultReservations: Booking[] = [
 ];
 
 export default function Dashboard() {
-  const [reservations, setReservations] = useState<Booking[]>([]);
-
-  useEffect(() => {
-    // Read reservations from localStorage
-    const saved = localStorage.getItem("tripora_bookings");
-    let bookingsList: Booking[] = saved ? JSON.parse(saved) : [];
-
-    // If empty, initialize with default list
-    if (bookingsList.length === 0) {
+  const [reservations, setReservations] = useState<Booking[]>(() => {
+    if (typeof window === "undefined") return defaultReservations;
+    try {
+      const saved = localStorage.getItem("tripora_bookings");
+      if (saved) return JSON.parse(saved);
       localStorage.setItem("tripora_bookings", JSON.stringify(defaultReservations));
-      bookingsList = defaultReservations;
+      return defaultReservations;
+    } catch {
+      return defaultReservations;
     }
-
-    setReservations(bookingsList);
-  }, []);
+  });
 
   const handleClearBookings = () => {
     localStorage.removeItem("tripora_bookings");
@@ -94,10 +91,13 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
           {/* Kerala Countdown Card */}
           <div className="col-span-12 lg:col-span-8 relative h-[350px] md:h-[500px] rounded-xl overflow-hidden group glow-accent border border-primary/20">
-            <img
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            <Image
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
               alt="Kumarakom Lake Resort, Kerala"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3rpAp0UctqMIYA8Dapv66TZl8l8e4LNTgeXqaCi0KG7EGWTeGwZhSk7WEMIl59V2K8FKHjqjoHTVoKvC6IyeAqv3BHVuQsMR2knQgLgOSZDIBwIrQAo1A1dKXGyuS7sLBre-j1T4RWunVhAA4pl5KrGjxBBpXOuU-0IOcCll6Tpa3zC0JSBI1ONEcYKm8RJbRRFLgyEMkuGtCQI5cfkSL5ZrrgQ7khkERLwOolFkFQ-mdNg-rOmlvajRFhIOHPKM50sg0qTSKIE"
+              sizes="(max-width: 1024px) 100vw, 66vw"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-0">
@@ -268,11 +268,13 @@ export default function Dashboard() {
             <div className="flex flex-col gap-6">
               {reservations.map((item) => (
                 <div key={item.id} className="flex gap-6 group cursor-pointer border-b border-primary/10 pb-6 last:border-0 last:pb-0">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-low border border-primary/20">
-                    <img
-                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-low border border-primary/20 relative">
+                    <Image
+                      fill
+                      className="object-cover transition-all duration-500 group-hover:scale-105"
                       src={item.img}
                       alt={item.title}
+                      sizes="80px"
                     />
                   </div>
                   <div className="flex-grow flex justify-between items-start">

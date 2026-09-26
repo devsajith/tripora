@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -10,8 +11,8 @@ export default function Footer() {
         {/* Info Column */}
         <div className="col-span-1">
           <Link href="/" className="flex items-center gap-2.5 mb-2.5 group inline-flex">
-            <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/20 shadow-xs flex-shrink-0">
-              <img src="/logo.webp" alt="Tripora Logo" className="w-full h-full object-cover" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/20 shadow-xs flex-shrink-0 relative">
+              <Image src="/logo.webp" alt="Tripora Logo" width={32} height={32} className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-lg font-bold text-white tracking-[0.08em] uppercase leading-none">
@@ -23,7 +24,7 @@ export default function Footer() {
             </div>
           </Link>
           <p className="text-white/70 font-sans text-[11px] mb-2.5 leading-snug">
-            Crafting extraordinary journeys across Kerala's misty tea estates, serene backwaters, and golden coasts.
+            Crafting extraordinary journeys across Kerala&apos;s misty tea estates, serene backwaters, and golden coasts.
           </p>
 
           <div className="space-y-1 mb-3 font-sans text-[11px]">
@@ -130,7 +131,7 @@ export default function Footer() {
           <ul className="space-y-1.5 font-sans text-[11px]">
             <li>
               <a href="#itinerary" className="text-white/80 hover:text-white transition-colors font-bold text-amber-300">
-                7 Days God's Own Country (Priority #1)
+                7 Days God&apos;s Own Country (Priority #1)
               </a>
             </li>
             <li>

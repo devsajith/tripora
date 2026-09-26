@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import plansData from "@/public/plans.json";
 
-const corePillars = plansData.corePillars;
 const destinationSpotlights = plansData.destinationSpotlights;
 const allPackages = plansData.packages;
-const packageInclusions = plansData.packageInclusions;
 
 export default function Home() {
   // Form State
@@ -46,10 +45,13 @@ export default function Home() {
         <section id="overview" className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden pt-16 pb-24 sm:pt-24 sm:pb-32 px-4 sm:px-8 lg:px-12 bg-emerald-950">
           {/* Background Image with Dark Atmospheric Overlay */}
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
+              fill
+              priority
               src="/hero.jpg"
               alt="Kerala Backwaters Houseboat Sunset View"
-              className="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000"
+              className="object-cover object-center transform scale-105 transition-transform duration-1000"
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/70 to-emerald-950/40"></div>
           </div>
@@ -62,7 +64,7 @@ export default function Home() {
 
             {/* Main Hero Headline */}
             <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 uppercase leading-none text-white drop-shadow-lg">
-              NATURE'S BEST
+              NATURE&apos;S BEST
             </h1>
 
             {/* Subtitle */}
@@ -201,10 +203,12 @@ export default function Home() {
               {/* Left Column: Image Showcase & Floating Trust Badges */}
               <div className="lg:col-span-6 relative reveal-from-left">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[280px] sm:h-[420px]">
-                  <img
+                  <Image
+                    fill
                     src="/locations/Munnarteagarden.webp"
                     alt="Tripora Kerala Tea Gardens Munnar"
-                    className="w-full h-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
 
@@ -214,7 +218,7 @@ export default function Home() {
                       ⭐ Local Kerala Experts
                     </span>
                     <h3 className="font-sans text-lg sm:text-xl font-bold text-white leading-tight">
-                      Crafting Unforgettable Journeys in God's Own Country
+                      Crafting Unforgettable Journeys in God&apos;s Own Country
                     </h3>
                   </div>
                 </div>
@@ -253,7 +257,7 @@ export default function Home() {
                 </div>
 
                 <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  At <strong>Tripora</strong>, we believe travel is not just about visiting places—it's about feeling the soul of Kerala. Born out of a deep love for mist-clad tea mountains, emerald backwaters, and pristine palm beaches, we craft hassle-free tour packages tailored for families, couples, and group travelers.
+                  At <strong>Tripora</strong>, we believe travel is not just about visiting places—it&apos;s about feeling the soul of Kerala. Born out of a deep love for mist-clad tea mountains, emerald backwaters, and pristine palm beaches, we craft hassle-free tour packages tailored for families, couples, and group travelers.
                 </p>
 
                 {/* 4 Feature Badges with Auto-Stagger */}
@@ -359,12 +363,14 @@ export default function Home() {
               {/* Right Column: Organic Cutout Showcase Image */}
               <div className="lg:col-span-6 relative reveal-from-right delay-150">
                 <div className="rounded-[40px] overflow-hidden shadow-2xl border-4 border-white h-72 sm:h-88 relative group">
-                  <img
+                  <Image
+                    fill
                     src="/locations/houseboat.webp"
                     alt="Alleppey Backwaters Scenic View"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-8 text-white z-10 pointer-events-none">
                     <span className="bg-emerald-800/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider w-max mb-2">
                       ⭐ Highlight Spotlight
                     </span>
@@ -384,13 +390,15 @@ export default function Home() {
                 >
                   <div>
                     <div className="h-48 relative overflow-hidden">
-                      <img
+                      <Image
+                        fill
                         src={dest.img}
                         alt={dest.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
-                      <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-xs">
+                      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent z-10 pointer-events-none"></div>
+                      <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-xs z-10">
                         <span className="material-symbols-outlined text-emerald-700 text-xs">location_on</span>
                         <span className="font-sans text-[11px] font-bold text-primary uppercase">{dest.name}</span>
                       </div>
@@ -516,7 +524,7 @@ export default function Home() {
                     CONTACT / BOOKING
                   </span>
                   <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-white leading-tight">
-                    Let's plan your perfect <span className="text-amber-300 font-script font-normal text-4xl sm:text-5xl">Kerala getaway!</span>
+                    Let&apos;s plan your perfect <span className="text-amber-300 font-script font-normal text-4xl sm:text-5xl">Kerala getaway!</span>
                   </h2>
                 </div>
                 

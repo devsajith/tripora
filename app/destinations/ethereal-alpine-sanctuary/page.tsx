@@ -1,18 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-interface DayItinerary {
-  day: number;
+interface StoredReservation {
   title: string;
-  route: string;
-  stayLocation: string;
-  desc: string;
-  activities: string[];
-  images: { url: string; title: string }[];
+  [key: string]: unknown;
 }
 
 import plansData from "@/public/plans.json";
@@ -50,9 +46,9 @@ export default function DetailsPage() {
     };
 
     const existing = localStorage.getItem("tripora_bookings");
-    const bookings = existing ? JSON.parse(existing) : [];
+    const bookings: StoredReservation[] = existing ? JSON.parse(existing) : [];
     
-    const exists = bookings.some((b: any) => b.title === newReservation.title);
+    const exists = bookings.some((b: StoredReservation) => b.title === newReservation.title);
     if (!exists) {
       bookings.push(newReservation);
       localStorage.setItem("tripora_bookings", JSON.stringify(bookings));
@@ -73,10 +69,13 @@ export default function DetailsPage() {
         {/* HERO BANNER SECTION */}
         {/* ========================================================= */}
         <section className="relative h-[480px] md:h-[620px] w-full overflow-hidden bg-primary">
-          <img
-            className="w-full h-full object-cover opacity-60"
+          <Image
+            fill
+            priority
+            className="object-cover opacity-60"
             alt="Kerala Tour Package"
             src="/locations/AllepyBackwater.webp"
+            sizes="100vw"
           />
           <div className="absolute inset-0 details-hero-gradient"></div>
 
@@ -91,7 +90,7 @@ export default function DetailsPage() {
             </div>
 
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white mb-3 max-w-3xl leading-tight">
-              7 Days of Kerala — God's Own Country Package
+              7 Days of Kerala — God&apos;s Own Country Package
             </h1>
             <p className="font-sans text-sm sm:text-base text-white/90 max-w-2xl leading-relaxed">
               From misty tea mountains in Munnar to serene Alleppey backwaters and Kovalam ocean beaches — experience the very best of Kerala in this carefully crafted 7 days journey.
@@ -298,10 +297,12 @@ export default function DetailsPage() {
                           <div className="grid grid-cols-3 gap-3 pt-2">
                             {item.images.map((img, i) => (
                               <div key={i} className="relative h-24 sm:h-28 rounded-lg overflow-hidden border border-outline-variant/30 group">
-                                <img
+                                <Image
+                                  fill
                                   src={img.url}
                                   alt={img.title}
-                                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                  sizes="(max-width: 640px) 33vw, 20vw"
                                 />
                                 <div className="absolute inset-0 bg-black/40 flex items-end p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                   <span className="font-sans text-[9px] font-bold text-white uppercase tracking-wider">

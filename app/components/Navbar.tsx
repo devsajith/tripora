@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -65,8 +66,8 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 cursor-pointer active:scale-95 transition-transform group flex-shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0 group-hover:border-emerald-800/30 transition-colors">
-              <img src="/logo.webp" alt="Tripora Logo" className="w-full h-full object-cover" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0 group-hover:border-emerald-800/30 transition-colors relative">
+              <Image src="/logo.webp" alt="Tripora Logo" width={40} height={40} priority className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-poppins text-xl font-bold text-primary tracking-tight leading-none group-hover:text-emerald-800 transition-colors">
@@ -143,8 +144,8 @@ export default function Navbar() {
                 href="/"
                 className="flex items-center gap-2.5 active:scale-95 transition-transform flex-shrink-0"
               >
-                <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0">
-                  <img src="/logo.webp" alt="Tripora" className="w-full h-full object-cover" />
+                <div className="w-9 h-9 rounded-xl overflow-hidden border border-emerald-900/10 shadow-xs flex-shrink-0 relative">
+                  <Image src="/logo.webp" alt="Tripora" width={36} height={36} priority className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col min-w-0">
                   <span className="font-poppins text-lg font-bold text-primary tracking-tight leading-none">

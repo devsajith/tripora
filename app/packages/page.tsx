@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import plansData from "@/public/plans.json";
@@ -61,10 +62,12 @@ export default function PackagesPage() {
                 <div className="relative bg-emerald-950 text-white p-6 sm:p-8 md:p-10">
                   {/* Background Image Accent */}
                   <div className="absolute inset-0 z-0 opacity-25 overflow-hidden">
-                    <img
+                    <Image
+                      fill
                       src={pkg.itinerary[0]?.images[0]?.url || "/locations/AllepyBackwater.webp"}
                       alt={pkg.title}
-                      className="w-full h-full object-cover"
+                      className="object-cover"
+                      sizes="(max-width: 1280px) 100vw, 1200px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/90 to-emerald-950/60"></div>
                   </div>
@@ -224,7 +227,7 @@ export default function PackagesPage() {
                           {isOpen && (
                             <div className="p-5 sm:p-6 sm:px-7 pt-0 border-t border-emerald-900/10 space-y-5 animate-fadeIn">
                               <p className="font-serif italic text-xs sm:text-sm text-primary/80 leading-relaxed mt-4">
-                                "{dayItem.subtitle}"
+                                &ldquo;{dayItem.subtitle}&rdquo;
                               </p>
 
                               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -255,12 +258,14 @@ export default function PackagesPage() {
                                   <div className="grid grid-cols-2 gap-3">
                                     {dayItem.images.map((img, idx) => (
                                       <div key={idx} className="group relative h-26 sm:h-32 rounded-xl overflow-hidden shadow-xs border border-gray-100">
-                                        <img
+                                        <Image
+                                          fill
                                           src={img.url}
                                           alt={img.label}
-                                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                          sizes="(max-width: 640px) 50vw, 20vw"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex items-end p-2.5">
+                                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent flex items-end p-2.5 z-10 pointer-events-none">
                                           <span className="text-white font-sans text-[10px] font-bold line-clamp-1">{img.label}</span>
                                         </div>
                                       </div>
