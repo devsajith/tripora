@@ -80,18 +80,17 @@ export async function getApprovedReviews(): Promise<ReviewItem[]> {
 
     if (error) {
       console.warn("Supabase fetch reviews warning:", error.message);
-      return initialReviews;
+      return [];
     }
 
     if (!data || data.length === 0) {
-      // If table is newly created and empty, show initial curated reviews
-      return initialReviews;
+      return [];
     }
 
     return data.map((row) => mapRowToReviewItem(row as SupabaseReviewRow));
   } catch (err) {
     console.error("Error fetching reviews:", err);
-    return initialReviews;
+    return [];
   }
 }
 
