@@ -8,6 +8,7 @@ import { AVAILABLE_PACKAGES } from "@/data/reviews";
 import { createReview } from "@/lib/reviews-service";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CustomPackageSelect from "../components/CustomPackageSelect";
 
 function ReviewFormContent() {
   const searchParams = useSearchParams();
@@ -216,22 +217,11 @@ function ReviewFormContent() {
             </div>
 
             {/* Step 3: Tour Package */}
-            <div>
-              <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">
-                Tour Package Traveled
-              </label>
-              <select
-                value={form.packageTitle}
-                onChange={(e) => setForm({ ...form, packageTitle: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface cursor-pointer"
-              >
-                {AVAILABLE_PACKAGES.map((pkg) => (
-                  <option key={pkg} value={pkg}>
-                    {pkg}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <CustomPackageSelect
+              value={form.packageTitle}
+              onChange={(val) => setForm({ ...form, packageTitle: val })}
+              label="Tour Package Traveled"
+            />
 
             {/* Step 4: Review Comments */}
             <div>

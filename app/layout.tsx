@@ -97,6 +97,8 @@ export default function RootLayout({
       className={`${playfair.variable} ${manrope.variable} ${poppins.variable} ${caveat.variable} h-full antialiased`}
     >
       <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

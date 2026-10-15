@@ -8,6 +8,7 @@ import {
   createReview,
   likeReview,
 } from "@/lib/reviews-service";
+import CustomPackageSelect from "./CustomPackageSelect";
 
 const AVAILABLE_PACKAGES = [
   "7 Days of Kerala (Signature Package)",
@@ -51,12 +52,32 @@ export default function ReviewsSection() {
   // Load reviews from Supabase on mount and check for direct write link
   useEffect(() => {
     let isMounted = true;
+
+    // 1. Instant optimistic restore from session cache if available
+    try {
+      const cached = typeof window !== "undefined" ? sessionStorage.getItem("tripora_cached_reviews") : null;
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setReviews(parsed);
+          setIsLoading(false);
+        }
+      }
+    } catch {
+      // Fallback to network fetch
+    }
+
+    // 2. Fetch fresh live data from Supabase (stale-while-revalidate)
     async function loadReviews() {
-      setIsLoading(true);
       const data = await getApprovedReviews();
       if (isMounted) {
         setReviews(data);
         setIsLoading(false);
+        try {
+          if (typeof window !== "undefined") {
+            sessionStorage.setItem("tripora_cached_reviews", JSON.stringify(data));
+          }
+        } catch {}
       }
     }
     loadReviews();
@@ -443,10 +464,35 @@ export default function ReviewsSection() {
         {/* ========================================================================= */}
         {/* REVIEWS GRID */}
         {/* ========================================================================= */}
-        {isLoading ? (
-          <div className="bg-white rounded-3xl p-12 text-center border border-gray-200">
-            <span className="w-8 h-8 border-2 border-emerald-800 border-t-transparent rounded-full animate-spin inline-block mb-3" />
-            <p className="font-sans text-xs text-gray-500">Loading guest reviews from database...</p>
+        {isLoading && reviews.length === 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-gray-200/80 animate-pulse space-y-4"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3 flex-1">
+                    <div className="w-11 h-11 rounded-full bg-emerald-100/60" />
+                    <div className="space-y-2 flex-1">
+                      <div className="h-4 bg-gray-200 rounded-md w-1/3" />
+                      <div className="h-3 bg-gray-100 rounded-md w-1/4" />
+                    </div>
+                  </div>
+                  <div className="h-6 w-24 bg-emerald-50 rounded-full" />
+                </div>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <div key={s} className="w-4 h-4 bg-amber-100 rounded-full" />
+                  ))}
+                </div>
+                <div className="space-y-2 pt-1">
+                  <div className="h-3.5 bg-gray-100 rounded w-full" />
+                  <div className="h-3.5 bg-gray-100 rounded w-5/6" />
+                  <div className="h-3.5 bg-gray-100 rounded w-3/4" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : reviews.length === 0 ? (
           <div className="bg-white rounded-3xl p-10 sm:p-14 text-center border border-emerald-900/10 shadow-sm">
@@ -830,22 +876,13 @@ export default function ReviewsSection() {
                   </div>
 
                   {/* Step 3: Package Traveled */}
-                  <div>
-                    <label className="block font-bold text-primary mb-1 uppercase tracking-wider text-[9px]">
-                      Tour Package
-                    </label>
-                    <select
-                      value={newReviewForm.packageTitle}
-                      onChange={(e) => setNewReviewForm({ ...newReviewForm, packageTitle: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-700 text-xs bg-surface cursor-pointer"
-                    >
-                      {AVAILABLE_PACKAGES.map((pkg) => (
-                        <option key={pkg} value={pkg}>
-                          {pkg}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <CustomPackageSelect
+                    value={newReviewForm.packageTitle}
+                    onChange={(val) =>
+                      setNewReviewForm({ ...newReviewForm, packageTitle: val })
+                    }
+                    label="Tour Package"
+                  />
 
                   {/* Step 4: Review Comments */}
                   <div>

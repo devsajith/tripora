@@ -48,6 +48,17 @@ export default function BottomNavbar() {
             <Link
               key={item.id}
               href={item.href}
+              onClick={(e) => {
+                if (item.href.startsWith("/#") && pathname === "/") {
+                  e.preventDefault();
+                  const targetId = item.href.replace("/#", "");
+                  const elem = document.getElementById(targetId);
+                  if (elem) {
+                    elem.scrollIntoView({ behavior: "smooth", block: "start" });
+                    window.history.pushState(null, "", `#${targetId}`);
+                  }
+                }
+              }}
               className={`flex flex-col items-center justify-center py-1 px-1 rounded-xl transition-all duration-200 active:scale-95 ${
                 isActive
                   ? "text-emerald-800 font-extrabold"

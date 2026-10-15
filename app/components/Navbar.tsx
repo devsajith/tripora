@@ -55,6 +55,24 @@ export default function Navbar() {
     { id: "contact", label: "Contact", href: "/#contact" },
   ];
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: { id: string; label: string; href: string }
+  ) => {
+    setActiveSection(item.id);
+
+    // If clicking an on-page anchor link while on homepage
+    if (item.href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const targetId = item.href.replace("/#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }
+  };
+
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300">
       {/* MAIN NAVIGATION BAR */}
@@ -91,7 +109,7 @@ export default function Navbar() {
                 <Link
                   key={item.id}
                   href={item.href}
-                  onClick={() => setActiveSection(item.id)}
+                  onClick={(e) => handleNavClick(e, item)}
                   className={`relative px-3.5 py-2 rounded-lg transition-all duration-200 ${
                     isActive
                       ? "text-emerald-800 font-extrabold bg-emerald-50/80"
@@ -111,6 +129,13 @@ export default function Navbar() {
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link
               href="/#contact"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  window.history.pushState(null, "", "#contact");
+                }
+              }}
               className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-5 py-2.5 rounded-full font-sans text-xs transition-all active:scale-95 uppercase tracking-wider text-center shadow-xs hover:shadow flex items-center gap-1.5"
             >
               <span>Enquire Now</span>

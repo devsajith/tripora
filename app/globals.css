@@ -147,55 +147,55 @@ section {
   animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Scroll Reveal Observer & Directional Animation Classes */
+/* Scroll Reveal Observer & Directional Animation Classes (Snappy & Responsive) */
 .reveal-on-scroll,
 .reveal-up {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(14px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-down {
   opacity: 0;
-  transform: translateY(-28px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-14px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-from-left {
   opacity: 0;
-  transform: translateX(-36px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-16px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-from-right {
   opacity: 0;
-  transform: translateX(36px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(16px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.93);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.97);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-rotate {
   opacity: 0;
-  transform: rotate(-2.5deg) scale(0.95);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(-1.5deg) scale(0.98);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .reveal-blur {
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(4px);
+  transform: translateY(12px);
+  transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform, filter;
 }
 
@@ -225,27 +225,27 @@ section {
   transform: translateY(0);
 }
 
-/* Stagger Delay Classes */
-.delay-75 { transition-delay: 75ms; }
-.delay-100 { transition-delay: 100ms; }
-.delay-150 { transition-delay: 150ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-250 { transition-delay: 250ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
-.delay-600 { transition-delay: 600ms; }
-.delay-700 { transition-delay: 700ms; }
+/* Minimal Stagger Delay Classes (prevents sluggish UI) */
+.delay-75 { transition-delay: 30ms; }
+.delay-100 { transition-delay: 40ms; }
+.delay-150 { transition-delay: 60ms; }
+.delay-200 { transition-delay: 80ms; }
+.delay-250 { transition-delay: 100ms; }
+.delay-300 { transition-delay: 120ms; }
+.delay-400 { transition-delay: 140ms; }
+.delay-500 { transition-delay: 160ms; }
+.delay-600 { transition-delay: 180ms; }
+.delay-700 { transition-delay: 200ms; }
 
 /* Auto-stagger container child delays */
-.reveal-stagger > *:nth-child(1) { transition-delay: 60ms; }
-.reveal-stagger > *:nth-child(2) { transition-delay: 140ms; }
-.reveal-stagger > *:nth-child(3) { transition-delay: 220ms; }
-.reveal-stagger > *:nth-child(4) { transition-delay: 300ms; }
-.reveal-stagger > *:nth-child(5) { transition-delay: 380ms; }
-.reveal-stagger > *:nth-child(6) { transition-delay: 460ms; }
-.reveal-stagger > *:nth-child(7) { transition-delay: 540ms; }
-.reveal-stagger > *:nth-child(8) { transition-delay: 620ms; }
+.reveal-stagger > *:nth-child(1) { transition-delay: 25ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 50ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 75ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 100ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 125ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 150ms; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 175ms; }
+.reveal-stagger > *:nth-child(8) { transition-delay: 200ms; }
 
 /* Slow bounce cue for scroll indicator */
 @keyframes bounceSlow {

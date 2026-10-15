@@ -26,34 +26,64 @@ export default function ScrollObserver() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("reveal-active");
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: "0px 0px -30px 0px",
+        threshold: 0.01,
+        rootMargin: "250px 0px 100px 0px",
       }
     );
 
     const observeElements = () => {
       const elements = document.querySelectorAll(selector);
+      const viewportThreshold = window.innerHeight * 1.35;
       elements.forEach((el) => {
-        // If already in viewport on mount, activate immediately
+        // If already in or near viewport on mount, activate immediately
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.95) {
+        if (rect.top < viewportThreshold) {
           el.classList.add("reveal-active");
+        } else {
+          observer.observe(el);
         }
-        observer.observe(el);
       });
     };
 
-    // Run on mount and after short delay for dynamically rendered content
+    // Run immediately and queue with requestAnimationFrame
     observeElements();
-    const timeoutId = setTimeout(observeElements, 250);
+    requestAnimationFrame(observeElements);
+    const timeoutId = setTimeout(observeElements, 100);
 
     return () => {
       clearTimeout(timeoutId);
       observer.disconnect();
+    };
+  }, [pathname]);
+
+  // 1.5 Reliable hash scrolling on route navigation & page load
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const scrollToTargetHash = () => {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        const targetId = hash.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+
+    // Attempt immediately and with slight delay after DOM hydration
+    scrollToTargetHash();
+    const timer = setTimeout(scrollToTargetHash, 200);
+    window.addEventListener("hashchange", scrollToTargetHash);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("hashchange", scrollToTargetHash);
     };
   }, [pathname]);
 
