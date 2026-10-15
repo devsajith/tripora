@@ -17,7 +17,8 @@ const AVAILABLE_PACKAGES = [
 ];
 
 export default function ReviewsSection() {
-  const [reviews, setReviews] = useState<ReviewItem[]>(initialReviews);
+  const [reviews, setReviews] = useState<ReviewItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortBy, setSortBy] = useState<"recent" | "rating" | "helpful">("helpful");
@@ -51,9 +52,11 @@ export default function ReviewsSection() {
   useEffect(() => {
     let isMounted = true;
     async function loadReviews() {
+      setIsLoading(true);
       const data = await getApprovedReviews();
-      if (isMounted && data && data.length > 0) {
+      if (isMounted) {
         setReviews(data);
+        setIsLoading(false);
       }
     }
     loadReviews();
@@ -85,17 +88,24 @@ export default function ReviewsSection() {
     };
   }, []);
 
-  // Aggregate statistics
-  const totalReviewsCount = 124;
+  // Dynamic aggregate statistics calculated from real reviews
+  const totalReviewsCount = reviews.length;
   const displayedReviewsCount = reviews.length;
+  const avgRating =
+    totalReviewsCount > 0
+      ? (
+          reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviewsCount
+        ).toFixed(1)
+      : "5.0";
 
-  const ratingDistribution = [
-    { stars: 5, count: 114, percentage: 92 },
-    { stars: 4, count: 8, percentage: 6 },
-    { stars: 3, count: 2, percentage: 2 },
-    { stars: 2, count: 0, percentage: 0 },
-    { stars: 1, count: 0, percentage: 0 },
-  ];
+  const ratingDistribution = [5, 4, 3, 2, 1].map((stars) => {
+    const count = reviews.filter((r) => r.rating === stars).length;
+    const percentage =
+      totalReviewsCount > 0
+        ? Math.round((count / totalReviewsCount) * 100)
+        : 0;
+    return { stars, count, percentage };
+  });
 
   // Filter & Search logic
   const filteredReviews = useMemo(() => {
@@ -268,22 +278,35 @@ export default function ReviewsSection() {
             <div className="lg:col-span-4 text-center lg:text-left flex flex-col items-center lg:items-start justify-center border-b lg:border-b-0 lg:border-r border-gray-100 pb-8 lg:pb-0 lg:pr-8">
               <div className="flex items-baseline gap-2 mb-1">
                 <span className="font-sans text-5xl sm:text-6xl font-extrabold text-primary tracking-tight">
-                  4.9
+                  {avgRating}
                 </span>
                 <span className="text-gray-400 font-sans text-xl font-bold">/ 5.0</span>
               </div>
 
               {/* Star graphics */}
               <div className="flex items-center gap-1 text-amber-400 text-2xl mb-2">
-                <span className="material-symbols-outlined !text-2xl fill-current text-amber-400">star</span>
-                <span className="material-symbols-outlined !text-2xl fill-current text-amber-400">star</span>
-                <span className="material-symbols-outlined !text-2xl fill-current text-amber-400">star</span>
-                <span className="material-symbols-outlined !text-2xl fill-current text-amber-400">star</span>
-                <span className="material-symbols-outlined !text-2xl fill-current text-amber-400">star</span>
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <span
+                    key={s}
+                    className={`material-symbols-outlined !text-2xl ${
+                      s <= Math.round(Number(avgRating))
+                        ? "fill-current text-amber-400"
+                        : "text-gray-200"
+                    }`}
+                  >
+                    star
+                  </span>
+                ))}
               </div>
 
               <p className="font-sans text-xs text-on-surface-variant font-medium mb-4">
-                Based on <strong className="text-primary font-bold">{totalReviewsCount} guest reviews</strong> across Kerala tours
+                {totalReviewsCount > 0 ? (
+                  <>
+                    Based on <strong className="text-primary font-bold">{totalReviewsCount} guest review{totalReviewsCount > 1 ? "s" : ""}</strong>
+                  </>
+                ) : (
+                  <>Verified Kerala traveler feedback</>
+                )}
               </p>
 
               {/* Trust Signals */}
@@ -420,7 +443,32 @@ export default function ReviewsSection() {
         {/* ========================================================================= */}
         {/* REVIEWS GRID */}
         {/* ========================================================================= */}
-        {filteredReviews.length === 0 ? (
+        {isLoading ? (
+          <div className="bg-white rounded-3xl p-12 text-center border border-gray-200">
+            <span className="w-8 h-8 border-2 border-emerald-800 border-t-transparent rounded-full animate-spin inline-block mb-3" />
+            <p className="font-sans text-xs text-gray-500">Loading guest reviews from database...</p>
+          </div>
+        ) : reviews.length === 0 ? (
+          <div className="bg-white rounded-3xl p-10 sm:p-14 text-center border border-emerald-900/10 shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center mx-auto mb-4">
+              <span className="material-symbols-outlined text-3xl">rate_review</span>
+            </div>
+            <h3 className="font-sans text-lg font-bold text-primary mb-1">
+              Be the First to Review
+            </h3>
+            <p className="font-sans text-xs text-on-surface-variant max-w-sm mx-auto mb-6 leading-relaxed">
+              Have you explored Kerala with Tripora? Share your memories, rate your chauffeur, and inspire fellow travelers!
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold px-7 py-3 rounded-full transition-all shadow-md active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-sm">rate_review</span>
+              <span>Write First Review</span>
+            </button>
+          </div>
+        ) : filteredReviews.length === 0 ? (
           <div className="bg-white rounded-3xl p-12 text-center border border-gray-200">
             <span className="material-symbols-outlined text-4xl text-gray-300 mb-2">rate_review</span>
             <p className="font-sans text-sm font-bold text-primary mb-1">No reviews match your filter</p>
