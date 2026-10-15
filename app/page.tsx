@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ReviewsSection from "./components/ReviewsSection";
 
 import plansData from "@/public/plans.json";
 
@@ -509,6 +510,11 @@ export default function Home() {
 
           </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION 4.5: TRAVELER REVIEWS & STORIES */}
+        {/* ========================================================================= */}
+        <ReviewsSection />
 
         {/* ========================================================================= */}
         {/* SECTION 5: CONTACT / BOOKING SECTION */}

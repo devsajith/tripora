@@ -22,11 +22,14 @@ export default function Navbar() {
 
       const aboutElem = document.getElementById("about");
       const destElem = document.getElementById("destinations");
+      const reviewsElem = document.getElementById("reviews");
       const contactElem = document.getElementById("contact");
       const scrollPos = window.scrollY + 200;
 
       if (contactElem && scrollPos >= contactElem.offsetTop) {
         setActiveSection("contact");
+      } else if (reviewsElem && scrollPos >= reviewsElem.offsetTop) {
+        setActiveSection("reviews");
       } else if (destElem && scrollPos >= destElem.offsetTop) {
         setActiveSection("destinations");
       } else if (aboutElem && scrollPos >= aboutElem.offsetTop) {
@@ -48,6 +51,7 @@ export default function Navbar() {
     { id: "about", label: "About Us", href: "/#about" },
     { id: "destinations", label: "Destinations", href: "/#destinations" },
     { id: "packages", label: "Packages", href: "/packages" },
+    { id: "reviews", label: "Reviews", href: "/#reviews" },
     { id: "contact", label: "Contact", href: "/#contact" },
   ];
 

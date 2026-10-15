@@ -145,6 +145,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="#reviews" className="text-white/80 hover:text-white transition-colors font-medium">
+                Traveler Reviews (4.9 ★)
+              </a>
+            </li>
+            <li>
               <a href="#contact" className="text-white/80 hover:text-white transition-colors">
                 Custom Family &amp; Honeymoon Quotes
               </a>
