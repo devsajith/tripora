@@ -46,7 +46,6 @@ export default function ReviewsSection() {
   const [hoverRating, setHoverRating] = useState<number>(0);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [copiedLink, setCopiedLink] = useState(false);
 
   // Load reviews from Supabase on mount and check for direct write link
   useEffect(() => {
@@ -299,43 +298,15 @@ export default function ReviewsSection() {
                 </div>
               </div>
 
-              {/* Write Review & Share CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(true)}
-                  className="w-full sm:w-auto bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer flex-1"
-                >
-                  <span className="material-symbols-outlined text-sm">rate_review</span>
-                  <span>Share Experience</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    const reviewUrl =
-                      typeof window !== "undefined"
-                        ? `${window.location.origin}/review`
-                        : "https://tripora68.in/review";
-                    navigator.clipboard.writeText(reviewUrl);
-                    setCopiedLink(true);
-                    setTimeout(() => setCopiedLink(false), 2500);
-                  }}
-                  className="w-full sm:w-auto bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-800/20 font-sans text-xs uppercase tracking-wider font-bold px-4 py-3 rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                  title="Copy direct review link to send to guests on WhatsApp"
-                >
-                  <span className="material-symbols-outlined text-sm">
-                    {copiedLink ? "check" : "share"}
-                  </span>
-                  <span>{copiedLink ? "Link Copied!" : "Share Link"}</span>
-                </button>
-              </div>
-
-              {copiedLink && (
-                <p className="font-sans text-[10px] text-emerald-800 font-bold animate-fade-in mt-1.5">
-                  ✓ Review link copied! Ready to paste into WhatsApp for your guests.
-                </p>
-              )}
+              {/* Write Review CTA Button */}
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="w-full sm:w-auto bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm">rate_review</span>
+                <span>Share Your Experience</span>
+              </button>
             </div>
 
             {/* Right Col: Rating Breakdown Bars */}
