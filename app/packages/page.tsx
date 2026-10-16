@@ -137,6 +137,13 @@ export default function PackagesPage() {
     return `https://wa.me/919656464124?text=${text}`;
   };
 
+  const getCustomItineraryWhatsAppUrl = (pkgTitle?: string) => {
+    const text = pkgTitle
+      ? `Hi Tripora! I would like to request a customized itinerary based on the *${pkgTitle}* package.`
+      : `Hi Tripora! I would like to request a custom Kerala tour itinerary.`;
+    return `https://wa.me/919656464124?text=${encodeURIComponent(text)}`;
+  };
+
   const displayedPackages = selectedDuration === "all"
     ? sortedPackages
     : sortedPackages.filter((pkg) => getPackageDays(pkg.id) === selectedDuration);
@@ -678,12 +685,15 @@ export default function PackagesPage() {
                   </div>
 
                   <div className="flex items-center gap-3 w-full sm:w-auto">
-                    <Link
-                      href="/#contact"
-                      className="w-full sm:w-auto bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-900/20 font-sans text-xs font-bold px-6 py-3 rounded-full uppercase tracking-wider text-center transition-colors shadow-xs"
+                    <a
+                      href={getCustomItineraryWhatsAppUrl(pkg.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto bg-white hover:bg-emerald-50 text-emerald-900 border border-emerald-900/20 font-sans text-xs font-bold px-6 py-3 rounded-full uppercase tracking-wider text-center transition-colors shadow-xs inline-flex items-center justify-center gap-1.5"
                     >
-                      Enquire Custom Plan
-                    </Link>
+                      <span className="material-symbols-outlined text-sm text-emerald-800">edit_calendar</span>
+                      <span>Enquire Custom Plan</span>
+                    </a>
 
                     <a
                       href={getWhatsAppUrl(pkg.title, pkg.duration, pkg.price)}

@@ -705,10 +705,13 @@ export default function ReviewsSection() {
 
           <div className="flex flex-wrap justify-center items-center gap-3">
             <a
-              href="#contact"
-              className="bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full transition-colors shadow-xs"
+              href="https://wa.me/919656464124?text=Hi%20Tripora!%20I%20would%20like%20to%20request%20a%20custom%20Kerala%20tour%20itinerary."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white font-sans text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-full transition-all shadow-xs inline-flex items-center gap-2"
             >
-              Request Custom Itinerary
+              <span className="material-symbols-outlined text-sm">chat</span>
+              <span>Request Custom Itinerary</span>
             </a>
             <button
               type="button"
