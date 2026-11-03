@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Playfair_Display, Manrope, Poppins, Caveat } from "next/font/google";
 import "./globals.css";
 import BottomNavbar from "./components/BottomNavbar";
@@ -114,6 +115,23 @@ export default function RootLayout({
         <ScrollObserver />
         {children}
         <BottomNavbar />
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XHGNCDFNFZ"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-XHGNCDFNFZ');
+            `,
+          }}
+        />
       </body>
     </html>
   );
